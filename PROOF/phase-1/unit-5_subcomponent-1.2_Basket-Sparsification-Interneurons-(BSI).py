@@ -310,7 +310,10 @@ class BSINetwork:
                 continue
                 
             max_drive = max(d[0] for d in drives)
-            max_idx = [i for d, i in drives if d == max_drive][0]  # First winner
+            # Get all neurons with drive close to max (within tolerance for float comparison)
+            tolerance = 1e-6
+            winners = [i for d, i in drives if abs(d - max_drive) < tolerance]
+            max_idx = winners[0]  # First winner if ties
             
             # STRICT WTA: Only the single neuron with maximum drive fires
             # All others are suppressed regardless of margin
@@ -318,7 +321,8 @@ class BSINetwork:
                 effective_drive = psg.g_exc_feedforward - psg.g_inh
                 
                 # Fire ONLY if: (1) above threshold AND (2) is THE winner
-                if effective_drive >= psg.threshold and i == max_idx and effective_drive == max_drive:
+                # Use tolerance for float comparison
+                if effective_drive >= psg.threshold and i == max_idx and abs(effective_drive - max_drive) < tolerance:
                     psg.spiked = True
                 else:
                     psg.spiked = False
