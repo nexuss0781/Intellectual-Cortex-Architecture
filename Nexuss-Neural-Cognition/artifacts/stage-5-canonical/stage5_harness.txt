@@ -1,0 +1,26 @@
+R5-UNIT-01=PASS value=1 detail=ok
+R5-UNIT-02=PASS value=1 detail=ok
+R5-UNIT-03=PASS value=0.06 detail=ok
+R5-UNIT-04=PASS value=1 detail=ok
+R5-UNIT-05=PASS value=1 detail=ok
+R5-UNIT-06=PASS value=1 detail=ok
+R5-UNIT-07=PASS value=1 detail=ok
+R5-UNIT-08=PASS value=1 detail=ok
+R5-UNIT-09=PASS value=2 detail=ok
+R5-UNIT-10=PASS value=0.25 detail=ok
+R5-INT-01=PASS value=1 detail=ok
+R5-INT-02=PASS value=0.818182 detail=ok
+R5-INT-03=PASS value=1 detail=ok
+R5-INT-04=PASS value=1 detail=ok
+R5-INT-05=PASS value=1 detail=ok
+R5-INT-06=PASS value=1 detail=ok
+R5-INT-07=PASS value=1 detail=ok
+R5-INT-08=PASS value=1 detail=ok
+R5-INT-09=PASS value=1 detail=ok
+R5-INT-10=PASS value=0 detail=ok
+R5-INT-11=PASS value=1 detail=ok
+R5-INT-12=PASS value=1 detail=ok
+R5-OPS-01=PASS value=1 detail=ok
+R5-OPS-02=PASS value=1.00481e+19 detail=ok
+R5-OPS-03=PASS value=100 detail=ok
+STAGE5_HARNESS=PASS

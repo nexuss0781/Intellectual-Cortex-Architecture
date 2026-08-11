@@ -1,0 +1,4 @@
+query_type,intervention_value,result_value,model_revision,live_mutation_count,evidence_count
+observe,none,0,3,0,1
+intervene,1,1,3,0,1
+counterfactual,1,1,3,0,1

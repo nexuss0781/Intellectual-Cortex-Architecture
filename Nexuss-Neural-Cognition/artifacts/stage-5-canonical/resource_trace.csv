@@ -1,0 +1,5 @@
+limit,value,accepted
+max_nodes,100,100
+max_depth,4,4
+max_time_ms,10,10
+max_memory_bytes,1024,1024
