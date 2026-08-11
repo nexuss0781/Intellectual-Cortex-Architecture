@@ -1,0 +1,25 @@
+[  9%] Built target bio_core
+[ 15%] Built target gtest
+[ 21%] Built target meta_cognition_demo
+[ 28%] Built target nexuss_sim
+[ 34%] Built target test_meta_cognition_v2
+[ 37%] [32mBuilding CXX object CMakeFiles/stage0_harness.dir/tests/stage0_harness.cpp.o[0m
+[ 43%] Built target gmock
+[ 50%] Built target gtest_main
+[ 56%] Built target gmock_main
+[ 62%] Built target physics_tests
+[ 68%] Built target sensory_tests
+[ 75%] Built target memory_tests
+[ 84%] Built target uin_tests
+[ 93%] Built target uin_stress_test
+In file included from /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/stage0_harness.cpp:1:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_slow_gate(float&, bool, uint16_t, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:172:65: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  172 |                                         uint16_t type_id, float dt) const {
+      |                                                           ~~~~~~^~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_phase(float&, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:195:55: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  195 | inline void UINEngine::update_phase(float& phi, float dt) const {
+      |                                                 ~~~~~~^~
+[ 96%] [32m[1mLinking CXX executable stage0_harness[0m
+[100%] Built target stage0_harness

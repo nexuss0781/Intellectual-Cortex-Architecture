@@ -71,3 +71,15 @@ target_include_directories(uin_tests PRIVATE src)
 add_executable(uin_stress_test tests/uin_stress_test.cpp src/intellectual/uin_engine.cpp)
 target_link_libraries(uin_stress_test PRIVATE bio_core GTest::gtest_main)
 target_include_directories(uin_stress_test PRIVATE src)
+
+# Stage 0: deterministic substrate stabilization and transition harness
+add_executable(stage0_harness tests/stage0_harness.cpp src/intellectual/uin_engine.cpp)
+target_link_libraries(stage0_harness PRIVATE bio_core)
+target_include_directories(stage0_harness PRIVATE src)
+
+# Register all non-GTest validation executables with CTest as integration tests.
+add_test(NAME meta_cognition_v2 COMMAND test_meta_cognition_v2)
+add_test(NAME uin_tests COMMAND uin_tests)
+add_test(NAME uin_stress_test COMMAND uin_stress_test)
+add_test(NAME stage0_harness
+         COMMAND stage0_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-0)

@@ -1,0 +1,30 @@
+{
+  "stage": 0,
+  "name": "substrate-stabilization",
+  "seed": 424242,
+  "dt_ms": 1.0,
+  "membrane_tolerance_mV": 0.00001,
+  "conductance_relative_tolerance": 0.00001,
+  "stress_ticks": 1000000,
+  "stress_neurons": 8,
+  "determinism_repetitions": 3,
+  "seed_separation_trials": 20,
+  "memory_probe_scales": [
+    {"neurons": 1000, "synapses_per_neuron": 5},
+    {"neurons": 10000, "synapses_per_neuron": 5},
+    {"neurons": 100000, "synapses_per_neuron": 5},
+    {"neurons": 270000, "synapses_per_neuron": 5},
+    {"neurons": 270000, "synapses_per_neuron": 50}
+  ],
+  "required_artifacts": [
+    "ctest.txt",
+    "stage0_harness.txt",
+    "stage0_metrics.csv",
+    "stage0_summary.txt",
+    "memory.csv",
+    "sanitizer_ctest.txt",
+    "build.txt",
+    "manifest.sha256",
+    "decision.md"
+  ]
+}

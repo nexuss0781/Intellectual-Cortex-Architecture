@@ -271,24 +271,19 @@ TEST(UINKernelTest, MembranePotentialUpdatesWithSynapticCurrent) {
                            static_cast<uint8_t>(NeuronType::CI));
     
     // Inject excitatory conductance (not direct current)
-    neurons.g_exc[0] = 50.0f;  // Strong excitation
+    neurons.g_exc[0] = 1.0f;  // Subthreshold excitation for direction measurement
     
     // Manually set a spike to trigger has_fired for next tick's slow gate update
     neurons.has_fired[0] = false;
     
     float V_initial = neurons.membrane_potential[0];
     
-    // Run kernel - with g_exc=50 and V=-70, I_syn = 50*(-70-0) = -3500 nA
-    // This hyperpolarizes because E_exc=0 is above V_rest=-70
-    // To depolarize, we need to inject current differently
-    // Actually, let's test that conductance affects membrane properly
+    // Excitatory conductance must pull the membrane toward E_exc=0 mV.
     engine.step_kernel(neurons, num_neurons, 1.0f);
-    
-    // With excitatory conductance, the membrane should move toward E_exc (0 mV)
-    // from resting (-70 mV), so V should increase (become less negative)
-    // However our simplified model may have different behavior
-    // Let's just verify the kernel runs without crashing
-    EXPECT_TRUE(true);  // Kernel executed successfully
+
+    EXPECT_GT(neurons.membrane_potential[0], V_initial)
+        << "Excitation must depolarize the membrane";
+    EXPECT_TRUE(std::isfinite(neurons.membrane_potential[0]));
 }
 
 TEST(UINKernelTest, NeuronFiresWhenThresholdReached) {

@@ -153,10 +153,13 @@ inline void UINEngine::update_conductances(float& g_exc, float& g_inh, float& g_
 }
 
 inline float UINEngine::compute_synaptic_current(float V, float g_exc, float g_inh, float g_bind) const {
-    // I_syn = g_exc(V - E_exc) + g_inh(V - E_inh) + g_bind(V - E_bind)
-    return g_exc * (V - E_EXC_MV) + 
-           g_inh * (V - E_INH_MV) + 
-           g_bind * (V - E_BIND_MV);
+    // Conductance convention: positive conductance pulls V toward its
+    // reversal potential. Excitation therefore depolarizes from rest while
+    // inhibition hyperpolarizes, matching the Stage 0 physical contract.
+    // I_syn = g_exc(E_exc - V) + g_inh(E_inh - V) + g_bind(E_bind - V)
+    return g_exc * (E_EXC_MV - V) +
+           g_inh * (E_INH_MV - V) +
+           g_bind * (E_BIND_MV - V);
 }
 
 inline void UINEngine::update_membrane(float& V, float I_syn, float dt) const {

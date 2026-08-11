@@ -1,5 +1,6 @@
 #include "uin_engine.h"
 #include <cstring>  // For memset
+#include <stdexcept>
 
 namespace genesis {
 namespace intellectual {
@@ -13,10 +14,13 @@ void UINEngine::initialize_pool(NeuronBlock& neurons, uint32_t offset, uint32_t 
     
     const uint32_t end = offset + count;
     
-    // Verify bounds
-    if (end > neurons.membrane_potential.size()) {
-        return;  // Out of bounds, silently fail
+    // Bounds are part of the public safety contract; do not silently fail.
+    if (offset > neurons.membrane_potential.size() ||
+        count > neurons.membrane_potential.size() - offset) {
+        throw std::out_of_range("UINEngine::initialize_pool range exceeds NeuronBlock");
     }
+
+    neurons.enable_uin_overlay();
     
     // Initialize all state arrays for this pool
     for (uint32_t i = offset; i < end; ++i) {
@@ -61,8 +65,12 @@ void UINEngine::initialize_pool(NeuronBlock& neurons, uint32_t offset, uint32_t 
 }
 
 void UINEngine::mark_as_intellectual(NeuronBlock& neurons, uint32_t offset, uint32_t count) {
+    if (offset > neurons.membrane_potential.size() ||
+        count > neurons.membrane_potential.size() - offset) {
+        throw std::out_of_range("UINEngine::mark_as_intellectual range exceeds NeuronBlock");
+    }
+    neurons.enable_uin_overlay();
     const uint32_t end = offset + count;
-    if (end > neurons.membrane_potential.size()) return;
     
     for (uint32_t i = offset; i < end; ++i) {
         neurons.neuron_flags[i] |= FLAG_INTELLECTUAL_POOL;
@@ -74,6 +82,22 @@ void UINEngine::mark_as_intellectual(NeuronBlock& neurons, uint32_t offset, uint
 // =============================================================================
 
 void UINEngine::step_kernel(NeuronBlock& neurons, uint32_t num_neurons, float dt) {
+    if (num_neurons > neurons.membrane_potential.size()) {
+        throw std::out_of_range("UINEngine::step_kernel neuron count exceeds NeuronBlock");
+    }
+    if (!neurons.has_uin_overlay()) {
+        for (uint32_t i = 0; i < num_neurons; ++i) {
+            if (neurons.neuron_flags[i] & FLAG_INTELLECTUAL_POOL) {
+                throw std::logic_error("UINEngine::step_kernel requires an active UIN state schema");
+            }
+        }
+        // A purely non-intellectual population is intentionally a no-op for
+        // this overlay kernel; its owner remains responsible for updates.
+        return;
+    }
+    if (!(dt > 0.0f) || !std::isfinite(dt)) {
+        throw std::invalid_argument("UINEngine::step_kernel requires finite dt > 0");
+    }
     ensure_constants_initialized(dt);
     
     // First, reset has_fired flags from previous tick and update traces for spikes
@@ -98,7 +122,14 @@ void UINEngine::step_kernel(NeuronBlock& neurons, uint32_t num_neurons, float dt
             continue;
         }
         
-        // Skip if in refractory period
+        // 4.2 Conductance Decay (Exponential) occurs on every tick,
+        // including refractory ticks. Refractoriness blocks firing and
+        // integration, not passive synaptic-state decay.
+        neurons.g_exc[i] *= constants_.exc_decay;
+        neurons.g_inh[i] *= constants_.inh_decay;
+        neurons.g_bind[i] *= constants_.bind_decay;
+
+        // Skip integration while refractory, but retain the decay above.
         if (neurons.refractory_timer[i] > 0) {
             neurons.refractory_timer[i]--;
             continue;
@@ -108,12 +139,6 @@ void UINEngine::step_kernel(NeuronBlock& neurons, uint32_t num_neurons, float dt
         uint16_t type_id = static_cast<uint16_t>(neurons.layer_id[i]);
         
         // === UIN Universal Kernel (§4) ===
-        
-        // 4.2 Conductance Decay (Exponential)
-        neurons.g_exc[i] *= constants_.exc_decay;
-        neurons.g_inh[i] *= constants_.inh_decay;
-        neurons.g_bind[i] *= constants_.bind_decay;
-        
         // 4.3 Synaptic Current Integration
         float V = neurons.membrane_potential[i];
         float I_syn = compute_synaptic_current(V, neurons.g_exc[i], neurons.g_inh[i], neurons.g_bind[i]);
@@ -165,10 +190,20 @@ void UINEngine::step_kernel(NeuronBlock& neurons, uint32_t num_neurons, float dt
 // =============================================================================
 
 void UINEngine::deliver_spike(const IntellectualSynapse* syn, NeuronBlock& neurons, float pre_rate) {
-    if (!syn || !neurons.membrane_potential.size()) return;
-    
+    if (!syn) {
+        throw std::invalid_argument("UINEngine::deliver_spike received null synapse");
+    }
+    if (!neurons.has_uin_overlay()) {
+        throw std::logic_error("UINEngine::deliver_spike requires an active UIN state schema");
+    }
+    if (neurons.membrane_potential.empty()) {
+        throw std::out_of_range("UINEngine::deliver_spike received an empty NeuronBlock");
+    }
+
     uint32_t post_id = syn->post_id;
-    if (post_id >= neurons.membrane_potential.size()) return;
+    if (post_id >= neurons.membrane_potential.size()) {
+        throw std::out_of_range("UINEngine::deliver_spike post_id exceeds NeuronBlock");
+    }
     
     // Get synapse type
     SynapseType type = syn->get_type();
@@ -249,12 +284,16 @@ void UINEngine::deliver_spike_batch(const uint32_t* synapse_indices,
 // =============================================================================
 
 uint8_t UINEngine::get_type(const NeuronBlock& neurons, uint32_t idx) const {
-    if (idx >= neurons.membrane_potential.size()) return 0;
+    if (idx >= neurons.membrane_potential.size()) {
+        throw std::out_of_range("UINEngine::get_type index exceeds NeuronBlock");
+    }
     return neurons.layer_id[idx];
 }
 
 bool UINEngine::is_intellectual(const NeuronBlock& neurons, uint32_t idx) const {
-    if (idx >= neurons.membrane_potential.size()) return false;
+    if (idx >= neurons.membrane_potential.size()) {
+        throw std::out_of_range("UINEngine::is_intellectual index exceeds NeuronBlock");
+    }
     return (neurons.neuron_flags[idx] & FLAG_INTELLECTUAL_POOL) != 0;
 }
 
