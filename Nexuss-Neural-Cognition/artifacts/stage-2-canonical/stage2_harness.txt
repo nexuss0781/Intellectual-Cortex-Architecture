@@ -1,0 +1,18 @@
+M2-UNIT-01=PASS value=3 detail=ok
+M2-UNIT-02=PASS value=3 detail=ok
+M2-UNIT-03=PASS value=1 detail=ok
+M2-UNIT-04=PASS value=1 detail=ok
+M2-UNIT-05=PASS value=20 detail=ok
+M2-UNIT-06=PASS value=1 detail=ok
+M2-UNIT-07=PASS value=5 detail=ok
+M2-UNIT-08=PASS value=2 detail=ok
+M2-INT-01=PASS value=0 detail=ok
+M2-INT-02=PASS value=1 detail=ok
+M2-INT-03=PASS value=1 detail=ok
+M2-INT-04=PASS value=1.28878 detail=ok
+M2-INT-05=PASS value=30 detail=ok
+M2-INT-06=PASS value=0 detail=ok
+M2-OPS-01=PASS value=1.58622e+19 detail=ok
+M2-OPS-02=PASS value=272000 detail=ok
+M2-OPS-03=PASS value=0.000879 detail=ok
+STAGE2_HARNESS=PASS

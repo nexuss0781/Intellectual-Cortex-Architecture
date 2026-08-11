@@ -631,7 +631,12 @@ TEST(UINScalabilityTest, KernelComplexityIsO1) {
     
     // The O(1) claim is a scaling property, not a machine-specific hard
     // real-time guarantee. Keep margin for sanitizer and loaded CI hosts.
-    EXPECT_GT(neurons_per_second, 8000000.0f)
+#ifdef __SANITIZE_ADDRESS__
+    constexpr float minimum_throughput = 5000000.0f;
+#else
+    constexpr float minimum_throughput = 8000000.0f;
+#endif
+    EXPECT_GT(neurons_per_second, minimum_throughput)
         << "Kernel throughput too low, may not be O(1)";
 }
 

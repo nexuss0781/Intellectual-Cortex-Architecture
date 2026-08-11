@@ -90,3 +90,10 @@ target_link_libraries(stage1_harness PRIVATE bio_core)
 target_include_directories(stage1_harness PRIVATE src)
 add_test(NAME stage1_harness
          COMMAND stage1_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-1)
+
+# Stage 2: persistent memory, replay, consolidation, and transactional IDs
+add_executable(stage2_harness tests/stage2_harness.cpp src/learning/memory_system.cpp)
+target_link_libraries(stage2_harness PRIVATE bio_core)
+target_include_directories(stage2_harness PRIVATE src)
+add_test(NAME stage2_harness
+         COMMAND stage2_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-2)

@@ -13,13 +13,14 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BUILD_DIR="${BUILD_DIR:-${ROOT_DIR}/build}"
 ARTIFACT_DIR="${ARTIFACT_DIR:-${ROOT_DIR}/artifacts/stage-0}"
 STAGE1_ARTIFACT_DIR="${STAGE1_ARTIFACT_DIR:-${ROOT_DIR}/artifacts/stage-1}"
+STAGE2_ARTIFACT_DIR="${STAGE2_ARTIFACT_DIR:-${ROOT_DIR}/artifacts/stage-2}"
 SEED="${SEED:-424242}"
 
 printf '%b\n' "${BOLD}[Nexuss] Clean reproducible validation${NC}"
 printf '  root: %s\n  build: %s\n  artifacts: %s\n  seed: %s\n' "$ROOT_DIR" "$BUILD_DIR" "$ARTIFACT_DIR" "$SEED"
 
-rm -rf "$BUILD_DIR" "$STAGE1_ARTIFACT_DIR"
-mkdir -p "$ARTIFACT_DIR" "$STAGE1_ARTIFACT_DIR"
+rm -rf "$BUILD_DIR" "$STAGE1_ARTIFACT_DIR" "$STAGE2_ARTIFACT_DIR"
+mkdir -p "$ARTIFACT_DIR" "$STAGE1_ARTIFACT_DIR" "$STAGE2_ARTIFACT_DIR"
 
 cmake -S "$ROOT_DIR" -B "$BUILD_DIR" -DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE:-RelWithDebInfo}"
 cmake --build "$BUILD_DIR" --parallel "${CMAKE_BUILD_PARALLEL_LEVEL:-2}"
@@ -33,6 +34,7 @@ printf '%b\n' "${BOLD}[Nexuss] Running executable smoke tests${NC}"
 "$BUILD_DIR/test_meta_cognition_v2" | tee "$ARTIFACT_DIR/meta_cognition_v2.txt"
 "$BUILD_DIR/stage0_harness" --seed "$SEED" --artifact-dir "$ARTIFACT_DIR" | tee "$ARTIFACT_DIR/stage0_harness.txt"
 "$BUILD_DIR/stage1_harness" --seed "$SEED" --artifact-dir "$STAGE1_ARTIFACT_DIR" | tee "$STAGE1_ARTIFACT_DIR/stage1_harness.txt"
+"$BUILD_DIR/stage2_harness" --seed "$SEED" --artifact-dir "$STAGE2_ARTIFACT_DIR" | tee "$STAGE2_ARTIFACT_DIR/stage2_harness.txt"
 
 printf '%s\n' 'record_type,scale_neurons,synapses,rss_kb,formula_mb' > "$ARTIFACT_DIR/memory.csv"
 for scale in 1000 10000 100000 270000; do

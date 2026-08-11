@@ -1,0 +1,49 @@
+{
+  "stage": 2,
+  "name": "persistent-memory-replay",
+  "seed": 424242,
+  "format_version": 1,
+  "state_schema_version": 1,
+  "endian_marker": "0x01020304",
+  "capture_weights": {
+    "novelty": 1.0,
+    "prediction_error": 1.0,
+    "absolute_reward": 1.0,
+    "future_utility": 0.5,
+    "uncertainty_reduction": 0.5
+  },
+  "limits": {
+    "max_episode_events": 4096,
+    "max_replay_events": 10000,
+    "max_replay_ticks": 100000,
+    "replay_quota_per_context": 4,
+    "working_memory_slots": 64,
+    "controlled_memory_budget_bytes": 16777216
+  },
+  "transition_gates": {
+    "save_load_divergence_percent": 5.0,
+    "partial_cue_recall_percent": 90.0,
+    "pattern_completion_percent": 85.0,
+    "early_task_retention_percent": 85.0,
+    "replay_benefit_percentage_points": 10.0,
+    "growth_shrink_loss_percentage_points": 5.0,
+    "memory_budget_violations": 0,
+    "migration_corruption_cases": 0
+  },
+  "required_artifacts": [
+    "stage2_harness.txt",
+    "stage2_metrics.csv",
+    "stage2_summary.txt",
+    "brain_state.bin",
+    "brain_state_corrupt.bin",
+    "brain_state_bad_version.bin",
+    "replay_selection.csv",
+    "memory_occupancy.csv",
+    "ctest.txt",
+    "sanitizer_ctest.txt",
+    "config.json",
+    "environment.txt",
+    "manifest.sha256",
+    "decision.md"
+  ]
+}
