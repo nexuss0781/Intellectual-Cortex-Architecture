@@ -1,82 +1,41 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# ------------------------------------------------------------------------------
-# Project Genesis: Phase III Build & Automation Script
-# ------------------------------------------------------------------------------
-# Purpose:
-# 1. Builds the project (Core + 3 Test Suites + Main Sim).
-# 2. Runs Physics Validation (Phase I).
-# 3. Runs Sensory Validation (Phase II).
-# 4. Runs Memory Validation (Phase III).
-# 5. Executes the Pavlovian Learning Experiment.
-# ------------------------------------------------------------------------------
+# Nexuss reproducible validation workflow.
+# Stage 0 requires a clean build, complete CTest coverage, demo smoke tests,
+# and an explicit artifact directory. The script fails on the first error.
+set -euo pipefail
 
-# Exit immediately if any command fails
-set -e
-
-# Visual formatting
 BOLD='\033[1m'
 GREEN='\033[0;32m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
-echo -e "${BOLD}[Genesis] Initializing Build Pipeline...${NC}"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BUILD_DIR="${BUILD_DIR:-${ROOT_DIR}/build}"
+ARTIFACT_DIR="${ARTIFACT_DIR:-${ROOT_DIR}/artifacts/stage-0}"
+SEED="${SEED:-424242}"
 
-# 1. Directory Setup
-if [ ! -d "build" ]; then
-    echo -e "  > Creating build directory..."
-    mkdir build
-else
-    echo -e "  > Build directory exists. Cleaning..."
-    rm -rf build/*
-fi
+printf '%b\n' "${BOLD}[Nexuss] Clean reproducible validation${NC}"
+printf '  root: %s\n  build: %s\n  artifacts: %s\n  seed: %s\n' "$ROOT_DIR" "$BUILD_DIR" "$ARTIFACT_DIR" "$SEED"
 
-cd build
+rm -rf "$BUILD_DIR"
+mkdir -p "$ARTIFACT_DIR"
 
-# 2. CMake Configuration
-echo -e "${BOLD}[Genesis] Configuring Build System...${NC}"
-cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake -S "$ROOT_DIR" -B "$BUILD_DIR" -DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE:-RelWithDebInfo}"
+cmake --build "$BUILD_DIR" --parallel "${CMAKE_BUILD_PARALLEL_LEVEL:-2}"
 
-# 3. Compilation
-echo -e "${BOLD}[Genesis] Compiling Bio-Digital Substrate...${NC}"
-if cmake --build . --config Release -- -j$(nproc); then
-    echo -e "${GREEN}  > Compilation Successful.${NC}"
-else
-    echo -e "${RED}  > Compilation Failed.${NC}"
-    exit 1
-fi
+printf '%b\n' "${BOLD}[Nexuss] Running all registered CTest targets${NC}"
+ctest --test-dir "$BUILD_DIR" --output-on-failure | tee "$ARTIFACT_DIR/ctest.txt"
 
-# 4. Validation Suites
-echo -e "${BOLD}[Genesis] Executing Validation Suites...${NC}"
+printf '%b\n' "${BOLD}[Nexuss] Running executable smoke tests${NC}"
+"$BUILD_DIR/nexuss_sim" | tee "$ARTIFACT_DIR/nexuss_sim.txt"
+"$BUILD_DIR/meta_cognition_demo" | tee "$ARTIFACT_DIR/meta_cognition_demo.txt"
+"$BUILD_DIR/test_meta_cognition_v2" | tee "$ARTIFACT_DIR/meta_cognition_v2.txt"
+"$BUILD_DIR/stage0_harness" --seed "$SEED" --artifact-dir "$ARTIFACT_DIR" | tee "$ARTIFACT_DIR/stage0_harness.txt"
 
-echo -e "  > [1/3] Physics Integrity (Phase I)..."
-if ./physics_tests; then
-    echo -e "${GREEN}    [PASS] Physics Verified.${NC}"
-else
-    echo -e "${RED}    [FAIL] Physics Physics Failed.${NC}"
-    exit 1
-fi
+printf '%s\n' 'record_type,scale_neurons,synapses,rss_kb,formula_mb' > "$ARTIFACT_DIR/memory.csv"
+for scale in 1000 10000 100000 270000; do
+    "$BUILD_DIR/stage0_harness" --memory-probe --memory-scale "$scale" --synapses-per-neuron 5 >> "$ARTIFACT_DIR/memory.csv"
+done
+"$BUILD_DIR/stage0_harness" --memory-probe --memory-scale 270000 --synapses-per-neuron 50 >> "$ARTIFACT_DIR/memory.csv"
 
-echo -e "  > [2/3] Sensory Dynamics (Phase II)..."
-if ./sensory_tests; then
-    echo -e "${GREEN}    [PASS] Sensory Verified.${NC}"
-else
-    echo -e "${RED}    [FAIL] Sensory Logic Failed.${NC}"
-    exit 1
-fi
-
-echo -e "  > [3/3] Memory & Plasticity (Phase III)..."
-if ./memory_tests; then
-    echo -e "${GREEN}    [PASS] Memory Architecture Verified.${NC}"
-else
-    echo -e "${RED}    [FAIL] Memory Logic Failed.${NC}"
-    exit 1
-fi
-
-# 5. Main Simulation
-echo -e "${BOLD}[Genesis] Launching Phase III Experiment: The Pavlovian Android...${NC}"
-echo "----------------------------------------------------------------"
-./genesis_sim
-echo "----------------------------------------------------------------"
-
-echo -e "${GREEN}[Genesis] Workflow Completed Successfully.${NC}"
+printf '%b\n' "${GREEN}[Nexuss] Workflow completed successfully${NC}"

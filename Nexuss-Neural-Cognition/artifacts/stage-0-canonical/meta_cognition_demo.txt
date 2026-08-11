@@ -1,0 +1,36 @@
+=============================================
+  Nexuss Neural Cognition - Meta-Cognition Demo
+=============================================
+
+[Demo] Initializing meta-cognitive auto-scaling...
+[MetaCognition] Available System RAM: 2957.1 MB
+[MetaCognition] RAM Budget: 500.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 499.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+
+[Demo] Starting real-time simulation...
+-------------------------------------------
+Step    0 | Memory: 0.3 MB | Realtime: 1.00x
+Step  200 | Memory: 0.3 MB | Realtime: 441.52x
+Step  400 | Memory: 0.3 MB | Realtime: 441.89x
+Step  600 | Memory: 0.3 MB | Realtime: 444.04x
+Step  800 | Memory: 0.3 MB | Realtime: 372.41x
+Step 1000 | Memory: 0.3 MB | Realtime: 290.30x
+-------------------------------------------
+
+[Demo] Simulation Complete!
+  Total Neurons: 1000
+  Total Synapses: 5000
+  Final Memory: 0.3 MB
+  Duration: 3 ms
+  Average Realtime Factor: 290.30x
+
+[Demo] Meta-cognitive scaling successful!
+  ✓ Auto-detected system RAM and configured optimal network size
+  ✓ Respected configured maximums (300K neurons, 50 synapses/neuron)
+  ✓ Maintained stable memory usage throughout simulation
+  ✓ Real-time simulation with performance monitoring

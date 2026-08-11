@@ -1,6 +1,8 @@
 #pragma once
 
 #include "constants.h"
+#include "utils.h"
+#include "state_schema.h"
 #include <vector>
 #include <cstdint>
 #include <cstddef>
@@ -32,6 +34,9 @@ enum class IntellectualNeuronType : uint8_t {
 // 1. Data-Oriented Design: Struct-of-Arrays (SoA)
 // -----------------------------------------------------------------------------
 struct alignas(64) NeuronBlock {
+    // Explicit contract for shared legacy/UIN fields.
+    StateSchema state_schema = StateSchema::legacy();
+
     // Phase I: Physics State
     std::vector<float>   membrane_potential;   // V (mV)
     std::vector<float>   recovery_variable;    // u (also used for phase phi in UIN)
@@ -100,6 +105,14 @@ struct alignas(64) NeuronBlock {
         precision_weight.resize(n, 1.0f);
         stpd_trace.resize(n, 0.0f);
         neuron_flags.resize(n, 0);
+    }
+
+    void enable_uin_overlay() {
+        state_schema = StateSchema::uin_overlay();
+    }
+
+    bool has_uin_overlay() const {
+        return state_schema.uses_uin_overlay;
     }
 };
 

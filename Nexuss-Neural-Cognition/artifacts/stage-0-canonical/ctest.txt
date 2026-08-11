@@ -1,0 +1,32 @@
+Internal ctest changing into directory: /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/build-stage0-canonical
+Test project /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/build-stage0-canonical
+      Start  1: BioPhysicsTest.SingleNeuronIntegrity
+ 1/13 Test  #1: BioPhysicsTest.SingleNeuronIntegrity ......   Passed    0.00 sec
+      Start  2: BioPhysicsTest.STDP_CausalLink
+ 2/13 Test  #2: BioPhysicsTest.STDP_CausalLink ............   Passed    0.00 sec
+      Start  3: BioPhysicsTest.DopamineGatingAndLTD
+ 3/13 Test  #3: BioPhysicsTest.DopamineGatingAndLTD .......   Passed    0.00 sec
+      Start  4: BioPhysicsTest.MetabolicCrash
+ 4/13 Test  #4: BioPhysicsTest.MetabolicCrash .............   Passed    0.00 sec
+      Start  5: SensorySystemTest.SequenceDetection
+ 5/13 Test  #5: SensorySystemTest.SequenceDetection .......   Passed    0.00 sec
+      Start  6: SensorySystemTest.WinnerTakeAll
+ 6/13 Test  #6: SensorySystemTest.WinnerTakeAll ...........   Passed    0.00 sec
+      Start  7: SensorySystemTest.NoveltyGating
+ 7/13 Test  #7: SensorySystemTest.NoveltyGating ...........   Passed    0.00 sec
+      Start  8: MemorySystemTest.DifferentialPlasticity
+ 8/13 Test  #8: MemorySystemTest.DifferentialPlasticity ...   Passed    0.00 sec
+      Start  9: MemorySystemTest.PatternCompletion
+ 9/13 Test  #9: MemorySystemTest.PatternCompletion ........   Passed    0.00 sec
+      Start 10: meta_cognition_v2
+10/13 Test #10: meta_cognition_v2 .........................   Passed    0.01 sec
+      Start 11: uin_tests
+11/13 Test #11: uin_tests .................................   Passed    0.15 sec
+      Start 12: uin_stress_test
+12/13 Test #12: uin_stress_test ...........................   Passed    0.08 sec
+      Start 13: stage0_harness
+13/13 Test #13: stage0_harness ............................   Passed    0.68 sec
+
+[0;32m100% tests passed[0;0m, 0 tests failed[0;0m out of 13
+
+Total Test time (real) =   0.94 sec
