@@ -104,3 +104,10 @@ target_link_libraries(stage3_harness PRIVATE bio_core)
 target_include_directories(stage3_harness PRIVATE src)
 add_test(NAME stage3_harness
          COMMAND stage3_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-3)
+
+# Stage 4: grounded language acquisition, semantic pointers, and constructions
+add_executable(stage4_harness tests/stage4_harness.cpp)
+target_link_libraries(stage4_harness PRIVATE bio_core)
+target_include_directories(stage4_harness PRIVATE src)
+add_test(NAME stage4_harness
+         COMMAND stage4_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-4)

@@ -1,0 +1,3 @@
+mode=whitespace-lowercase-v1
+version=1
+vocabulary_hash=3360810908955092262
