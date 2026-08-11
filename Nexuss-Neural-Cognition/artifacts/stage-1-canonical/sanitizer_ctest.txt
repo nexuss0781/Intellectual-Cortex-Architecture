@@ -1,0 +1,34 @@
+Internal ctest changing into directory: /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/build-stage1-asan-final
+Test project /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/build-stage1-asan-final
+      Start  1: BioPhysicsTest.SingleNeuronIntegrity
+ 1/14 Test  #1: BioPhysicsTest.SingleNeuronIntegrity ......   Passed    0.01 sec
+      Start  2: BioPhysicsTest.STDP_CausalLink
+ 2/14 Test  #2: BioPhysicsTest.STDP_CausalLink ............   Passed    0.01 sec
+      Start  3: BioPhysicsTest.DopamineGatingAndLTD
+ 3/14 Test  #3: BioPhysicsTest.DopamineGatingAndLTD .......   Passed    0.01 sec
+      Start  4: BioPhysicsTest.MetabolicCrash
+ 4/14 Test  #4: BioPhysicsTest.MetabolicCrash .............   Passed    0.02 sec
+      Start  5: SensorySystemTest.SequenceDetection
+ 5/14 Test  #5: SensorySystemTest.SequenceDetection .......   Passed    0.01 sec
+      Start  6: SensorySystemTest.WinnerTakeAll
+ 6/14 Test  #6: SensorySystemTest.WinnerTakeAll ...........   Passed    0.01 sec
+      Start  7: SensorySystemTest.NoveltyGating
+ 7/14 Test  #7: SensorySystemTest.NoveltyGating ...........   Passed    0.03 sec
+      Start  8: MemorySystemTest.DifferentialPlasticity
+ 8/14 Test  #8: MemorySystemTest.DifferentialPlasticity ...   Passed    0.01 sec
+      Start  9: MemorySystemTest.PatternCompletion
+ 9/14 Test  #9: MemorySystemTest.PatternCompletion ........   Passed    0.01 sec
+      Start 10: meta_cognition_v2
+10/14 Test #10: meta_cognition_v2 .........................   Passed    0.33 sec
+      Start 11: uin_tests
+11/14 Test #11: uin_tests .................................   Passed    0.95 sec
+      Start 12: uin_stress_test
+12/14 Test #12: uin_stress_test ...........................   Passed    0.57 sec
+      Start 13: stage0_harness
+13/14 Test #13: stage0_harness ............................   Passed    8.22 sec
+      Start 14: stage1_harness
+14/14 Test #14: stage1_harness ............................   Passed    4.77 sec
+
+[0;32m100% tests passed[0;0m, 0 tests failed[0;0m out of 14
+
+Total Test time (real) =  14.96 sec

@@ -1,0 +1,18 @@
+L1-UNIT-00=PASS value=1 detail=ok
+L1-UNIT-01=PASS value=0.19801 detail=ok
+L1-UNIT-02=PASS value=-0.019801 detail=ok
+L1-UNIT-03=PASS value=1.96008e-07 detail=ok
+L1-UNIT-04=PASS value=1 detail=ok
+L1-UNIT-05=PASS value=45.2381 detail=ok
+L1-UNIT-06=PASS value=30112 detail=ok
+L1-UNIT-07=PASS value=50 detail=ok
+L1-UNIT-08=PASS value=4 detail=ok
+L1-UNIT-09=PASS value=1 detail=ok
+L1-INT-01=PASS value=0.952381 detail=ok
+L1-INT-02=PASS value=0.952381 detail=ok
+L1-INT-03=PASS value=1 detail=ok
+L1-INT-04=PASS value=1 detail=ok
+L1-OPS-01=PASS value=7.11492e+18 detail=ok
+L1-OPS-02=PASS value=1.94889 detail=ok
+L1-OPS-03=PASS value=66584 detail=ok
+STAGE1_HARNESS=PASS

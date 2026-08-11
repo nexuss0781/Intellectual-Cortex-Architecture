@@ -83,3 +83,10 @@ add_test(NAME uin_tests COMMAND uin_tests)
 add_test(NAME uin_stress_test COMMAND uin_stress_test)
 add_test(NAME stage0_harness
          COMMAND stage0_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-0)
+
+# Stage 1: modular local-learning and continual-stream harness
+add_executable(stage1_harness tests/stage1_harness.cpp)
+target_link_libraries(stage1_harness PRIVATE bio_core)
+target_include_directories(stage1_harness PRIVATE src)
+add_test(NAME stage1_harness
+         COMMAND stage1_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-1)

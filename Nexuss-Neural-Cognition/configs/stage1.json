@@ -1,0 +1,36 @@
+{
+  "stage": 1,
+  "name": "local-learning-kernel",
+  "seed": 424242,
+  "eta": 0.001,
+  "trace_decay": 0.99005,
+  "a_plus": 0.10,
+  "a_minus": 0.12,
+  "timing_window_ms": 20.0,
+  "weight_bounds": [0.0001, 1.0],
+  "modulation_bounds": [-1.0, 1.0],
+  "target_rate_hz": 50.0,
+  "homeostatic_rate": 0.01,
+  "prune_threshold": 0.0002,
+  "prune_patience_ticks": 100,
+  "tasks": {
+    "reward_events": 10000,
+    "temporal_events": 5000,
+    "nonstationary_events_per_distribution": 5000,
+    "sparse_code_width": 64,
+    "sparse_code_active_bits": 8,
+    "sparse_corruption_bits": 2
+  },
+  "required_artifacts": [
+    "stage1_harness.txt",
+    "stage1_metrics.csv",
+    "stage1_summary.txt",
+    "ablation.csv",
+    "ctest.txt",
+    "sanitizer_ctest.txt",
+    "config.json",
+    "environment.txt",
+    "manifest.sha256",
+    "decision.md"
+  ]
+}
