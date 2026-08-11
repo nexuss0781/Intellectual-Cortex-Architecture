@@ -347,12 +347,12 @@ int main(int argc, char** argv) {
             return 1'000'000.0;
         });
 
-        run("S0-DET-01", [seed]() {
+        run("S0-DET-01", [seed, artifact_dir]() {
             const uint64_t a = run_deterministic_trace(seed);
             const uint64_t b = run_deterministic_trace(seed);
             const uint64_t c = run_deterministic_trace(seed);
             require(a == b && b == c, "same-seed traces differ");
-            std::ofstream out("stage0_same_seed_hashes.csv");
+            std::ofstream out(artifact_dir / "same_seed_hashes.csv");
             out << "run,hash\n1," << a << "\n2," << b << "\n3," << c << "\n";
             return static_cast<double>(a);
         });

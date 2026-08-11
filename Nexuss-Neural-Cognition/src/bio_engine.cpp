@@ -56,6 +56,9 @@ void BioEngine::init_structured(size_t max_neurons, size_t max_synapses, uint64_
     neurons_.resize(max_neurons);
     synapses_.resize(max_synapses);
     topology_.resize(max_neurons);
+    learning_controller_.initialize(max_neurons, max_synapses);
+    learning_signal_ = LearningSignal{};
+    learning_signal_explicit_ = false;
 
     for (size_t i = 0; i < max_neurons; ++i) {
         neurons_.membrane_potential[i] = V_REST_MV;
@@ -183,6 +186,11 @@ void BioEngine::bake_topology() {
         sorted_syn.eligibility_traces[i] = synapses_.eligibility_traces[src];
         sorted_syn.is_inhibitory[i]      = synapses_.is_inhibitory[src];
         sorted_syn.delays[i]             = synapses_.delays[src];
+        sorted_syn.pred_coeff[i]         = synapses_.pred_coeff[src];
+        sorted_syn.precision_scale[i]    = synapses_.precision_scale[src];
+        sorted_syn.binding_tag[i]        = synapses_.binding_tag[src];
+        sorted_syn.synapse_type[i]       = synapses_.synapse_type[src];
+        sorted_syn.synapse_flags[i]      = synapses_.synapse_flags[src];
     }
 
     for (size_t i = 0; i < count; ++i) {
@@ -192,6 +200,11 @@ void BioEngine::bake_topology() {
         synapses_.eligibility_traces[i] = sorted_syn.eligibility_traces[i];
         synapses_.is_inhibitory[i]      = sorted_syn.is_inhibitory[i];
         synapses_.delays[i]             = sorted_syn.delays[i];
+        synapses_.pred_coeff[i]         = sorted_syn.pred_coeff[i];
+        synapses_.precision_scale[i]    = sorted_syn.precision_scale[i];
+        synapses_.binding_tag[i]        = sorted_syn.binding_tag[i];
+        synapses_.synapse_type[i]       = sorted_syn.synapse_type[i];
+        synapses_.synapse_flags[i]      = sorted_syn.synapse_flags[i];
     }
 
     for (size_t k = 0; k < count; ++k) {
@@ -297,28 +310,22 @@ void BioEngine::update_metabolism() {
 
 void BioEngine::update_synapses() {
     const size_t syn_count = synapse_cursor_ > 0 ? synapse_cursor_ : synapses_.weights.size();
-    const float da = ctx_.dopamine;
-    const bool has_dopamine = (da > 0.0001f);
+    const size_t neuron_count = neuron_cursor_ > 0 ? neuron_cursor_ : neuron_count_;
+    learning_controller_.set_active_synapse_count(syn_count);
+    learning_controller_.set_active_neuron_count(neuron_count);
 
-    for (size_t k = 0; k < syn_count; ++k) {
-        float& trace = synapses_.eligibility_traces[k];
-        trace *= TRACE_DECAY_FACTOR;
-
-        if (has_dopamine) {
-            uint32_t post_id = synapses_.post_indices[k];
-            
-            // Phase III: Modulate learning rate by the Post-Neuron's plasticity scale
-            // Hippocampus (10x) vs Cortex (1x)
-            float plasticity = neurons_.plasticity_scale[post_id];
-            
-            float& w = synapses_.weights[k];
-            float delta_w = da * trace * plasticity; 
-            w += delta_w;
-
-            if (w > W_MAX) w = W_MAX;
-            else if (w < W_MIN) w = W_MIN;
-        }
+    if (!learning_signal_explicit_) {
+        LearningSignal signal;
+        signal.reward = ctx_.dopamine;
+        signal.task_relevance = 0.0f;
+        signal.executive_permission = 1.0f;
+        signal.tick = ctx_.current_tick;
+        learning_controller_.apply_modulation(signal);
+    } else {
+        learning_signal_.tick = ctx_.current_tick;
+        learning_controller_.apply_modulation(learning_signal_);
     }
+    learning_controller_.update(synapses_, neurons_, ctx_.current_tick);
 }
 
 std::vector<uint32_t> BioEngine::integrate_and_fire() {
@@ -372,6 +379,12 @@ std::vector<uint32_t> BioEngine::integrate_and_fire() {
 }
 
 void BioEngine::propagate_spikes(const std::vector<uint32_t>& firing_indices) {
+    learning_controller_.on_post_spikes(firing_indices, synapses_, ctx_.current_tick);
+    learning_controller_.observe_population_spikes(
+        firing_indices.size(),
+        neuron_cursor_ > 0 ? neuron_cursor_ : neuron_count_,
+        DT_MS);
+
     // Phase III: ACh varies. During sleep, it might be low or high depending on stage.
     // For simplicity, we assume set_state or set_acetylcholine manages this.
     const float ach_gain = ctx_.acetylcholine;
@@ -397,15 +410,7 @@ void BioEngine::propagate_spikes(const std::vector<uint32_t>& firing_indices) {
 
             delay_queue_.push_back({post_id, signal, delay});
 
-            synapses_.eligibility_traces[k] += A_PLUS;
-
-            uint64_t post_fire_time = neurons_.last_spike_time[post_id];
-            if (post_fire_time > 0) {
-                uint64_t diff = ctx_.current_tick - post_fire_time;
-                if (diff < static_cast<uint64_t>(STDP_WINDOW_MS)) {
-                    synapses_.eligibility_traces[k] -= A_MINUS;
-                }
-            }
+            learning_controller_.on_pre_spike(k, synapses_, ctx_.current_tick);
         }
     }
 }
@@ -422,6 +427,20 @@ void BioEngine::set_dopamine(float level) {
 
 void BioEngine::set_acetylcholine(float level) {
     ctx_.acetylcholine = level;
+}
+
+void BioEngine::configure_learning(const LearningConfig& config) {
+    learning_controller_.configure(config);
+}
+
+void BioEngine::set_learning_signal(const LearningSignal& signal) {
+    learning_signal_ = signal;
+    learning_signal_explicit_ = true;
+    learning_controller_.apply_modulation(signal);
+}
+
+const LearningMetrics& BioEngine::get_learning_metrics() const {
+    return learning_controller_.metrics();
 }
 
 void BioEngine::set_state(EngineState state) {

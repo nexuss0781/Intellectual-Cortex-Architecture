@@ -1,0 +1,7 @@
+ablation,selectivity_percentage_points
+no_learning,0
+plain_stdp,0
+stdp_plus_reward,39.9196
+full_three_factor,39.9196
+full_without_homeostasis,39.9196
+full_without_structural,39.9196

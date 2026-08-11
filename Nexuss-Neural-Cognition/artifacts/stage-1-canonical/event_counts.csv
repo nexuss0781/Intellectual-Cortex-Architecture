@@ -1,0 +1,9 @@
+metric,value
+pre_spike_events,10000
+post_spike_events,5000
+causal_events,5000
+anti_causal_events,0
+weight_updates,5000
+clipped_updates,4761
+structural_proposals,0
+bound_violations,0

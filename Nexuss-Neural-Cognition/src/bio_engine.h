@@ -3,6 +3,7 @@
 #include "constants.h"
 #include "types.h"
 #include "utils.h"
+#include "learning/learning_controller.h"
 
 #include <vector>
 #include <memory>
@@ -66,6 +67,14 @@ public:
     // Phase III: Acetylcholine controls input gain (Attention)
     void set_acetylcholine(float level);
 
+    // Stage 1: modular three-factor learning control. These methods expose
+    // modulation and telemetry without exposing direct weight mutation.
+    void configure_learning(const LearningConfig& config);
+    void set_learning_signal(const LearningSignal& signal);
+    const LearningMetrics& get_learning_metrics() const;
+    LearningController& learning_controller() { return learning_controller_; }
+    const LearningController& learning_controller() const { return learning_controller_; }
+    
     // --- Accessors ---
     const NeuronBlock& get_neurons() const { return neurons_; }
     NeuronBlock& get_neurons() { return neurons_; }
@@ -111,6 +120,9 @@ private:
     
     std::unique_ptr<utils::FastRNG> rng_;
     size_t neuron_count_ = 0;
+    LearningController learning_controller_;
+    LearningSignal learning_signal_;
+    bool learning_signal_explicit_ = false;
 };
 
 } // namespace genesis
