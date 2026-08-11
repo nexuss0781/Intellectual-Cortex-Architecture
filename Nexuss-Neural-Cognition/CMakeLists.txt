@@ -111,3 +111,10 @@ target_link_libraries(stage4_harness PRIVATE bio_core)
 target_include_directories(stage4_harness PRIVATE src)
 add_test(NAME stage4_harness
          COMMAND stage4_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-4)
+
+# Stage 5: reasoning, causal intervention, executive control, and metacognition
+add_executable(stage5_harness tests/stage5_harness.cpp)
+target_link_libraries(stage5_harness PRIVATE bio_core)
+target_include_directories(stage5_harness PRIVATE src)
+add_test(NAME stage5_harness
+         COMMAND stage5_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-5)

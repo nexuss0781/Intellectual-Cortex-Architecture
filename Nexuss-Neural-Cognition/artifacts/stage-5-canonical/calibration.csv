@@ -1,0 +1,5 @@
+metric,value
+ece,0.0
+brier,0.05
+selective_accuracy,0.95
+coverage,0.333333

@@ -1,0 +1,8 @@
+{
+  "seed": 424242,
+  "world": "two-valued-causal-chain",
+  "rules": ["parent_implies_related"],
+  "train_domains": ["alpha", "beta"],
+  "held_out_domains": ["gamma"],
+  "unsafe_cases": ["risk_0.99", "out_of_scope_variable", "unsupported_proposition"]
+}

@@ -1,0 +1,9 @@
+timestamp_utc=2026-08-11T20:59:32Z
+git_head=d82a02d69d495bf1d277238a87358905b553c4fc
+git_status= [31mM[m CMakeLists.txt; [31mM[m build_and_run.sh; [31mM[m tests/stage1_harness.cpp;[31m??[m artifacts/stage-0-stage5-revalidated/;[31m??[m artifacts/stage-1-stage5-revalidated/;[31m??[m artifacts/stage-2-stage5-revalidated/;[31m??[m artifacts/stage-3-stage5-revalidated/;[31m??[m artifacts/stage-4-stage5-revalidated/;[31m??[m artifacts/stage-5-canonical/;[31m??[m build-stage5-asan-final/;[31m??[m build-stage5-asan/;[31m??[m build-stage5-final/;[31m??[m build-stage5/;[31m??[m configs/stage5.json;[31m??[m src/learning/reasoning_engine.h;[31m??[m tests/stage5_harness.cpp;
+compiler=c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+cmake=cmake version 3.28.3
+kernel=Linux 6.1.102 #1 SMP PREEMPT_DYNAMIC Tue Mar 25 09:02:46 UTC 2025
+seed=424242
+normal_build=RelWithDebInfo
+sanitizers=AddressSanitizer,UndefinedBehaviorSanitizer

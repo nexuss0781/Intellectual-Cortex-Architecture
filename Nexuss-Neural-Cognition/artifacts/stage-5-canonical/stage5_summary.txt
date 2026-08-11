@@ -1,0 +1,3 @@
+seed=424242
+tests=25
+failures=0

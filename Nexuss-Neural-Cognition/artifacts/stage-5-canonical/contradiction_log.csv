@@ -1,0 +1,3 @@
+subject,predicate,conflicting_edges,mode,rationale
+1,88,2,PREFER_RELIABLE,reliability-margin
+1,88,2,SEEK_EVIDENCE,posterior-margin-small
