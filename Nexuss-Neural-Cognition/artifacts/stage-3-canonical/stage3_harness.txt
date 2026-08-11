@@ -1,0 +1,20 @@
+W3-UNIT-01=PASS value=1.22473 detail=ok
+W3-UNIT-02=PASS value=0.99999 detail=ok
+W3-UNIT-03=PASS value=2 detail=ok
+W3-UNIT-04=PASS value=10 detail=ok
+W3-UNIT-05=PASS value=0 detail=ok
+W3-UNIT-06=PASS value=3 detail=ok
+W3-UNIT-07=PASS value=1 detail=ok
+W3-UNIT-08=PASS value=2 detail=ok
+W3-UNIT-09=PASS value=1 detail=ok
+W3-UNIT-10=PASS value=0.111112 detail=ok
+W3-INT-01=PASS value=0.52631 detail=ok
+W3-INT-02=PASS value=1 detail=ok
+W3-INT-03=PASS value=0.5 detail=ok
+W3-INT-04=PASS value=1 detail=ok
+W3-INT-05=PASS value=1 detail=ok
+W3-INT-06=PASS value=1 detail=ok
+W3-OPS-01=PASS value=88 detail=ok
+W3-OPS-02=PASS value=7.44627e+18 detail=ok
+W3-OPS-03=PASS value=0 detail=ok
+STAGE3_HARNESS=PASS

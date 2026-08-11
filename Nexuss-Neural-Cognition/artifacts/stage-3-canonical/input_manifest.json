@@ -1,0 +1,7 @@
+{
+  "seed": 424242,
+  "latent_sequence": [0,1,0,1,0,1],
+  "distractors_per_trial": 7,
+  "goal_schedule": [1,2,1,2],
+  "expected_broadcast_capacity": 3
+}

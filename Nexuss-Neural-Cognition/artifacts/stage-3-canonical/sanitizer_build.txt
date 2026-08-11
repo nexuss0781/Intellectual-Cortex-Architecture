@@ -1,0 +1,17 @@
+[  7%] Built target bio_core
+[ 12%] Built target gtest
+[ 17%] Built target nexuss_sim
+[ 23%] Built target meta_cognition_demo
+[ 28%] Built target test_meta_cognition_v2
+[ 35%] Built target stage0_harness
+[ 41%] Built target stage1_harness
+[ 48%] Built target stage2_harness
+[ 53%] Built target stage3_harness
+[ 58%] Built target gmock
+[ 64%] Built target gtest_main
+[ 69%] Built target gmock_main
+[ 74%] Built target physics_tests
+[ 79%] Built target sensory_tests
+[ 84%] Built target memory_tests
+[ 92%] Built target uin_tests
+[100%] Built target uin_stress_test

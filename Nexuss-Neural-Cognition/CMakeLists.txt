@@ -97,3 +97,10 @@ target_link_libraries(stage2_harness PRIVATE bio_core)
 target_include_directories(stage2_harness PRIVATE src)
 add_test(NAME stage2_harness
          COMMAND stage2_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-2)
+
+# Stage 3: predictive processing, precision attention, and global workspace
+add_executable(stage3_harness tests/stage3_harness.cpp)
+target_link_libraries(stage3_harness PRIVATE bio_core)
+target_include_directories(stage3_harness PRIVATE src)
+add_test(NAME stage3_harness
+         COMMAND stage3_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-3)
