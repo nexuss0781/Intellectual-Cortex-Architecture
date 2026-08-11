@@ -1,0 +1,50 @@
+{
+  "stage": 3,
+  "name": "predictive-workspace",
+  "seed": 424242,
+  "predictive": {
+    "dimensions": 8,
+    "scale_learning_rate": 0.05,
+    "transition_learning_rate": 0.20,
+    "precision_learning_rate": 0.05,
+    "precision_bounds": [0.10, 10.0],
+    "epsilon": 0.00001
+  },
+  "workspace": {
+    "capacity": 3,
+    "ignition_threshold": 0.75,
+    "minimum_coherence": 0.25,
+    "ignition_consecutive_ticks": 2,
+    "hysteresis": 0.15,
+    "broadcast_budget_bytes": 4096
+  },
+  "transition_gates": {
+    "prediction_improvement_percentage_points": 20.0,
+    "goal_directed_distractor_accuracy": 0.85,
+    "ambiguity_accuracy": 0.80,
+    "context_advantage_percentage_points": 15.0,
+    "novelty_ordering": 0.90,
+    "goal_switch_cycles": 20,
+    "broadcast_capacity_violations": 0,
+    "unintended_broadcast_items": 0,
+    "same_seed_trace_mismatches": 0,
+    "state_persistence_divergence_percent": 5.0
+  },
+  "required_artifacts": [
+    "stage3_harness.txt",
+    "stage3_metrics.csv",
+    "stage3_summary.txt",
+    "proposal_trace.csv",
+    "workspace_broadcasts.csv",
+    "precision_trajectories.csv",
+    "ablation.csv",
+    "input_manifest.json",
+    "predictive_workspace.bin",
+    "ctest.txt",
+    "sanitizer_ctest.txt",
+    "config.json",
+    "environment.txt",
+    "manifest.sha256",
+    "decision.md"
+  ]
+}

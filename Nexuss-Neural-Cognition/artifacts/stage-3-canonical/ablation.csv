@@ -1,0 +1,7 @@
+configuration,distractor_accuracy,ambiguity_accuracy,broadcast_rate
+bottom_up_only,0.00,0.50,1.00
+top_down_only,1.00,0.50,1.00
+no_precision,0.85,0.65,1.00
+no_normalization,0.85,0.50,1.00
+no_workspace,0.00,0.50,0.00
+full,1.00,1.00,0.50
