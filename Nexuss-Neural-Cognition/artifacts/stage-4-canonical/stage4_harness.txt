@@ -1,0 +1,22 @@
+L4-UNIT-01=PASS value=1 detail=ok
+L4-UNIT-02=PASS value=1 detail=ok
+L4-UNIT-03=PASS value=2 detail=ok
+L4-UNIT-04=PASS value=0.271484 detail=ok
+L4-UNIT-05=PASS value=2 detail=ok
+L4-UNIT-06=PASS value=4 detail=ok
+L4-UNIT-07=PASS value=0 detail=ok
+L4-UNIT-08=PASS value=3 detail=ok
+L4-INT-01=PASS value=0.5 detail=ok
+L4-INT-02=PASS value=1 detail=ok
+L4-INT-03=PASS value=1 detail=ok
+L4-INT-04=PASS value=1 detail=ok
+L4-INT-05=PASS value=1 detail=ok
+L4-INT-06=PASS value=0.5 detail=ok
+L4-INT-07=PASS value=1 detail=ok
+L4-INT-08=PASS value=1 detail=ok
+L4-INT-09=PASS value=1 detail=ok
+L4-OPS-01=PASS value=1 detail=ok
+L4-OPS-02=PASS value=144192 detail=ok
+L4-OPS-03=PASS value=1.24975e+19 detail=ok
+L4-OPS-04=PASS value=0 detail=ok
+STAGE4_HARNESS=PASS

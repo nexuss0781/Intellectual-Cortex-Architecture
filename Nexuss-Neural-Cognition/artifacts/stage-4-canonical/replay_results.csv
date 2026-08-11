@@ -1,0 +1,3 @@
+configuration,early_retention,replay_benefit
+full,1.0,1.0
+no_replay,0.0,0.0

@@ -1,0 +1,7 @@
+{
+  "tokenizer": "whitespace-lowercase-v1",
+  "seed": 424242,
+  "train_compositions": ["red move cube","blue move sphere","green move triangle"],
+  "test_compositions": ["red move sphere","blue move triangle","green move cube"],
+  "transfer_domain": "held-out-color-shape"
+}

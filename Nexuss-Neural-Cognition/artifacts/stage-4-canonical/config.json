@@ -1,0 +1,62 @@
+{
+  "stage": 4,
+  "name": "grounded-language-acquisition",
+  "seed": 424242,
+  "tokenizer": {
+    "mode": "whitespace-lowercase-v1",
+    "version": 1,
+    "corpus_manifest": "corpus_manifest.json"
+  },
+  "semantic_pointers": {
+    "dimension": 2048,
+    "representation": "bipolar",
+    "cleanup_corruption_bits": 64,
+    "binding_type_safety": true
+  },
+  "learning": {
+    "construction_support_threshold": 2,
+    "construction_promotion_threshold": 0.20,
+    "replay_batches": 10,
+    "correction_feedback_enabled": true
+  },
+  "resource_limits": {
+    "auxiliary_memory_bytes": 2097152,
+    "maximum_lexical_entries": 512,
+    "maximum_constructions": 100000
+  },
+  "transition_gates": {
+    "pointer_clean_recovery": 0.95,
+    "token_prediction_advantage": 0.15,
+    "lexical_grounding_accuracy": 0.85,
+    "role_accuracy": 0.85,
+    "compositional_accuracy": 0.70,
+    "construction_transfer_accuracy": 0.60,
+    "correction_error_reduction": 0.30,
+    "early_retention": 0.85,
+    "unsafe_abstention": 0.95,
+    "manifest_leakage_cases": 0,
+    "replay_benefit": 0.10
+  },
+  "required_artifacts": [
+    "stage4_harness.txt",
+    "stage4_metrics.csv",
+    "stage4_summary.txt",
+    "tokenizer_manifest.txt",
+    "corpus_manifest.json",
+    "lexical_growth.csv",
+    "construction_proposals.csv",
+    "prediction_curves.csv",
+    "scene_results.csv",
+    "correction_trace.csv",
+    "replay_results.csv",
+    "ablations.csv",
+    "memory.csv",
+    "language_state_unit.bin",
+    "ctest.txt",
+    "sanitizer_ctest.txt",
+    "config.json",
+    "environment.txt",
+    "manifest.sha256",
+    "decision.md"
+  ]
+}

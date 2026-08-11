@@ -1,0 +1,6 @@
+configuration,token_prediction,role_accuracy,composition_accuracy,retention
+frequency_only,0.50,0.00,0.00,0.00
+context_free_lexicon,0.50,0.50,0.00,0.50
+episodic_nearest_neighbor,0.50,1.00,0.00,0.00
+semantic_pointer_no_construction,0.50,1.00,0.33,0.50
+full,1.00,1.00,1.00,1.00
