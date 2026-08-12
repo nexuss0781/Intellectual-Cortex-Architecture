@@ -1,0 +1,19 @@
+{
+  "run_id": "stage10-dolly-sft-001",
+  "dataset": "databricks/databricks-dolly-15k",
+  "dataset_release_sha256": "24a881fd7ed8811339d71d3db61635a321a2299e67a9e432f96f5aaa4145386a",
+  "raw_dataset_sha256": "2df9083338b4abd6bceb5635764dab5d833b393b55759dffb0959b6fcbf794ec",
+  "license": "cc-by-sa-3.0",
+  "split_counts": {"train": 11816, "development": 1477, "heldout": 1477},
+  "base_checkpoint": "model@18217991639257382938",
+  "candidate_checkpoint": "model@2775430139297845034",
+  "optimizer": {"learning_rate": 0.0025, "epochs": 1, "batch_rows": 2048, "target": "response_span_only"},
+  "domain_gain": 0.0436418,
+  "heldout_gain": 0.042509,
+  "general_retention": 0.804619,
+  "training_ms": 12900,
+  "peak_rss_kb": 38556,
+  "heldout_used_for_training": false,
+  "production_release_allowed": false,
+  "reproducible_same_seed": true
+}

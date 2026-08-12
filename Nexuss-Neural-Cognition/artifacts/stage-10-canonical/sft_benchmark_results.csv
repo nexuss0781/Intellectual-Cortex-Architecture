@@ -1,0 +1,5 @@
+benchmark,model,loss,accuracy,quality,transitions,digest
+dolly-heldout,bigram,0,0.269754,0.375772,1212848,reference@6732299831032091292
+dolly-heldout,frequency,0,0.158322,0.294654,1214325,reference@1457690597425715253
+dolly-development,stage9-base,3.67347,0.219347,0.122368,483631,model@18217991639257382938
+dolly-development,sft-candidate,2.61211,0.258639,0.166009,483631,model@2775430139297845034

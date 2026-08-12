@@ -1,0 +1,14 @@
+S10-SFT-UNIT-01=PASS value=14770 detail=governed Dolly rows loaded from real TSV release
+S10-SFT-UNIT-02=PASS value=11816 detail=held-out custody and split disjointness verified
+S10-SFT-UNIT-03=PASS value=8292 detail=Stage 9 selected base checkpoint reconstructed before SFT
+S10-SFT-INT-01=PASS value=0.0436418093722 detail=positive development domain gain after real supervised updates
+S10-SFT-INT-02=PASS value=0.0425090257326 detail=held-out Dolly evaluation was not used for training and remained bounded
+S10-SFT-INT-03=PASS value=0.804618759365 detail=general retention against the Stage 9 control reference
+S10-SFT-INT-04=PASS value=1 detail=governance safety scan over held-out responses
+S10-SFT-INT-05=PASS value=0.269753505798 detail=independent bigram and frequency baselines evaluated on the same held-out rows
+S10-SFT-OPS-01=PASS value=38556 detail=bounded CPU/RAM SFT execution
+S10-SFT-OPS-02=PASS value=0 detail=same seed, base snapshot, data order, and optimizer reproduced checkpoint exactly
+S10-SFT-NEG-01=PASS value=1 detail=revoked rights are rejected by the training eligibility contract
+S10-SFT-OPS-03=PASS value=65792 detail=training registry accepted dataset, base, optimizer, code, and hardware provenance
+S10-SFT-OPS-04=PASS value=1 detail=candidate checkpoint passed promotion policy
+STAGE10_SFT_DECISION=PASS

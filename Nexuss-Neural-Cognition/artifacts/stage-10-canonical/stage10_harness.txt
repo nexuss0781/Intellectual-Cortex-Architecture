@@ -14,7 +14,7 @@ N10-INT-05=PASS value=2 detail=only allowed dry-run tools proposed and none exec
 N10-INT-06=PASS value=1 detail=every response carries provenance
 N10-INT-07=PASS value=2 detail=supported-language cases remain bounded
 N10-INT-08=PASS value=1 detail=Stage 9 identity and structured regression retained
-N10-OPS-01=PASS value=4192 detail=offline engine resource budget
+N10-OPS-01=PASS value=4176 detail=offline engine resource budget
 N10-OPS-02=PASS value=1.27096056033e+19 detail=fixed request/model/policy/retrieval hash reproduced
 N10-OPS-03=PASS value=1 detail=restart preserves response contract
 N10-NEG-01=PASS value=1 detail=malformed response rejected

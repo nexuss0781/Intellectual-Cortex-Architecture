@@ -153,3 +153,10 @@ target_link_libraries(stage10_harness PRIVATE bio_core)
 target_include_directories(stage10_harness PRIVATE src)
 add_test(NAME stage10_harness
          COMMAND stage10_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-10 --repo-root ${CMAKE_SOURCE_DIR} --entry-evidence-dir ${CMAKE_SOURCE_DIR}/artifacts/stage-9-canonical)
+
+# Stage 10 corrective completion: real Hugging Face Dolly supervised fine-tuning
+add_executable(stage10_sft_harness tests/stage10_sft_harness.cpp)
+target_link_libraries(stage10_sft_harness PRIVATE bio_core)
+target_include_directories(stage10_sft_harness PRIVATE src)
+add_test(NAME stage10_sft_harness
+         COMMAND stage10_sft_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-10-sft --repo-root ${CMAKE_SOURCE_DIR})

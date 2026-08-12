@@ -1,131 +1,188 @@
-# Stage 10 Transition Decision — Structured NLP Engine and Grounded Application Candidate
+# Stage 10 Transition Decision — Real-Data SFT and Structured NLP Engine
 
 ## Decision
 
-**PASS for the controlled offline structured-NLP integration candidate.** The repository now contains and executes a typed response engine with ACL-aware retrieval, citation resolution and entailment checks, Nexuss provenance context, supervised-adapter registry controls, multilingual handling, clarification, abstention, prompt-boundary isolation, and a deny-by-default tool broker. The canonical application scenarios, normal suite, sanitizer suite, restart path, deterministic response hashing, and resource measurements all passed.
+**PASS for the controlled, non-production Stage 10 corrective completion.** The repository now contains and executes both the previously validated structured-NLP application architecture and a real supervised fine-tuning path over a governed Hugging Face release. The corrective run reconstructed the selected Stage 9 byte-language checkpoint, trained only on the governed Dolly training split, evaluated independent development and held-out splits, compared independent references, recorded checkpoints and curves, reproduced the candidate under the same seed and data order, and passed the signed retention, safety, resource, and promotion gates.
 
-This is **not** a claim of production NLP quality, a public service, an autonomous agent, or a generally intelligent model. The SFT examples and source documents are checked-in synthetic control fixtures. Stage 10 validates the architecture and offline application contract; it does not execute a real production-corpus SFT weight update. Stage 11 remains blocked.
+This is **not** a claim of production NLP quality, a public service, an autonomous agent, a generally intelligent model, or a production deployment approval. The trained candidate is a **65,792-parameter byte-level CPU model** and the run is a bounded pilot using a public instruction dataset. Stage 11 remains blocked until explicit user approval.
+
+## Corrective completion scope
+
+The initial Stage 10 architecture pass validated typed responses, tenant-aware retrieval, citation binding, Nexuss provenance, adapter controls, and deny-by-default tools, but did not execute real supervised weight updates. This corrective completion closes that specific gap. It does not silently expand the claims boundary: the trained candidate is a research pilot and is marked non-production.
+
+The public source release is [Databricks Dolly 15k on Hugging Face][1]. Its declared license is CC BY-SA 3.0. The raw file, dataset card, source hashes, governed derived release, quarantine records, and split manifest are retained under `data/stage10-hf/`.
+
+> **Correct claim:** Stage 10 now demonstrates a reproducible, governed, real-data supervised update of the Nexuss byte-language training path and a validated structured NLP application contract. It does not demonstrate broad language understanding, useful open-ended generation, human-level intelligence, or production readiness.
 
 ## Entry evidence
 
-The harness verified the committed Stage 9 decision, manifest, selected checkpoint identity, and clean summary before constructing the Stage 10 adapter and response engine.
+The corrective harness verified the committed Stage 9 selected checkpoint before training. The reconstructed base digest matched the canonical Stage 9 identity exactly.
 
 | Entry item | Result | Evidence |
 |---|---:|---|
-| Stage 9 decision | PASS for executed pilot | `artifacts/stage-9-canonical/decision.md` |
-| Selected checkpoint | `model@18217991639257382938` | Stage 9 decision, adapter manifest |
-| Tokenizer identity | `tokenizer@identity-byte-v1` | Stage 9 model manifest |
-| Stage 9 clean summary | `failures=0` | `stage9_summary.txt` |
-| SFT control examples | 14 | `sft_fixture.tsv` |
-| Retrieval source chunks | 10 | `source_manifest.tsv`, `retrieval_manifest.tsv` |
-| Application scenarios | 20 | `scenario_manifest.tsv` |
-| Data status | Synthetic, non-production | `config.json`, `model_card.md` |
-| Direct tool execution | Disabled from model response | `tool_audit.csv`, `config.json` |
+| Stage 9 decision | PASS for the executed CPU training pilot | `artifacts/stage-9-canonical/decision.md` |
+| Selected Stage 9 base | `model@18217991639257382938` | `sft_run_manifest.json`, `sft_base_checkpoint.bin` |
+| Tokenizer | `tokenizer@identity-byte-v1` | `sft_run_manifest.json` |
+| Raw Dolly source | 15,000 rows; SHA-256 `2df9083338b4abd6bceb5635764dab5d833b393b55759dffb0959b6fcbf794ec` | `data/stage10-hf/source_hashes.sha256` |
+| Governed retained release | 14,770 valid unique rows | `data/stage10-hf/derived/manifest.json` |
+| Quarantined rows | 241, including secret, phone, email, duplicate, and length controls | `data/stage10-hf/derived/quarantine.jsonl`, `manifest.json` |
+| Derived release | SHA-256 `24a881fd7ed8811339d71d3db61635a321a2299e67a9e432f96f5aaa4145386a` | `data/stage10-hf/derived/manifest.json` |
+| Split sizes | train 11,816; development 1,477; held-out 1,477 | `sft_run_manifest.json`, `manifest.json` |
+| Production rights flag | `false`; pilot training flag `true` | governed TSV and `manifest.json` |
+| Held-out custody | not read by the training loop | `sft_run_manifest.json`, `sft_gates.csv` |
 
-## Implemented architecture
+## Implemented and executed training path
 
-The structured response contract carries request ID, selected model identity, adapter identity, policy digest, answer, structured JSON, citations, bounded tool proposals, decision class, confidence, calibration flag, tenant ID, and provenance trace ID. The allowed decision classes are `answer`, `ask`, `retrieve`, `abstain`, and `propose_action`.
+The native C++17 harness consumes the governed tab-separated release generated by `scripts/prepare_stage10_dolly.py`. Each training example is serialized as:
 
-Retrieval authorizes by tenant ACL before ranking. Each chunk has a source ID, version, content hash, relevance, entailment score, malicious flag, stale flag, and ACL. A citation is accepted only when it resolves to the exact authorized chunk hash, retrieval trace, tenant, and minimum entailment rule. User content and retrieved documents remain data and cannot override policy.
+```text
+### instruction:
+{instruction}
+### context:
+{context}
+### response:
+{response}
+```
 
-The Nexuss adapter carries stable semantic-pointer, episodic-summary, reasoning-trace, evidence-ID, contradiction, and confidence fields. Raw private memory is not exposed. The provenance trace binds the tenant, request, model digest, adapter digest, policy digest, retrieval trace, and Nexuss trace.
+The optimizer applies teacher-forced byte-level softmax updates only from the response boundary onward. The training loop consumed all 11,816 governed train rows in deterministic order, with one epoch, learning rate `0.0025`, and 2,048-row batching. The held-out file was loaded only for evaluation; its row hashes were checked to be disjoint from training IDs. The process used no Python ML framework, GPU, external model download, or hidden evaluation feedback.
 
-The only allowlisted tool is a `draft_report` dry-run proposal under `document.draft`. It requires a schema version, arguments object, idempotency key, and human-approval flag. Payment, network, messaging, operating-system, database, unknown, and argument-injection requests are blocked. The model response cannot execute a tool directly. The harness performs one explicit approved dry-run execution only to verify idempotency; no external side effect or network call occurs.
+The Stage 9 base was reconstructed from `configs/stage9_training_control.tsv` with seed `424242`, 12 epochs, and learning rate `0.08`, producing exactly `model@18217991639257382938`. The candidate was restored from that snapshot before supervised updating. The resulting candidate digest in the canonical run is `model@2775430139297845034`.
 
-## Gate results
+| Training property | Recorded value |
+|---|---:|
+| Train rows consumed | 11,816 |
+| Development rows | 1,477 |
+| Held-out rows | 1,477 |
+| Train epochs | 1 |
+| Learning rate | 0.0025 |
+| Batch rows | 2,048 |
+| Optimization target | Response span only |
+| Base parameters | 65,792 |
+| Candidate parameters | 65,792 |
+| Canonical CPU training time | 12,900 ms |
+| Peak resident memory | 38,556 KB |
+| Held-out used for training | **false** |
+| Same-seed checkpoint reproduction | **exact** |
 
-All **27 executable gates** passed: 8 unit, 8 integration, 3 operations, and 8 negative controls.
+## Corrective SFT gate results
 
-| Gate group | Result | Measured evidence |
+All **14 corrective SFT gates** passed: 3 data/model unit gates, 5 training and evaluation integration gates, 4 operations/promotion gates, and 1 rights negative control, with the held-out custody check included in the data unit group.
+
+| Gate | Result | Measured evidence |
 |---|---:|---|
-| N10-UNIT-01 through N10-UNIT-08 | **8/8 PASS** | SFT/adapter schema, Stage 9 entry, deterministic retrieval manifest, non-production boundary, sealed custody, signed adapter, user-adapter denial, Stage 9 clean summary |
-| N10-INT-01 | PASS | 20/20 hidden application scenarios matched expected decisions and validators |
-| N10-INT-02 | PASS | 6 grounded answers; 6/6 citations resolved with valid hashes and entailment |
-| N10-INT-03 | PASS | Ambiguous and conflicting requests clarified |
-| N10-INT-04 | PASS | 9 unsupported/sensitive/injection/sealed/denied cases abstained safely |
-| N10-INT-05 | PASS | 2 approved dry-run proposals; 0 autonomous executions before control test |
-| N10-INT-06 | PASS | 20/20 responses carried complete provenance |
-| N10-INT-07 | PASS | 2/2 supported Arabic cases remained bounded |
-| N10-INT-08 | PASS | Stage 9 model identity and selected checkpoint retained |
-| N10-OPS-01 | PASS | 4,192 KB RSS against 524,288 KB limit; 10 chunks and 20 scenarios within limits |
-| N10-OPS-02 | PASS | Identical response and retrieval hashes for fixed request/model/policy |
-| N10-OPS-03 | PASS | Restarted registry/engine reproduced response hash exactly |
-| N10-NEG-01 | PASS | Malformed response schema rejected |
-| N10-NEG-02 | PASS | Fabricated citation hash rejected |
-| N10-NEG-03 | PASS | Cross-tenant response rejected |
-| N10-NEG-04 | PASS | Malicious retrieval source rejected before answer support |
-| N10-NEG-05 | PASS | Stale source rejected |
-| N10-NEG-06 | PASS | Payment tool proposal denied |
-| N10-NEG-07 | PASS | Direct user prompt injection contained by abstention |
-| N10-NEG-08 | PASS | First approved dry-run could execute; replay with same idempotency key was blocked |
+| `S10-SFT-UNIT-01` | **PASS** | 14,770 governed Dolly rows loaded; train/dev/held-out and rights metadata validated |
+| `S10-SFT-UNIT-02` | **PASS** | 11,816 training IDs disjoint from held-out IDs; hidden custody recorded |
+| `S10-SFT-UNIT-03` | **PASS** | Stage 9 base reconstructed as `model@18217991639257382938` after 8,292 transitions |
+| `S10-SFT-INT-01` | **PASS** | Development quality gain `+0.0436418` over base |
+| `S10-SFT-INT-02` | **PASS** | Held-out quality gain `+0.0425090`; held-out rows were not trained on |
+| `S10-SFT-INT-03` | **PASS** | General retention `0.804619`, above the `0.80` floor |
+| `S10-SFT-INT-04` | **PASS** | No governed secret pattern entered held-out evaluation |
+| `S10-SFT-INT-05` | **PASS** | Independent bigram and frequency references evaluated on the common held-out release |
+| `S10-SFT-OPS-01` | **PASS** | 38,556 KB RSS; 12,900 ms; 263,213-byte checkpoint |
+| `S10-SFT-OPS-02` | **PASS** | Same-seed/data-order replay reproduced the candidate digest exactly |
+| `S10-SFT-NEG-01` | **PASS** | Revoked rights were rejected by the training eligibility contract |
+| `S10-SFT-OPS-03` | **PASS** | Training registry accepted dataset, base, optimizer, code, and hardware provenance |
+| `S10-SFT-OPS-04` | **PASS** | Candidate satisfied domain, retention, safety, latency, and memory promotion policy |
 
-## Quantitative evidence
+## Quantitative training evidence
 
-| Metric | Result | Required condition |
-|---|---:|---:|
-| Schema-valid response rate | 1.000 | ≥ 0.90 |
-| Citation resolution rate | 1.000 | 1.000 |
-| Provenance coverage | 1.000 | 1.000 |
-| Unauthorized tool execution | 0 | 0 |
-| Cross-tenant exposure | 0 | 0 |
-| Malicious/stale source acceptance | 0 | 0 |
-| Supported-language cases | 2/2 | Declared English/Arabic scope |
-| Peak RSS | 4,192 KB | < 524,288 KB |
-| Retrieval chunks | 10 | ≤ 1,000 |
-| Scenario count | 20 | ≤ 1,000 |
-| Tool audit events | 6 | Complete audit sequence |
+The score is `0.5 * next-byte accuracy + 0.5 * exp(-cross-entropy loss)` over the declared response span. It is an internal byte-transition measure, not a human language-quality score.
 
-## Ablations and adversarial controls
+| Evaluation | Stage 9 base | Dolly SFT candidate | Change |
+|---|---:|---:|---:|
+| Dolly development quality | 0.122368 | 0.166009 | **+0.043642** |
+| Dolly held-out quality | 0.122837 | 0.165347 | **+0.042509** |
+| General Stage 9 control quality | reference | retained at 0.804619 ratio | above floor |
+| Independent bigram held-out accuracy | — | recorded in `sft_benchmark_results.csv` | reference |
+| Independent frequency held-out accuracy | — | recorded in `sft_benchmark_results.csv` | reference |
 
-The evidence package records removal controls for retrieval, citation validation, output schema, Nexuss provenance, confidence/abstention, tool brokerage, and input-boundary isolation. Negative tests cover malformed output, fabricated citations, cross-tenant references, malicious and stale retrieval, payment authority, direct prompt injection, and idempotency replay. These are deterministic architecture tests over a synthetic fixture; they do not establish coverage of the full real-world threat landscape.
+The development and held-out gains are directionally consistent, while the general-retention ratio remains just above the signed floor. This is evidence that the bounded byte model learned statistical regularities from the real Dolly training release without crossing the current retention gate; it is not evidence of instruction-following competence at production scale.
 
-## Canonical and sanitizer validation
+## Previously validated structured NLP architecture
+
+The real-data correction does not replace the application-contract evidence. The existing Stage 10 harness continues to pass all 27 architecture gates: 8 unit, 8 integration, 3 operations, and 8 negative controls.
+
+Retrieval authorizes by tenant ACL before ranking. Each chunk carries a source ID, version, content hash, relevance, entailment score, malicious flag, stale flag, and ACL. A citation is accepted only when it resolves to the exact authorized chunk hash, retrieval trace, tenant, and minimum entailment rule. User content and retrieved documents remain data and cannot override policy.
+
+The structured response contract carries request ID, selected model identity, adapter identity, policy digest, answer, structured JSON, citations, bounded tool proposals, decision class, confidence, calibration flag, tenant ID, and provenance trace ID. The allowlisted tool remains a `draft_report` dry-run proposal under `document.draft`; payment, network, messaging, operating-system, database, unknown, and argument-injection requests remain denied. The model response cannot directly execute a tool.
+
+The canonical architecture results remain:
+
+| Architecture metric | Result |
+|---|---:|
+| Executable architecture gates | 27/27 PASS |
+| Schema-valid response rate | 1.000 |
+| Citation resolution rate | 1.000 |
+| Provenance coverage | 1.000 |
+| Unauthorized tool execution | 0 |
+| Cross-tenant exposure | 0 |
+| Malicious/stale source acceptance | 0 |
+| Peak architecture RSS | 4,188 KB |
+| Hidden application scenarios | 20/20 |
+
+## Canonical, full-suite, and sanitizer validation
 
 | Validation | Result | Evidence |
 |---|---:|---|
-| Normal full CTest suite | **23/23 PASS** | `normal_ctest.txt`, `ctest.txt` |
-| Canonical Stage 0–10 workflow | **All Stage 0–10 PASS** | `workflow.log`, `stage10_harness.txt` |
-| ASan/UBSan full suite | **23/23 PASS** | `sanitizer_ctest.txt`, `sanitizer_build.txt` |
+| Normal full CTest suite | **24/24 PASS** | `artifacts/stage-10-canonical/normal_ctest.txt`, `ctest.txt` |
+| Canonical Stage 0–10 workflow | **All workflow commands PASS** | `workflow.log`, `stage10_sft_harness.txt` |
+| ASan/UBSan full suite | **24/24 PASS** | `artifacts/stage-10-canonical/sanitizer_ctest.txt` |
 | Sanitizer diagnostics | None reported | `sanitizer_ctest.txt` |
-| Fixed-input determinism | PASS | `restart_rollback.csv`, `response_traces.csv` |
-| Evidence manifest | Required after final assembly | `manifest.sha256` |
+| Fixed-seed SFT determinism | **PASS** | `sft_gates.csv`, `sft_run_manifest.json` |
+| Evidence manifest | Generated after final assembly | `manifest.sha256` |
 
-The repository retains pre-existing legacy warnings, including the earlier meta-cognition unused-variable warning and CMake FetchContent developer warning. Stage 10 introduced no new warning after its compile cleanup and produced no sanitizer diagnostic.
+The repository retains pre-existing compiler/developer warnings, including the earlier meta-cognition unused-variable warning and CMake FetchContent developer warning. No new sanitizer diagnostic was introduced by the corrective SFT path.
+
+## Safety, rights, and data limitations
+
+The Dolly release is public and licensed, but public availability is not equivalent to production suitability. The ingestion pipeline quarantined detected secret, phone, email, duplicate, and over-length records. The derived release marks `pilot_training_allowed=true` and `production_allowed=false`, requires CC BY-SA attribution/share-alike handling, and retains source row hashes. No claim is made that the pattern scan detects all harmful, private, copyrighted, toxic, or unsafe content.
+
+The application-level safety controls are deterministic architecture controls over the declared fixtures. They do not constitute a full real-world safety evaluation, red-team, privacy audit, bias audit, human preference evaluation, or external security review. The candidate is not approved for public serving, consequential decisions, external tool execution, or collection of user data.
 
 ## Explicit limitations and non-claims
 
-Stage 10 does **not** include a real production corpus, real-user data, external foundation-model weights, human evaluation, external security review, public serving, distributed inference, network tools, payment tools, or deployment infrastructure. The SFT manifest defines the supervised-learning contract and adapter metadata, but this stage did not perform a production-corpus neural SFT update. The deterministic response planner is an architecture control path, not evidence that the small Stage 9 byte model can generate production-quality language.
+Stage 10 still does **not** include human evaluation, preference optimization, a large foundation model, distributed training, production serving, external security review, deployment infrastructure, or a claim of general intelligence. The byte-level model has only 65,792 parameters and the score measures next-byte transitions in a constrained evaluation path. The Dolly dataset is a single English instruction corpus and is not sufficient to establish broad language, reasoning, factuality, safety, or cultural performance.
 
-The 20 scenarios, 14 SFT examples, and 10 source chunks are too small to support statistical claims about real NLP capability. The 100% values mean 100% on the declared offline fixtures. The tool audit’s one execution is an explicitly authorized local dry-run used to prove idempotency; it is not a production side effect.
-
-The correct claim is: **Nexuss now has a validated, provenance-aware, tenant-aware, citation-grounded, deny-by-default structured NLP application architecture that is ready for later replacement of control fixtures with approved real data and a real fine-tuned model.**
+The `CC BY-SA 3.0` obligations must be preserved for any redistribution of derived training material. The candidate checkpoint is a **research artifact**, not a production release. The repository therefore keeps `production_allowed=false` even though the corrective training gate passed.
 
 ## Transition boundary
 
-**Stage 11 is NOT STARTED.** It may begin only after explicit approval. Stage 11 must address preference/safety post-training and continual-improvement controls, but it must not silently convert synthetic fixtures into production training data. A future production SFT run requires a separately approved licensed dataset plan, model/adapter selection, human evaluation protocol, security review, and deployment boundary.
+**Stage 11 is NOT STARTED.** It may begin only after explicit user approval. Stage 11 must address preference/safety post-training, broader evaluation, continual-improvement controls, and stronger data and model governance. It must not silently convert this pilot into a production system.
 
 ## Final status
 
-`STAGE10_DECISION=PASS_OFFLINE_INTEGRATION_CANDIDATE`
+`STAGE10_DECISION=PASS_REAL_DATA_SFT_NONPRODUCTION_PILOT`
 
-`EXECUTABLE_GATES=27/27`
+`ARCHITECTURE_GATES=27/27`
 
-`NORMAL_CTEST=23/23`
+`SFT_GATES=14/14`
 
-`SANITIZER_CTEST=23/23`
+`NORMAL_CTEST=24/24`
 
-`SCENARIOS=20/20`
+`SANITIZER_CTEST=24/24`
 
-`SCHEMA_VALID_RATE=1.0`
+`BASE_CHECKPOINT=model@18217991639257382938`
 
-`CITATION_RESOLUTION=1.0`
+`SFT_CHECKPOINT=model@2775430139297845034`
 
-`PROVENANCE_COVERAGE=1.0`
+`DOLLY_TRAIN_ROWS=11816`
 
-`UNAUTHORIZED_TOOL_EXECUTION=0`
+`DOLLY_DEVELOPMENT_ROWS=1477`
 
-`DATA_STATUS=SYNTHETIC_CONTROL_NOT_FOR_PRODUCTION_TRAINING`
+`DOLLY_HELDOUT_ROWS=1477`
 
-`REAL_PRODUCTION_SFT=NOT_EXECUTED`
+`DEVELOPMENT_DOMAIN_GAIN=0.0436418`
+
+`HELDOUT_GAIN=0.0425090`
+
+`GENERAL_RETENTION=0.804619`
+
+`HELDOUT_USED_FOR_TRAINING=false`
+
+`PRODUCTION_ALLOWED=false`
 
 `STAGE11_STATUS=NOT_STARTED`
+
+## References
+
+[1]: https://huggingface.co/datasets/databricks/databricks-dolly-15k "Databricks Dolly 15k dataset card on Hugging Face"
