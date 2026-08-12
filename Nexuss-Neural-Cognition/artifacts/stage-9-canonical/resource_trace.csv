@@ -1,0 +1,5 @@
+metric,value,limit
+peak_rss_kb,6416,524288
+training_ms,38,120000
+parameter_bytes,263168,10485760
+p95_inference_ms,0.000083,100.0

@@ -1,0 +1,9 @@
+{
+  "run_id": "stage9-pilot-001",
+  "dataset_release_digest": "4144255820651345377",
+  "code_commit": "code@stage9-pilot",
+  "hardware_manifest": "cpu-6threads-no-gpu",
+  "optimizer_config_digest": "optimizer@sgd-lr-0.08-epochs-12",
+  "seed_policy": "fixed-seed-424242",
+  "checkpoint_digest": "model@18217991639257382938"
+}

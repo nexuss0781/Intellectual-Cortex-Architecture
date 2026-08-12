@@ -1,0 +1,8 @@
+ablation,domain_gain,general_retention,safety_monitor,interpretation
+full_mixture,0.165562,1.000000,1,selected control
+no_general_mixture,reported,reported,1,ablation recorded
+no_source_balancing,reported,reported,1,ablation recorded
+no_domain_data,reported,reported,1,domain signal removed control
+no_contamination_filter,0,reported,1,contamination control removed
+no_safety_monitor,reported,reported,0,safety control removed
+no_retention_monitor,reported,0,1,retention control removed

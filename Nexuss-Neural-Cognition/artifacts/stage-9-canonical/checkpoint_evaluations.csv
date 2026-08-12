@@ -1,0 +1,2 @@
+checkpoint_digest,domain_score,general_retention,safety_score,citation_grounding,p95_latency_ms,peak_memory_mb,compute_ms
+model@18217991639257382938,0.165562,1.000000,1.000000,0.187983,0.000083,0,38

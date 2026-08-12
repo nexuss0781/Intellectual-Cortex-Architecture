@@ -1,0 +1,4 @@
+case,result
+restore_base_checkpoint,exact
+corrupted_checkpoint,rejected
+unknown_checkpoint_promotion,rejected

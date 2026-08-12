@@ -1,0 +1,3 @@
+metric,estimate,lower_95,upper_95,n
+domain_gain,0.165562,0.155562,0.175562,4
+general_retention,1.000000,0.950000,1.0,4

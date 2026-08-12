@@ -98,6 +98,7 @@ Training selection is multi-objective. The winning checkpoint must improve targe
 | M9-UNIT-04 | Split isolation | Training process cannot read sealed evaluation examples |
 | M9-UNIT-05 | Selection policy | Lowest training loss cannot override safety/retention failure |
 | M9-UNIT-06 | Rollback | Previous approved checkpoint and configuration resolve exactly |
+| M9-UNIT-07 | Stage 8 entry integrity | Stage 8 PASS decision and release manifest are present; pilot data is not mislabeled production data |
 | M9-INT-01 | Domain gain | Continued-pretrained checkpoint exceeds base-model target metric by approved margin |
 | M9-INT-02 | General retention | General benchmark decline is within approved maximum |
 | M9-INT-03 | Safety retention | Unsafe-compliance, privacy, and injection metrics do not regress beyond approved maximum |
@@ -111,13 +112,13 @@ Training selection is multi-objective. The winning checkpoint must improve targe
 
 ### Required ablations and adversarial tests
 
-Compare the full mixture with no general-data mixture, no source balancing, no domain data, no contamination filter, no safety monitor, and no retention monitor. Include corrupted checkpoints, revoked source data, tokenizer mismatch, different hardware precision modes, deliberately leaked test fragments, poisoned samples, and unsupported-language prompts.
+Compare the full mixture with no general-data mixture, no source balancing, no domain data, no contamination filter, no safety monitor, and no retention monitor. Include corrupted checkpoints, revoked source data, tokenizer mismatch, different hardware precision modes, deliberately leaked test fragments, poisoned samples, and unsupported-language prompts. The executable contract is **25 gates**: 7 unit, 7 integration, 3 operations, and 8 negative controls.
 
 ## Quantitative transition gates
 
 | Gate | Required threshold |
 |---|---:|
-| Unit/integration/operations tests | 100% |
+| Unit, integration, operations, and negative-control tests | 100% of 25 executable gates |
 | Domain improvement over approved base | ≥ signed product margin with confidence interval |
 | General benchmark retention | ≥ signed product floor |
 | Safety/privacy/injection regression | ≤ signed maximum regression |

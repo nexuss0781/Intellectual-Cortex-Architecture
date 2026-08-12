@@ -1,0 +1,13 @@
+seed=424242
+records=23
+train_examples=16
+dev_examples=4
+training_steps=8292
+training_ms=38
+domain_gain=0.165562
+general_retention=1
+safety_score=1
+language_disparity=0.0849905
+checkpoint_digest=model@18217991639257382938
+tests=25
+failures=0
