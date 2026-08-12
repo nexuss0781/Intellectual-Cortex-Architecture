@@ -1,0 +1,7 @@
+metric,value
+expected_calibration_error,0.48999999798834321
+brier_score,0.36049999953061362
+selective_accuracy,0.55555555555555558
+coverage,0.90000000000000002
+unsafe_overconfidence_rate,0.10000000000000001
+sample_count,10

@@ -1,0 +1,8 @@
+schema	status	training_effect
+PreferenceExample	implemented	none_in_preparation
+SafetyExample	implemented	none_in_preparation
+FeedbackEvent	implemented	raw_feedback_rejected
+DatasetReleaseMetadata	implemented	approval_required
+CalibrationReport	implemented	math_only_in_preparation
+RegressionCandidate	implemented	approval_required
+PromotionEvidence	implemented	promotion_blocked

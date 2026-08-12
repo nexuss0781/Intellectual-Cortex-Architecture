@@ -160,3 +160,10 @@ target_link_libraries(stage10_sft_harness PRIVATE bio_core)
 target_include_directories(stage10_sft_harness PRIVATE src)
 add_test(NAME stage10_sft_harness
          COMMAND stage10_sft_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-10-sft --repo-root ${CMAKE_SOURCE_DIR})
+
+# Stage 11 preparation: reviewed-data control plane, calibration math, and promotion boundary only
+add_executable(stage11_preparation_harness tests/stage11_preparation_harness.cpp)
+target_link_libraries(stage11_preparation_harness PRIVATE bio_core)
+target_include_directories(stage11_preparation_harness PRIVATE src)
+add_test(NAME stage11_preparation_harness
+         COMMAND stage11_preparation_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-11-preparation --repo-root ${CMAKE_SOURCE_DIR})

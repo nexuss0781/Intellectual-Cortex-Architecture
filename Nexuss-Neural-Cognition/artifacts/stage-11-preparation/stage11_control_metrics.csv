@@ -1,0 +1,20 @@
+check_id,passed,detail
+S11-PREP-ENTRY-01,1,Stage 10 real-data non-production pass is present
+S11-PREP-ENTRY-02,1,Stage 11 was not previously started
+S11-PREP-ENTRY-03,1,Stage 10 production boundary remains closed
+S11-UNIT-01,1,accepted reviewed preference example
+S11-NEG-01,1,preference is not fully reviewed; adjudicated; privacy-reviewed; and approved
+S11-UNIT-02,1,pair fields are explicit and order perturbation is observable
+S11-UNIT-03,1,accepted reviewed safety example
+S11-NEG-02,1,unknown safety risk category
+S11-UNIT-04,1,raw production feedback cannot enter training directly
+S11-UNIT-04B,1,feedback event is eligible only through an approved reviewed release
+S11-UNIT-05,1,immutable regression candidate linkage is complete
+S11-NEG-03,1,regression candidate lacks required linkage
+S11-NEG-04,1,release status is not APPROVED_FOR_TRAINING
+S11-UNIT-05B,1,approved release metadata is complete
+S11-UNIT-06,1,calibration report is deterministic for fixed outcomes
+S11-UNIT-06B,1,calibration metrics are finite and complete
+S11-UNIT-07,1,no post-training candidate exists
+S11-UNIT-08,1,preparation run cannot promote a candidate
+S11-UNIT-09,1,artifacts are explicitly preparation-scoped

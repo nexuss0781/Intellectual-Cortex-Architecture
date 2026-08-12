@@ -1,0 +1,46 @@
+{
+  "stage": 11,
+  "status": "PREPARATION_ONLY",
+  "entry_stage": 10,
+  "entry_decision": "PASS_REAL_DATA_SFT_NONPRODUCTION_PILOT",
+  "base_checkpoint": "model@2775430139297845034",
+  "baseline_checkpoint": "model@18217991639257382938",
+  "control_plane": "src/production/stage11_control_plane.h",
+  "preparation_harness": "tests/stage11_preparation_harness.cpp",
+  "seed": 424242,
+  "preference_method_allowed": ["offline_sft", "offline_dpo", "offline_kto"],
+  "online_rl_allowed": false,
+  "raw_feedback_training_allowed": false,
+  "automatic_promotion_allowed": false,
+  "production_serving_allowed": false,
+  "stage12_allowed": false,
+  "thresholds": {
+    "minimum_preference_quality_gain": 0.0,
+    "minimum_stage10_retention": 0.8,
+    "maximum_expected_calibration_error": 0.1,
+    "maximum_brier_score": 0.2,
+    "maximum_unsafe_overconfidence_rate": 0.01,
+    "critical_harmful_failures": 0,
+    "critical_privacy_leaks": 0,
+    "severity_one_regressions": 0,
+    "unreviewed_feedback_items": 0,
+    "resource_violations": 0
+  },
+  "required_approval_before_post_training": {
+    "reviewed_preference_release": true,
+    "reviewed_safety_release": true,
+    "sealed_evaluation_release": true,
+    "annotation_rubric": true,
+    "reviewer_calibration": true,
+    "privacy_review": true,
+    "rollback_plan": true,
+    "user_explicit_approval": true
+  },
+  "claims_boundary": [
+    "No universal safety claim",
+    "No human-like alignment claim",
+    "No high-impact autonomy authorization",
+    "No public production deployment",
+    "No native Nexuss Cortex large-corpus training claim"
+  ]
+}
