@@ -14,6 +14,10 @@ The stage order is deliberately dependency-driven rather than feature-driven. A 
 | 5 | [`STAGE-05-REASONING-EXECUTIVE-METACOGNITION.md`](STAGE-05-REASONING-EXECUTIVE-METACOGNITION.md) | Causal reasoning, planning, confidence, and strategy control | Stage 4 |
 | 6 | [`STAGE-06-GROUNDING-DEVELOPMENTAL-TRANSFER.md`](STAGE-06-GROUNDING-DEVELOPMENTAL-TRANSFER.md) | Multimodal developmental learning and transfer | Stage 5 |
 
+## Production NLP program
+
+The research program ends at Stage 6. The separately governed production program begins only after Stage 6 and is defined in [`PRODUCTION-NLP-STAGES-README.md`](PRODUCTION-NLP-STAGES-README.md). It contains Stages 7–14 for product governance, data integrity, model training, fine-tuning, serving, controlled pilot, and continuous production governance. These stages must not be treated as completed research-stage claims until their own evidence and formal decisions exist.
+
 ## Shared definition of done
 
 A stage is not complete because code compiles, fields exist, or a demo produces plausible output. Completion requires a deterministic harness, quantitative metrics, negative controls, ablations, resource measurements, serialized evidence, and a documented pass/fail decision. Every stage must record compiler version, commit SHA, operating-system information, random seed, input manifest hash, configuration, peak resident memory, throughput, and complete test output.
