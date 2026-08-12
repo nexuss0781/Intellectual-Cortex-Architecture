@@ -191,3 +191,17 @@ target_link_libraries(stage14_governance_harness PRIVATE bio_core)
 target_include_directories(stage14_governance_harness PRIVATE src)
 add_test(NAME stage14_governance_harness
          COMMAND stage14_governance_harness --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-14-governance --repo-root ${CMAKE_SOURCE_DIR})
+
+# Milestone A1: minimal experience-to-decision learning experiment
+add_executable(experience_decision experiments/experience_decision.cpp)
+target_link_libraries(experience_decision PRIVATE bio_core)
+target_include_directories(experience_decision PRIVATE src)
+add_test(NAME experience_decision
+         COMMAND experience_decision 424242 ${CMAKE_BINARY_DIR}/artifacts/experience-decision)
+
+# Milestone A2: delayed-consequence and long-term decision experiment
+add_executable(delayed_decision experiments/delayed_decision.cpp)
+target_link_libraries(delayed_decision PRIVATE bio_core)
+target_include_directories(delayed_decision PRIVATE src)
+add_test(NAME delayed_decision
+         COMMAND delayed_decision 424242 ${CMAKE_BINARY_DIR}/artifacts/delayed-decision)
