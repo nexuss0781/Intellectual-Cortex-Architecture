@@ -205,3 +205,10 @@ target_link_libraries(delayed_decision PRIVATE bio_core)
 target_include_directories(delayed_decision PRIVATE src)
 add_test(NAME delayed_decision
          COMMAND delayed_decision 424242 ${CMAKE_BINARY_DIR}/artifacts/delayed-decision)
+
+# Milestone A3: restart and transfer to a changed environment
+add_executable(transfer_decision experiments/transfer_decision.cpp)
+target_link_libraries(transfer_decision PRIVATE bio_core)
+target_include_directories(transfer_decision PRIVATE src)
+add_test(NAME transfer_decision
+         COMMAND transfer_decision 424242 ${CMAKE_BINARY_DIR}/artifacts/transfer-decision)
