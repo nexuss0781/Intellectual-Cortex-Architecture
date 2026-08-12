@@ -1,0 +1,4 @@
+baseline_id,name,version,license,model_digest,invocation_digest,known_limitations,scenario_count,expected_decision_rate,network_calls,side_effects
+nexuss_advisory_v1,"Nexuss governed advisory path",1.0.0,repository-stage7-reference,model@nexuss-contract-v1,bench-stage7-v1,"Not a foundation model; contract/reference implementation only",10,1,0,0
+local_reference_v1,"Independent local lexical reference",1.0.0,repository-stage7-reference,model@local-reference-v1,bench-stage7-v1,"No Nexuss state, no external knowledge, lexical reference only",10,1,0,0
+external_equivalent_v1,"External API protocol equivalent",1.0.0,protocol-adapter-reference,model@external-equivalent-contract-v1,bench-stage7-v1,"No network call; simulates an independently versioned external API contract",10,1,0,0

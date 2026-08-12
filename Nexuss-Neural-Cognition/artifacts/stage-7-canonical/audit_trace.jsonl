@@ -1,0 +1,12 @@
+{"sequence":1,"operation":"approve_scope","subject":"7001","outcome":"PASS","event_hash":1583877427005264229}
+{"sequence":2,"operation":"register_evidence","subject":"ev-scope","outcome":"PASS","event_hash":3392573147012997801}
+{"sequence":3,"operation":"register_evidence","subject":"ev-release","outcome":"PASS","event_hash":12876960275701309412}
+{"sequence":4,"operation":"set_benchmark_manifest","subject":"bench-stage7-v1","outcome":"PASS","event_hash":17880835361932791528}
+{"sequence":5,"operation":"register_risk","subject":"risk-prompt-injection","outcome":"PASS","event_hash":5743203739861488069}
+{"sequence":6,"operation":"register_risk","subject":"risk-data-privacy","outcome":"PASS","event_hash":13436544076082570744}
+{"sequence":7,"operation":"register_risk","subject":"risk-excessive-agency","outcome":"PASS","event_hash":15043755801733590480}
+{"sequence":8,"operation":"register_risk","subject":"risk-claims","outcome":"PASS","event_hash":2709872803775599262}
+{"sequence":9,"operation":"register_baseline","subject":"nexuss_advisory_v1","outcome":"PASS","event_hash":5060165816390351034}
+{"sequence":10,"operation":"register_baseline","subject":"local_reference_v1","outcome":"PASS","event_hash":7211834280487566127}
+{"sequence":11,"operation":"register_baseline","subject":"external_equivalent_v1","outcome":"PASS","event_hash":1690634429186316511}
+{"sequence":12,"operation":"approve_release","subject":"commit@stage7","outcome":"PASS","event_hash":480803121867513370}

@@ -1,0 +1,8 @@
+{
+  "benchmark_manifest": "bench-stage7-v1",
+  "scenario_manifest_hash": 2266438093936365519,
+  "baseline_count": 3,
+  "baselines": ["nexuss_advisory_v1", "local_reference_v1", "external_equivalent_v1"],
+  "network_calls": 0,
+  "side_effects": 0
+}

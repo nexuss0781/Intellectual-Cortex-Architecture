@@ -1,0 +1,3 @@
+claim_id,text,evidence_manifest,evaluated_scope,owner,expiry_unix,permitted
+claim-scoped-prototype,"evaluated product prototype within declared Stage 7 scope",digest-scope-7001,stage7-scope-only,product,2000003842,1
+claim-agi,"AGI",digest-scope-7001,stage7,product,2000003842,0

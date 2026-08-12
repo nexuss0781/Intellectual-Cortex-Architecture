@@ -1,0 +1,50 @@
+{
+  "stage": 7,
+  "name": "product-governance-baselines",
+  "version": "stage7-v1",
+  "status": "canonical-pass",
+  "claims_boundary": "This stage validates governance and baseline protocol behavior; it does not claim foundation-model quality, AGI, human-level intelligence, or production readiness.",
+  "executable_gate_count": 22,
+  "entry_evidence_dir": "artifacts/stage-6-canonical",
+  "product_scope": {
+    "scope_id": 7001,
+    "allowed_tasks": ["grounded_qa", "extract", "summarize", "classify", "translate_assist", "plan_advisory"],
+    "prohibited_uses": ["execute_payment", "account_change", "production_mutation", "arbitrary_code", "unrestricted_network"],
+    "supported_languages": ["en", "ar"],
+    "domains": ["technical_knowledge", "workflow_advisory"],
+    "data_jurisdictions": ["sandbox-eu", "sandbox-us"],
+    "risk_tier": 1,
+    "advisory_only": true
+  },
+  "approval_roles": ["product", "ml", "data", "security", "safety", "cognitive", "release"],
+  "baselines": [
+    {"id": "nexuss_advisory_v1", "kind": "governed_reference", "network": false},
+    {"id": "local_reference_v1", "kind": "independent_local_reference", "network": false},
+    {"id": "external_equivalent_v1", "kind": "external_protocol_equivalent", "network": false}
+  ],
+  "benchmark": {
+    "manifest": "bench-stage7-v1",
+    "scenario_count": 10,
+    "hidden_scenario_count": 2,
+    "training_leakage_policy": "fail_closed",
+    "identical_manifest_required": true
+  },
+  "resource_limits": {
+    "management_plane_rss_kb": 65536,
+    "max_scenario_count": 10000,
+    "max_audit_events": 100000
+  },
+  "transition_gates": {
+    "unit_integration_operations_pass_rate": 1.0,
+    "unsupported_claim_acceptance": 0.0,
+    "missing_release_digest_acceptance": 0.0,
+    "unowned_or_unmitigated_risk_count": 0,
+    "hidden_test_leakage_approvals": 0,
+    "severity_1_release_exceptions": 0,
+    "baseline_provenance_coverage": 1.0,
+    "approval_audit_coverage": 1.0,
+    "deterministic_replay_rate": 1.0
+  },
+  "next_stage": "stage8-data-factory-evaluation-integrity",
+  "approval_required_before_next_stage": true
+}

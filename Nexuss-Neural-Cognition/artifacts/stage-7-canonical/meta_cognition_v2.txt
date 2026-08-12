@@ -1,0 +1,183 @@
+=============================================
+  Meta-Cognitive Engine v2 - Test Suite
+=============================================
+
+Running: Default RAM Budget (500MB)...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 500.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 499.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+  Initial memory: 0.27 MB
+  PASSED
+
+Running: Start Small and Grow on Demand...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 100.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 99.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+  Initial neurons: 1000
+  Initial memory: 0.27 MB
+[MetaCognition] Request: 1000 neurons (test growth)
+  After growth: 1000 neurons
+  PASSED
+
+Running: Synapse Demand > Neuron Demand...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 200.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 199.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+  Initial synapses: 5000
+[MetaCognition] Request: 10 synapses/neuron (high connectivity demand)
+  Final synapses: 5000
+  PASSED
+
+Running: Neuron Demand > Synapse Demand...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 200.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 199.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+  Initial neurons: 1000
+[MetaCognition] Request: 2000 neurons (high neuron demand)
+  Final neurons: 1000
+  PASSED
+
+Running: Low Demand - Stay Small...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 500.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 499.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+  Initial neurons: 1000
+  Final neurons: 1000
+  PASSED
+
+Running: High Demand Both - Balanced Growth...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 300.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 299.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+[MetaCognition] Request: 3000 neurons (high demand)
+[MetaCognition] Request: 15 synapses/neuron (high demand)
+  Initial: 1000 neurons, 5000 synapses, 0.27 MB
+  Final: 1000 neurons, 5000 synapses, 0.27 MB
+  PASSED
+
+Running: Budget Limited - RAM Constraint Enforcement...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 50.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 49.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+  Initial memory: 0.27 MB
+[MetaCognition] Request: 50000 neurons (test)
+  Final memory: 0.27 MB
+  PASSED
+
+Running: Release Unused Resources...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 200.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 199.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+[MetaCognition] Request: 2000 neurons (test)
+  Memory before release: 0.27 MB
+  Memory after release: 0.27 MB
+  PASSED
+
+Running: Dynamic Reallocation During Simulation...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 150.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 149.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+  Neurons at start: 1000
+  Neurons at end: 1000
+  Utilization: 0.00%
+  PASSED
+
+Running: Custom RAM Budget...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 250.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 249.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+  Memory usage: 0.27 MB (budget: 250 MB)
+  PASSED
+
+Running: Demand Signal Assessment...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 100.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 99.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+  Neuron demand level assessed
+  Synapse demand level assessed
+  Utilization ratio: 0.00
+  PASSED
+
+Running: Status Reporting...
+[MetaCognition] Available System RAM: 3014.7 MB
+[MetaCognition] RAM Budget: 100.0 MB
+[MetaCognition] Initial Scale (will grow on demand):
+  Neurons: 1000
+  Synapses: 5000 (5.0 per neuron)
+  Estimated Memory: 0.27 MB
+  Available headroom: 99.73 MB
+[MetaCognition] Engine initialized with 1000 neurons, 5000 synapses
+
+--- Engine Status ---
+
+=== Meta-Cognitive Engine Status ===
+RAM Budget: 100.0 MB
+Current Config:
+  Neurons: 1000 (max: 500000)
+  Synapses: 5000 (5 per neuron)
+  Memory: 0.3 MB
+  Available: 99.7 MB
+Performance:
+  Realtime Factor: 1.00x
+=====================================
+
+  PASSED
+
+=============================================
+  Test Results: 12/12 passed
+=============================================
