@@ -1,0 +1,12 @@
+metric,value,threshold,result
+accepted_load_requests,512,512,PASS
+p50_ms,0.004,<100,PASS
+p95_ms,0.006,<100,PASS
+p99_ms,0.009,<200,PASS
+throughput_req_s,170667,>0,PASS
+quality_under_load,512,512,PASS
+tenant_isolation,512,512,PASS
+shadow_user_visible_mutations,0,0,PASS
+feedback_training_writes,0,0,PASS
+audit_records,537,>=accepted,PASS
+normal_peak_rss_kb,5260,<500000,PASS

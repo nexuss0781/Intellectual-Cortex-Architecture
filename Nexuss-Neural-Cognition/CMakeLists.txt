@@ -173,3 +173,9 @@ target_link_libraries(stage11_post_training_harness PRIVATE bio_core)
 target_include_directories(stage11_post_training_harness PRIVATE src)
 add_test(NAME stage11_post_training_harness
          COMMAND stage11_post_training_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-11-post-training --repo-root ${CMAKE_SOURCE_DIR})
+# Stage 12 offline secure serving, shadow comparison, resilience, and rollback harness
+add_executable(stage12_serving_harness tests/stage12_serving_harness.cpp)
+target_link_libraries(stage12_serving_harness PRIVATE bio_core)
+target_include_directories(stage12_serving_harness PRIVATE src)
+add_test(NAME stage12_serving_harness
+         COMMAND stage12_serving_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-12-canonical --repo-root ${CMAKE_SOURCE_DIR})

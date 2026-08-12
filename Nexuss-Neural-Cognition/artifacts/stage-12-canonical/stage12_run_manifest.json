@@ -1,0 +1,22 @@
+{
+  "stage": 12,
+  "decision": "PASS_OFFLINE_SHADOW_OPERATIONS_NONPRODUCTION",
+  "model_digest": "model@2367994276643219537",
+  "adapter_digest": "adapter@stage11-native-byte",
+  "tokenizer_digest": "tokenizer@byte-v1",
+  "policy_digest": "policy@stage10-v1",
+  "retrieval_index_digest": "index@2581245035366428525",
+  "tool_schema_digest": "tool-schema-v1",
+  "rollback_target": "model@2775430139297845034",
+  "requests": 512,
+  "accepted": 512,
+  "p95_ms": 0.006,
+  "shadow_user_visible_mutations": 0,
+  "feedback_training_writes": 0,
+  "production_allowed": false,
+  "stage13_allowed": false,
+  "external_deployment": false,
+  "mtls_required": true,
+  "secrets_externalized": true,
+  "audit_digest": "audit@9997572649917486474"
+}
