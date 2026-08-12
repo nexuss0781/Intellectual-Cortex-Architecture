@@ -1,0 +1,12 @@
+{
+  "cohort_id": "pilot-a",
+  "maximum_users": 10,
+  "traffic_fraction": 0.01,
+  "consent_version": "consent-v1",
+  "permitted_tasks": ["grounded_document_answer", "clarification"],
+  "excluded_domains": ["medical", "legal", "financial", "external_action"],
+  "consequential_actions_disabled": true,
+  "consented_users": 1,
+  "live_canary_started": false,
+  "stage14_allowed": false
+}

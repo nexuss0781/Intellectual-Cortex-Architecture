@@ -1,0 +1,7 @@
+{
+  "review_id": "independent@scope",
+  "status": "preparation_contract_only",
+  "external_review_executed": false,
+  "metrics_reproduced_in_contract": true,
+  "claims_boundary": "No live canary, production readiness, or general intelligence claim."
+}

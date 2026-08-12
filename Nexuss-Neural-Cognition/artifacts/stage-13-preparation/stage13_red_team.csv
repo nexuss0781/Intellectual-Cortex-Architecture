@@ -1,0 +1,2 @@
+finding_id,category,severity,critical,closed,retest_result
+redteam@injection,prompt_injection,2,1,1,retest_pass

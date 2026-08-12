@@ -1,0 +1,14 @@
+metric,value,threshold,result
+cohort_users,1,<=10,PASS
+traffic_fraction,0.01,<=0.01,PASS
+review_count,5,>=1,PASS
+quality_rate,1,>=0.75,PASS
+grounding_rate,1,>=0.75,PASS
+severe_rate,0,<=0.25,PASS
+unresolved_severity_one,0,0,PASS
+unresolved_critical_red_team,0,0,PASS
+review_privacy,1,1,PASS
+review_access_audit,1,1,PASS
+independent_reproducibility_contract,1,1,PASS
+regression_training_writes,0,0,PASS
+live_canary_started,0,0,PASS

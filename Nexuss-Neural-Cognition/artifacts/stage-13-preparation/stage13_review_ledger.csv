@@ -1,0 +1,6 @@
+review_id,request_hash,bundle,rubric,reviewer_group,outcome,severity,adjudicated,expert_review
+review@1,request@sample-1,model@2367994276643219537,rubric-v1,reviewer-group-a,acceptable,0,1,0
+review@2,request@sample-2,model@2367994276643219537,rubric-v1,reviewer-group-a,acceptable,0,1,0
+review@3,request@sample-3,model@2367994276643219537,rubric-v1,reviewer-group-b,acceptable,0,1,0
+review@4,request@sample-4,model@2367994276643219537,rubric-v1,expert-group-safety,acceptable,0,1,1
+review@5,request@sample-5,model@2367994276643219537,rubric-v1,expert-group-safety,acceptable,0,1,1
