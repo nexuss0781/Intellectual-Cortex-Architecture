@@ -226,3 +226,10 @@ target_link_libraries(uncertainty_decision PRIVATE bio_core)
 target_include_directories(uncertainty_decision PRIVATE src)
 add_test(NAME uncertainty_decision
          COMMAND uncertainty_decision 424242 ${CMAKE_BINARY_DIR}/artifacts/uncertainty-decision)
+
+# Milestone B1: integrated experience, episodic memory, replay, and decision loop
+add_executable(integrated_loop experiments/integrated_loop.cpp src/learning/memory_system.cpp)
+target_link_libraries(integrated_loop PRIVATE bio_core)
+target_include_directories(integrated_loop PRIVATE src)
+add_test(NAME integrated_loop
+         COMMAND integrated_loop 424242 ${CMAKE_BINARY_DIR}/artifacts/integrated-loop)
