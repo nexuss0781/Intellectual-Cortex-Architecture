@@ -474,6 +474,15 @@ public:
 
 ## Quick Start
 
+### Large-corpus GPU SFT in Colab
+
+The repository includes a one-command Colab package for real GPU supervised fine-tuning and evaluation over the governed UltraChat 200k corpus. After selecting a GPU runtime, run `bash run.sh` from the repository root. Read [`COLAB_LARGE_SFT.md`](COLAB_LARGE_SFT.md) before execution; the resulting adapter is a research artifact and does not change the Stage 10 production boundary.
+
+```bash
+cd Nexuss-Neural-Cognition
+bash run.sh
+```
+
 ### Prerequisites
 ```bash
 # Required
