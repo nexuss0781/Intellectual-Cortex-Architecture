@@ -185,3 +185,9 @@ target_link_libraries(stage13_preparation_harness PRIVATE bio_core)
 target_include_directories(stage13_preparation_harness PRIVATE src)
 add_test(NAME stage13_preparation_harness
          COMMAND stage13_preparation_harness --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-13-preparation --repo-root ${CMAKE_SOURCE_DIR})
+# Stage 14 offline production-scale continuous-governance contracts and drills
+add_executable(stage14_governance_harness tests/stage14_governance_harness.cpp)
+target_link_libraries(stage14_governance_harness PRIVATE bio_core)
+target_include_directories(stage14_governance_harness PRIVATE src)
+add_test(NAME stage14_governance_harness
+         COMMAND stage14_governance_harness --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-14-governance --repo-root ${CMAKE_SOURCE_DIR})

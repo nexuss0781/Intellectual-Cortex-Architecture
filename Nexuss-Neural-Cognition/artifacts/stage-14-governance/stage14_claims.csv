@@ -1,0 +1,3 @@
+claim_id,claim_class,evidence_digest,release_id,region,expires_at,independently_reviewed,available_at_200
+claim@valid,scoped_service,evidence@a,release@a,sim-region-a,500,1,0
+claim@agi,general_intelligence,evidence@agi,release@a,sim-region-a,500,1,0

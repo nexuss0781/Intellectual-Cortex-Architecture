@@ -1,0 +1,5 @@
+signal_id,metric,observed,threshold,severity,release_id,owner
+drift@quality,quality,0.70,0.75,high,release@a,quality-owner
+drift@retrieval,retrieval,0.70,0.75,high,release@a,retrieval-owner
+drift@privacy,privacy,1.00,0.00,critical,release@a,privacy-owner
+drift@stale-index,retrieval,0.50,0.75,high,release@a,retrieval-owner

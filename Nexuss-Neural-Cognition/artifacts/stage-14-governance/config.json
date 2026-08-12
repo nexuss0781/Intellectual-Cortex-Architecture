@@ -1,0 +1,98 @@
+{
+  "stage": 14,
+  "status": "PREPARATION_ONLY_OFFLINE_CONTINUOUS_GOVERNANCE",
+  "entry_stage": 13,
+  "entry_status": "PREPARATION_PASS_LIVE_CANARY_NOT_AUTHORIZED",
+  "user_approval_received": true,
+  "operation_mode": "offline_control_contract_and_bounded_simulation",
+  "production_service_started": false,
+  "external_deployment": false,
+  "scoped_production_claim_authorized": false,
+  "public_service": false,
+  "live_user_traffic": false,
+  "entry_model_digest": "model@2367994276643219537",
+  "entry_adapter_digest": "adapter@stage11-native-byte",
+  "entry_policy_digest": "policy@stage10-v1",
+  "regions": [
+    {
+      "region": "sim-region-a",
+      "residency_class": "offline-test",
+      "allowed_tenants": ["tenant-a"],
+      "storage_class": "encrypted-simulated"
+    },
+    {
+      "region": "sim-region-b",
+      "residency_class": "offline-test",
+      "allowed_tenants": ["tenant-b"],
+      "storage_class": "encrypted-simulated"
+    }
+  ],
+  "service_tier": {
+    "availability_fraction": 0.99,
+    "p95_ms": 100.0,
+    "p99_ms": 200.0,
+    "minimum_throughput_requests": 100,
+    "maximum_error_fraction": 0.01,
+    "maximum_cost_per_request": 0.05,
+    "rto_seconds": 60,
+    "rpo_seconds": 300,
+    "soak_requests": 1000
+  },
+  "monitoring_domains": [
+    "quality",
+    "safety",
+    "privacy",
+    "security",
+    "reliability",
+    "cost",
+    "fairness_language",
+    "governance"
+  ],
+  "drift_thresholds": {
+    "quality": 0.75,
+    "safety": 0.95,
+    "privacy": 0.0,
+    "security": 0.0,
+    "latency": 100.0,
+    "cost": 0.05,
+    "retrieval": 0.90,
+    "language": 0.75
+  },
+  "claims": {
+    "claim_ttl_seconds": 86400,
+    "unsupported_claims": [
+      "general_intelligence",
+      "human_level",
+      "universal_safety",
+      "unrestricted_autonomy",
+      "consciousness"
+    ]
+  },
+  "incident_policy": {
+    "severity_one_requires_containment": true,
+    "severity_one_requires_communication_decision": true,
+    "severity_one_requires_root_cause_status": true,
+    "severity_one_requires_regression_tracking": true,
+    "confirmed_incident_review_fraction": 1.0
+  },
+  "retraining_policy": {
+    "feedback_training_bypass_allowed": false,
+    "dataset_approval_required": true,
+    "offline_evaluation_required": true,
+    "canary_authorization_required": true,
+    "rollback_bundle_required": true
+  },
+  "retention": {
+    "audit_retention_seconds": 31536000,
+    "incident_retention_seconds": 31536000,
+    "release_retention_seconds": 31536000,
+    "queryable_required": true
+  },
+  "limitations": [
+    "No regional deployment, external listener, public service, or live user traffic is started by this preparation harness",
+    "All scale, reliability, cost, failover, and soak measurements are deterministic in-process simulations",
+    "No external security, privacy, data-governance, compliance, or independent production assessment is performed",
+    "Passing offline controls does not authorize a scoped production claim",
+    "Any material capability, jurisdiction, tool authority, or base-model change requires a new approved stage"
+  ]
+}

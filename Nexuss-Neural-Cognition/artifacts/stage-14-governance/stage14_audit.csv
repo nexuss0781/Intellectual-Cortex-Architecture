@@ -1,0 +1,3 @@
+record_id,timestamp,tenant
+audit@soak-0,100,tenant-a
+audit@soak-999,149,tenant-a
