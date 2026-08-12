@@ -1,0 +1,23 @@
+G6-UNIT-01=PASS value=1 detail=ok
+G6-UNIT-02=PASS value=1 detail=ok
+G6-UNIT-03=PASS value=5 detail=ok
+G6-UNIT-04=PASS value=5 detail=ok
+G6-UNIT-05=PASS value=0 detail=ok
+G6-UNIT-06=PASS value=1 detail=ok
+G6-UNIT-07=PASS value=1 detail=ok
+G6-UNIT-08=PASS value=24 detail=ok
+G6-INT-01=PASS value=1 detail=ok
+G6-INT-02=PASS value=1 detail=ok
+G6-INT-03=PASS value=1 detail=ok
+G6-INT-04=PASS value=1 detail=ok
+G6-INT-05=PASS value=1 detail=ok
+G6-INT-06=PASS value=1 detail=ok
+G6-INT-07=PASS value=0.666667 detail=ok
+G6-INT-08=PASS value=0.5 detail=ok
+G6-INT-09=PASS value=0.96 detail=ok
+G6-INT-10=PASS value=1 detail=ok
+G6-INT-11=PASS value=1 detail=ok
+G6-OPS-01=PASS value=4152 detail=ok
+G6-OPS-02=PASS value=0 detail=ok
+G6-OPS-03=PASS value=1 detail=ok
+STAGE6_HARNESS=PASS

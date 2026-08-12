@@ -1,0 +1,5 @@
+case,blocked,mutation
+invalid_move,1,0
+unknown_action,1,0
+hazard_move,1,0
+unsupported_domain,1,0

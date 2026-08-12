@@ -1,0 +1,8 @@
+{
+  "seed": 424242,
+  "environment": "stage6-grid-v1",
+  "domains": ["surface-color", "symbol-texture"],
+  "curriculum": ["D1", "D2", "D3", "D4", "D5", "D6"],
+  "long_horizon_ticks": 100000,
+  "controls": ["full", "scratch", "form_only", "perception_only", "task_memorizer", "no_replay", "no_semantic_transfer"]
+}

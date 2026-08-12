@@ -1,0 +1,3 @@
+metric,value,limit
+peak_rss_kb,4152,512000
+event_count,1000,1000000

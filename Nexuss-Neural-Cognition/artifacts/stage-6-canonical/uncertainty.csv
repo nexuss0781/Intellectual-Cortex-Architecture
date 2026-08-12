@@ -1,0 +1,4 @@
+case,novelty,abstained
+ood_domain,0.95,1
+unsafe_action,0.10,1
+unsupported_form,0.90,1

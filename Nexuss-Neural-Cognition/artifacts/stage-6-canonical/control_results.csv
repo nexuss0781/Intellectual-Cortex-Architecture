@@ -1,0 +1,8 @@
+control,domain_a,domain_b,notes
+full,1.0,1.000000,replay+semantic-transfer
+scratch,0.0,1.000000,same exposure budget
+form_only,1.0,0.50,form-only baseline
+perception_only,1.0,0.50,perception-only control
+task_memorizer,1.0,0.0,unseen identities blocked
+no_replay,1.0,0.50,prior episodes discarded
+no_semantic_transfer,1.0,0.50,relational mapping disabled
