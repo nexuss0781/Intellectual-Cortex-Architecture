@@ -1,0 +1,6 @@
+control_id,blocked,reason
+raw_user_message,1,raw production feedback cannot enter training directly
+unadjudicated_preference,1,preference requires adjudication
+unknown_safety_category,1,unknown safety risk category
+draft_release,1,release status is not APPROVED_FOR_TRAINING
+no_post_training_candidate,1,no post-training candidate exists

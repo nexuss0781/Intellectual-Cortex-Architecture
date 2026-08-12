@@ -1,0 +1,56 @@
+Internal ctest changing into directory: /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/build-stage11
+Test project /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/build-stage11
+      Start  1: BioPhysicsTest.SingleNeuronIntegrity
+ 1/25 Test  #1: BioPhysicsTest.SingleNeuronIntegrity ......   Passed    0.00 sec
+      Start  2: BioPhysicsTest.STDP_CausalLink
+ 2/25 Test  #2: BioPhysicsTest.STDP_CausalLink ............   Passed    0.00 sec
+      Start  3: BioPhysicsTest.DopamineGatingAndLTD
+ 3/25 Test  #3: BioPhysicsTest.DopamineGatingAndLTD .......   Passed    0.00 sec
+      Start  4: BioPhysicsTest.MetabolicCrash
+ 4/25 Test  #4: BioPhysicsTest.MetabolicCrash .............   Passed    0.00 sec
+      Start  5: SensorySystemTest.SequenceDetection
+ 5/25 Test  #5: SensorySystemTest.SequenceDetection .......   Passed    0.00 sec
+      Start  6: SensorySystemTest.WinnerTakeAll
+ 6/25 Test  #6: SensorySystemTest.WinnerTakeAll ...........   Passed    0.00 sec
+      Start  7: SensorySystemTest.NoveltyGating
+ 7/25 Test  #7: SensorySystemTest.NoveltyGating ...........   Passed    0.00 sec
+      Start  8: MemorySystemTest.DifferentialPlasticity
+ 8/25 Test  #8: MemorySystemTest.DifferentialPlasticity ...   Passed    0.00 sec
+      Start  9: MemorySystemTest.PatternCompletion
+ 9/25 Test  #9: MemorySystemTest.PatternCompletion ........   Passed    0.00 sec
+      Start 10: meta_cognition_v2
+10/25 Test #10: meta_cognition_v2 .........................   Passed    0.03 sec
+      Start 11: uin_tests
+11/25 Test #11: uin_tests .................................   Passed    0.18 sec
+      Start 12: uin_stress_test
+12/25 Test #12: uin_stress_test ...........................   Passed    0.10 sec
+      Start 13: stage0_harness
+13/25 Test #13: stage0_harness ............................   Passed    0.77 sec
+      Start 14: stage1_harness
+14/25 Test #14: stage1_harness ............................   Passed    0.24 sec
+      Start 15: stage2_harness
+15/25 Test #15: stage2_harness ............................   Passed    0.01 sec
+      Start 16: stage3_harness
+16/25 Test #16: stage3_harness ............................   Passed    0.00 sec
+      Start 17: stage4_harness
+17/25 Test #17: stage4_harness ............................   Passed    0.08 sec
+      Start 18: stage5_harness
+18/25 Test #18: stage5_harness ............................   Passed    0.00 sec
+      Start 19: stage6_harness
+19/25 Test #19: stage6_harness ............................   Passed    0.01 sec
+      Start 20: stage7_harness
+20/25 Test #20: stage7_harness ............................   Passed    0.00 sec
+      Start 21: stage8_harness
+21/25 Test #21: stage8_harness ............................   Passed    0.02 sec
+      Start 22: stage9_harness
+22/25 Test #22: stage9_harness ............................   Passed    0.12 sec
+      Start 23: stage10_harness
+23/25 Test #23: stage10_harness ...........................   Passed    0.00 sec
+      Start 24: stage10_sft_harness
+24/25 Test #24: stage10_sft_harness .......................   Passed   30.70 sec
+      Start 25: stage11_preparation_harness
+25/25 Test #25: stage11_preparation_harness ...............   Passed    0.00 sec
+
+[0;32m100% tests passed[0;0m, 0 tests failed[0;0m out of 25
+
+Total Test time (real) =  32.30 sec
