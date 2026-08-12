@@ -233,3 +233,10 @@ target_link_libraries(integrated_loop PRIVATE bio_core)
 target_include_directories(integrated_loop PRIVATE src)
 add_test(NAME integrated_loop
          COMMAND integrated_loop 424242 ${CMAKE_BINARY_DIR}/artifacts/integrated-loop)
+
+# Milestone B2: continual learning under conflicting-task interference
+add_executable(interference_retention experiments/interference_retention.cpp src/learning/memory_system.cpp)
+target_link_libraries(interference_retention PRIVATE bio_core)
+target_include_directories(interference_retention PRIVATE src)
+add_test(NAME interference_retention
+         COMMAND interference_retention 424242 ${CMAKE_BINARY_DIR}/artifacts/interference-retention)
