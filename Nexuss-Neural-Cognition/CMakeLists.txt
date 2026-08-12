@@ -212,3 +212,10 @@ target_link_libraries(transfer_decision PRIVATE bio_core)
 target_include_directories(transfer_decision PRIVATE src)
 add_test(NAME transfer_decision
          COMMAND transfer_decision 424242 ${CMAKE_BINARY_DIR}/artifacts/transfer-decision)
+
+# Milestone A4: two-step decision-chain credit assignment
+add_executable(chain_decision experiments/chain_decision.cpp)
+target_link_libraries(chain_decision PRIVATE bio_core)
+target_include_directories(chain_decision PRIVATE src)
+add_test(NAME chain_decision
+         COMMAND chain_decision 424242 ${CMAKE_BINARY_DIR}/artifacts/chain-decision)
