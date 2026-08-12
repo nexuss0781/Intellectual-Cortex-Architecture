@@ -1,0 +1,7 @@
+{
+  "model_id": "nexuss-byte-lm-control-v1",
+  "weight_digest": "model@10285057451631309900",
+  "tokenizer_digest": "tokenizer@identity-byte-v1",
+  "license": "internal-test-permission",
+  "parameter_count": 65792
+}

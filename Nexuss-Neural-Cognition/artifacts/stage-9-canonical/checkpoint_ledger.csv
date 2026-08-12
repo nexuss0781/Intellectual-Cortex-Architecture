@@ -1,0 +1,5 @@
+checkpoint_id,epoch,digest,optimizer_state,approved
+base,0,model@10285057451631309900,present,1
+checkpoint-04,4,checkpoint@04,present,0
+checkpoint-08,8,checkpoint@08,present,0
+checkpoint-12,12,model@18217991639257382938,present,1

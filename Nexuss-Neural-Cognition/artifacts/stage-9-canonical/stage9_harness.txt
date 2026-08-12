@@ -1,0 +1,26 @@
+M9-UNIT-01=PASS value=65792 detail=ok
+M9-UNIT-02=PASS value=1 detail=ok
+M9-UNIT-03=PASS value=1 detail=ok
+M9-UNIT-04=PASS value=3 detail=ok
+M9-UNIT-05=PASS value=1 detail=ok
+M9-UNIT-06=PASS value=1 detail=ok
+M9-UNIT-07=PASS value=1 detail=ok
+M9-INT-01=PASS value=0.165562317046 detail=ok
+M9-INT-02=PASS value=1 detail=ok
+M9-INT-03=PASS value=1 detail=ok
+M9-INT-04=PASS value=0.0849904687619 detail=ok
+M9-INT-05=PASS value=0.321637426901 detail=ok
+M9-INT-06=PASS value=0 detail=ok
+M9-INT-07=PASS value=0 detail=ok
+M9-OPS-01=PASS value=6416 detail=ok
+M9-OPS-02=PASS value=8.3e-05 detail=ok
+M9-OPS-03=PASS value=1 detail=ok
+M9-NEG-01=PASS value=1 detail=ok
+M9-NEG-02=PASS value=1 detail=ok
+M9-NEG-03=PASS value=1 detail=ok
+M9-NEG-04=PASS value=1 detail=ok
+M9-NEG-05=PASS value=1 detail=ok
+M9-NEG-06=PASS value=1 detail=ok
+M9-NEG-07=PASS value=1 detail=ok
+M9-NEG-08=PASS value=1 detail=ok
+STAGE9_HARNESS=PASS

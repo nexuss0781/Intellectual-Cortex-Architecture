@@ -139,3 +139,10 @@ target_link_libraries(stage8_harness PRIVATE bio_core)
 target_include_directories(stage8_harness PRIVATE src)
 add_test(NAME stage8_harness
          COMMAND stage8_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-8 --repo-root ${CMAKE_SOURCE_DIR} --entry-evidence-dir ${CMAKE_SOURCE_DIR}/artifacts/stage-7-canonical)
+
+# Stage 9: executable CPU training pilot and independent NLP baseline comparison
+add_executable(stage9_harness tests/stage9_harness.cpp)
+target_link_libraries(stage9_harness PRIVATE bio_core)
+target_include_directories(stage9_harness PRIVATE src)
+add_test(NAME stage9_harness
+         COMMAND stage9_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-9 --repo-root ${CMAKE_SOURCE_DIR} --entry-evidence-dir ${CMAKE_SOURCE_DIR}/artifacts/stage-8-canonical)

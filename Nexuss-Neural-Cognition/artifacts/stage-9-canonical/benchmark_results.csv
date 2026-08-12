@@ -1,0 +1,5 @@
+arm,domain_quality,general_quality,domain_gain,transitions
+approved_base_model_control,0.022421,0.022787,0,171
+continued_pretraining,0.187983,0.200641,0.165562,171
+independent_bigram_reference,0.414542,0.321637,comparator,171
+independent_frequency_reference,0.247264,0.091429,comparator,175

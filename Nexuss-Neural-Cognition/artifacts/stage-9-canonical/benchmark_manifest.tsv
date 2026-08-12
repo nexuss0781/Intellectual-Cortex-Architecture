@@ -1,0 +1,4 @@
+benchmark_id|split|count|custody
+domain-dev|development|4|internal
+general-control|development|4|internal
+sealed-evaluation|sealed|3|independent

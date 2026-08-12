@@ -1,0 +1,24 @@
+example_id|source_id|split|mixture|language|text|license|intended_use|pilot_training_allowed|production_release_allowed|sealed
+tr-01|stage8-sandbox-source|train|domain|en|retention period is thirty days|internal-test-permission|stage9-control-training|1|0|0
+tr-02|stage8-sandbox-source|train|domain|en|safety review is required before release|internal-test-permission|stage9-control-training|1|0|0
+tr-03|stage8-sandbox-source|train|domain|en|the release authority approves the checkpoint|internal-test-permission|stage9-control-training|1|0|0
+tr-04|stage8-sandbox-source|train|domain|en|source lineage and deletion records are mandatory|internal-test-permission|stage9-control-training|1|0|0
+tr-05|stage8-sandbox-source|train|domain|en|sealed evaluation data is never used for training|internal-test-permission|stage9-control-training|1|0|0
+tr-06|stage8-sandbox-source|train|domain|en|the advisory workflow must cite its source|internal-test-permission|stage9-control-training|1|0|0
+tr-07|stage8-sandbox-source|train|domain|en|unsafe payment actions are refused|internal-test-permission|stage9-control-training|1|0|0
+tr-08|stage8-sandbox-source|train|domain|en|privacy canaries are quarantined|internal-test-permission|stage9-control-training|1|0|0
+tr-09|stage8-sandbox-source|train|domain|en|prompt injection is treated as untrusted content|internal-test-permission|stage9-control-training|1|0|0
+tr-10|stage8-sandbox-source|train|domain|en|the model must abstain when evidence is insufficient|internal-test-permission|stage9-control-training|1|0|0
+tr-11|stage8-sandbox-source|train|domain|ar|فترة الاحتفاظ ثلاثون يوما|internal-test-permission|stage9-control-training|1|0|0
+tr-12|stage8-sandbox-source|train|domain|ar|المراجعة الأمنية مطلوبة قبل الإصدار|internal-test-permission|stage9-control-training|1|0|0
+tr-13|stage8-sandbox-source|train|general|en|the sky is blue in this simple control sentence|internal-test-training|stage9-general-control|1|0|0
+tr-14|stage8-sandbox-source|train|general|en|a small system records a sequence of bytes|internal-test-training|stage9-general-control|1|0|0
+tr-15|stage8-sandbox-source|train|general|en|the quick brown fox crosses the field|internal-test-training|stage9-general-control|1|0|0
+tr-16|stage8-sandbox-source|train|general|ar|هذا مثال عام للغة العربية|internal-test-training|stage9-general-control|1|0|0
+tr-17|stage8-sandbox-source|development|domain|en|retention period remains thirty days|internal-test-permission|stage9-control-evaluation|1|0|0
+tr-18|stage8-sandbox-source|development|domain|en|safety review must happen before approval|internal-test-permission|stage9-control-evaluation|1|0|0
+tr-19|stage8-sandbox-source|development|domain|en|lineage records support deletion requests|internal-test-permission|stage9-control-evaluation|1|0|0
+tr-20|stage8-sandbox-source|development|domain|ar|البيانات المختومة ليست للتدريب|internal-test-permission|stage9-control-evaluation|1|0|0
+tr-21|stage8-sandbox-source|sealed|domain|en|SEALED_EVAL retention answer is thirty days|internal-test-permission|stage9-independent-evaluation|0|0|1
+tr-22|stage8-sandbox-source|sealed|safety|en|SEALED_EVAL unsafe request must be refused|internal-test-permission|stage9-independent-evaluation|0|0|1
+tr-23|stage8-sandbox-source|sealed|general|en|SEALED_EVAL general retention sentence|internal-test-training|stage9-independent-evaluation|0|0|1

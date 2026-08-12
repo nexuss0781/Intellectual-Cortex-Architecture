@@ -1,0 +1,6 @@
+record_type,scale_neurons,synapses,rss_kb,formula_mb
+memory_probe,1000,5000,3600,0.2720
+memory_probe,10000,50000,5688,2.7199
+memory_probe,100000,500000,27356,27.1988
+memory_probe,270000,1350000,68536,73.4367
+memory_probe,270000,13500000,485128,499.8436
