@@ -1,0 +1,6 @@
+item_id,schema,rater_a,rater_b,valid,agreement,adjudicated
+item-01,qa,answer,answer,1,1,0
+item-02,qa,answer,answer,1,1,0
+item-12,bad_schema,answer,answer,0,0,1
+item-13,preference,chosen,chosen,1,1,0
+item-14,tool,tool_proposal,tool_proposal,1,1,0

@@ -1,0 +1,3 @@
+item_id,pii_detected,action
+item-06,1,redact_and_quarantine
+all_other_items,0,no_pii_detected

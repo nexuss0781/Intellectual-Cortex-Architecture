@@ -132,3 +132,10 @@ target_link_libraries(stage7_harness PRIVATE bio_core)
 target_include_directories(stage7_harness PRIVATE src)
 add_test(NAME stage7_harness
          COMMAND stage7_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-7 --repo-root ${CMAKE_SOURCE_DIR} --entry-evidence-dir ${CMAKE_SOURCE_DIR}/artifacts/stage-6-canonical)
+
+# Stage 8: governed data factory, privacy, rights, deduplication, and evaluation integrity
+add_executable(stage8_harness tests/stage8_harness.cpp)
+target_link_libraries(stage8_harness PRIVATE bio_core)
+target_include_directories(stage8_harness PRIVATE src)
+add_test(NAME stage8_harness
+         COMMAND stage8_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-8 --repo-root ${CMAKE_SOURCE_DIR} --entry-evidence-dir ${CMAKE_SOURCE_DIR}/artifacts/stage-7-canonical)

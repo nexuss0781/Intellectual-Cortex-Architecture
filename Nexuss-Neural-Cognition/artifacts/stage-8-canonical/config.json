@@ -1,0 +1,58 @@
+{
+  "stage": 8,
+  "name": "data-factory-evaluation-integrity",
+  "version": "stage8-v1",
+  "status": "canonical-pass",
+  "claims_boundary": "This stage validates a governed data-factory and evaluation-integrity control plane; it does not claim a production corpus, trained model, or production NLP quality.",
+  "executable_gate_count": 25,
+  "entry_evidence_dir": "artifacts/stage-7-canonical",
+  "fixture_policy": "sandbox_fixture_only_not_for_production_training",
+  "source_manifest": "configs/stage8_sources.tsv",
+  "record_manifest": "configs/stage8_records.tsv",
+  "required_rights": ["owner", "acquisition_method", "license_or_permission", "jurisdiction", "intended_use", "retention_policy", "content_hash", "collected_at", "removal_supported"],
+  "privacy_policy": {
+    "pii_action": "redact_and_quarantine",
+    "secret_action": "redact_and_quarantine",
+    "silent_pass_allowed": false
+  },
+  "split_policy": {
+    "source_aware": true,
+    "time_aware": true,
+    "entity_aware": true,
+    "cross_split_exact_duplicate_rate": 0.0,
+    "cross_split_near_duplicate_rate": 0.0
+  },
+  "evaluation_custody": {
+    "development_access": true,
+    "release_access": true,
+    "sealed_training_access": false,
+    "sealed_independent_evaluator_access": true,
+    "unauthorized_read_threshold": 0
+  },
+  "annotation_policy": {
+    "minimum_agreement": 1.0,
+    "adjudication_required_on_disagreement": true,
+    "invalid_schema_action": "quarantine"
+  },
+  "resource_limits": {
+    "management_plane_rss_kb": 65536,
+    "minimum_fixture_records_per_second": 100,
+    "max_audit_events": 100000
+  },
+  "transition_gates": {
+    "unit_integration_operations_pass_rate": 1.0,
+    "approved_source_lineage": 1.0,
+    "invalid_rights_in_training_release": 0,
+    "source_deletion_completeness": 1.0,
+    "pii_secret_control_rate": 1.0,
+    "sealed_unauthorized_reads": 0,
+    "known_contamination_retained_in_train": 0,
+    "cross_split_exact_duplicates": 0,
+    "cross_split_near_duplicates": 0,
+    "dataset_card_coverage": 1.0,
+    "untraceable_transformations": 0,
+    "restart_loss_or_duplication": 0
+  },
+  "next_stage": "stage9-nlp-baseline-continued-pretraining",
+  "approval_required_before_next_stage": true
+}

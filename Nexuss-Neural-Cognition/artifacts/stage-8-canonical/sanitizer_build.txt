@@ -1,0 +1,175 @@
+[  2%] [32mBuilding CXX object CMakeFiles/bio_core.dir/src/bio_engine.cpp.o[0m
+[  4%] [32mBuilding CXX object _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[  6%] [32mBuilding CXX object CMakeFiles/bio_core.dir/src/meta_cognition.cpp.o[0m
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/meta_cognition.cpp: In member function ‘void genesis::MetaCognitiveEngine::update_activity_metrics()’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/meta_cognition.cpp:600:17: warning: unused variable ‘neurons’ [-Wunused-variable]
+  600 |     const auto& neurons = engine_->get_neurons();
+      |                 ^~~~~~~
+[  8%] [32m[1mLinking CXX static library libbio_core.a[0m
+[  8%] Built target bio_core
+[ 10%] [32mBuilding CXX object CMakeFiles/nexuss_sim.dir/src/main.cpp.o[0m
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/main.cpp: In function ‘int main()’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/main.cpp:66:14: warning: unused variable ‘v_in_idx’ [-Wunused-variable]
+   66 |     uint32_t v_in_idx = engine.create_layer("VisInput", LAYER_SIZE, LAYER_ID_INPUT);
+      |              ^~~~~~~~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/main.cpp:67:14: warning: unused variable ‘a_in_idx’ [-Wunused-variable]
+   67 |     uint32_t a_in_idx = engine.create_layer("AudInput", LAYER_SIZE, LAYER_ID_INPUT);
+      |              ^~~~~~~~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/main.cpp:70:14: warning: unused variable ‘v_ctx_idx’ [-Wunused-variable]
+   70 |     uint32_t v_ctx_idx = engine.create_layer("VisCortex", LAYER_SIZE, LAYER_ID_CORTEX);
+      |              ^~~~~~~~~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/main.cpp:71:14: warning: unused variable ‘a_ctx_idx’ [-Wunused-variable]
+   71 |     uint32_t a_ctx_idx = engine.create_layer("AudCortex", LAYER_SIZE, LAYER_ID_CORTEX);
+      |              ^~~~~~~~~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/main.cpp:117:12: warning: unused variable ‘total_cursor’ [-Wunused-variable]
+  117 |     size_t total_cursor = std::max(current_engine_cursor, synapse_cursor);
+      |            ^~~~~~~~~~~~
+[ 12%] [32m[1mLinking CXX executable nexuss_sim[0m
+[ 12%] Built target nexuss_sim
+[ 14%] [32mBuilding CXX object CMakeFiles/meta_cognition_demo.dir/src/demo_meta_cognition.cpp.o[0m
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/demo_meta_cognition.cpp: In function ‘int main()’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/demo_meta_cognition.cpp:35:12: warning: unused variable ‘total_spikes’ [-Wunused-variable]
+   35 |     size_t total_spikes = 0;
+      |            ^~~~~~~~~~~~
+[ 16%] [32m[1mLinking CXX executable meta_cognition_demo[0m
+[ 16%] Built target meta_cognition_demo
+[ 18%] [32mBuilding CXX object CMakeFiles/test_meta_cognition_v2.dir/tests/test_meta_cognition_v2.cpp.o[0m
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/test_meta_cognition_v2.cpp: In function ‘bool test_demand_signal_assessment()’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/test_meta_cognition_v2.cpp:342:17: warning: unused variable ‘demand’ [-Wunused-variable]
+  342 |     const auto& demand = engine.get_demand();
+      |                 ^~~~~~
+[ 20%] [32m[1mLinking CXX executable test_meta_cognition_v2[0m
+[ 20%] Built target test_meta_cognition_v2
+[ 22%] [32mBuilding CXX object CMakeFiles/stage0_harness.dir/tests/stage0_harness.cpp.o[0m
+In file included from /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/stage0_harness.cpp:1:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_slow_gate(float&, bool, uint16_t, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:172:65: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  172 |                                         uint16_t type_id, float dt) const {
+      |                                                           ~~~~~~^~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_phase(float&, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:195:55: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  195 | inline void UINEngine::update_phase(float& phi, float dt) const {
+      |                                                 ~~~~~~^~
+[ 24%] [32m[1mLinking CXX static library ../../../lib/libgtest.a[0m
+[ 24%] Built target gtest
+[ 26%] [32mBuilding CXX object CMakeFiles/stage1_harness.dir/tests/stage1_harness.cpp.o[0m
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/stage1_harness.cpp:174:5: warning: ‘int {anonymous}::parse_int_arg(int, char**, const std::string&, int)’ defined but not used [-Wunused-function]
+  174 | int parse_int_arg(int argc, char** argv, const std::string& name, int fallback) {
+      |     ^~~~~~~~~~~~~
+[ 28%] [32mBuilding CXX object CMakeFiles/stage0_harness.dir/src/intellectual/uin_engine.cpp.o[0m
+In file included from /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.cpp:1:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_slow_gate(float&, bool, uint16_t, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:172:65: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  172 |                                         uint16_t type_id, float dt) const {
+      |                                                           ~~~~~~^~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_phase(float&, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:195:55: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  195 | inline void UINEngine::update_phase(float& phi, float dt) const {
+      |                                                 ~~~~~~^~
+[ 30%] [32m[1mLinking CXX executable stage0_harness[0m
+[ 30%] Built target stage0_harness
+[ 32%] [32mBuilding CXX object CMakeFiles/stage2_harness.dir/tests/stage2_harness.cpp.o[0m
+[ 34%] [32m[1mLinking CXX executable stage1_harness[0m
+[ 34%] Built target stage1_harness
+[ 36%] [32mBuilding CXX object CMakeFiles/stage3_harness.dir/tests/stage3_harness.cpp.o[0m
+[ 38%] [32mBuilding CXX object CMakeFiles/stage2_harness.dir/src/learning/memory_system.cpp.o[0m
+[ 40%] [32m[1mLinking CXX executable stage3_harness[0m
+[ 40%] Built target stage3_harness
+[ 42%] [32mBuilding CXX object CMakeFiles/stage4_harness.dir/tests/stage4_harness.cpp.o[0m
+[ 44%] [32m[1mLinking CXX executable stage2_harness[0m
+[ 44%] Built target stage2_harness
+[ 46%] [32mBuilding CXX object CMakeFiles/stage5_harness.dir/tests/stage5_harness.cpp.o[0m
+[ 48%] [32m[1mLinking CXX executable stage5_harness[0m
+[ 48%] Built target stage5_harness
+[ 51%] [32mBuilding CXX object CMakeFiles/stage6_harness.dir/tests/stage6_harness.cpp.o[0m
+In file included from /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/stage6_harness.cpp:1:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/learning/grounding_engine.h:310:58: warning: identifier ‘concept’ is a keyword in C++20 [-Wc++20-compat]
+  310 |     const Stage6GroundingHypothesis* hypothesis(uint64_t concept) const { const auto found = hypotheses_.find(concept); return found == hypotheses_.end() ? nullptr : &found->second; }
+      |                                                          ^~~~~~~
+[ 53%] [32m[1mLinking CXX executable stage4_harness[0m
+[ 53%] Built target stage4_harness
+[ 55%] [32mBuilding CXX object CMakeFiles/stage7_harness.dir/tests/stage7_harness.cpp.o[0m
+[ 57%] [32m[1mLinking CXX executable stage6_harness[0m
+[ 57%] Built target stage6_harness
+[ 59%] [32mBuilding CXX object CMakeFiles/stage8_harness.dir/tests/stage8_harness.cpp.o[0m
+[ 61%] [32m[1mLinking CXX executable stage7_harness[0m
+[ 61%] Built target stage7_harness
+[ 63%] [32mBuilding CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o[0m
+[ 65%] [32m[1mLinking CXX executable stage8_harness[0m
+[ 65%] Built target stage8_harness
+[ 67%] [32mBuilding CXX object _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[ 69%] [32m[1mLinking CXX static library ../../../lib/libgmock.a[0m
+[ 71%] [32m[1mLinking CXX static library ../../../lib/libgtest_main.a[0m
+[ 71%] Built target gmock
+[ 71%] Built target gtest_main
+[ 73%] [32mBuilding CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/physics_tests.dir/tests/physics_tests.cpp.o[0m
+[ 77%] [32m[1mLinking CXX static library ../../../lib/libgmock_main.a[0m
+[ 77%] Built target gmock_main
+[ 79%] [32mBuilding CXX object CMakeFiles/sensory_tests.dir/tests/sensory_tests.cpp.o[0m
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/sensory_tests.cpp: In member function ‘virtual void SensorySystemTest_NoveltyGating_Test::TestBody()’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/sensory_tests.cpp:107:11: warning: unused variable ‘avg_activity’ [-Wunused-variable]
+  107 |     float avg_activity = 0.0f; // We can't directly access thalamus internal state, but we test behavior
+      |           ^~~~~~~~~~~~
+[ 81%] [32m[1mLinking CXX executable physics_tests[0m
+[ 81%] Built target physics_tests
+[ 83%] [32mBuilding CXX object CMakeFiles/memory_tests.dir/tests/memory_tests.cpp.o[0m
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/memory_tests.cpp: In member function ‘virtual void MemorySystemTest_DifferentialPlasticity_Test::TestBody()’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/memory_tests.cpp:25:14: warning: unused variable ‘input_start’ [-Wunused-variable]
+   25 |     uint32_t input_start = engine.create_layer("Input", 1, LAYER_ID_INPUT);
+      |              ^~~~~~~~~~~
+[ 85%] [32m[1mLinking CXX executable sensory_tests[0m
+[ 85%] Built target sensory_tests
+[ 87%] [32mBuilding CXX object CMakeFiles/uin_tests.dir/tests/uin_tests.cpp.o[0m
+In file included from /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/uin_tests.cpp:9:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_slow_gate(float&, bool, uint16_t, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:172:65: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  172 |                                         uint16_t type_id, float dt) const {
+      |                                                           ~~~~~~^~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_phase(float&, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:195:55: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  195 | inline void UINEngine::update_phase(float& phi, float dt) const {
+      |                                                 ~~~~~~^~
+[ 89%] [32m[1mLinking CXX executable memory_tests[0m
+[ 89%] Built target memory_tests
+[ 91%] [32mBuilding CXX object CMakeFiles/uin_stress_test.dir/tests/uin_stress_test.cpp.o[0m
+In file included from /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/uin_stress_test.cpp:9:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_slow_gate(float&, bool, uint16_t, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:172:65: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  172 |                                         uint16_t type_id, float dt) const {
+      |                                                           ~~~~~~^~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_phase(float&, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:195:55: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  195 | inline void UINEngine::update_phase(float& phi, float dt) const {
+      |                                                 ~~~~~~^~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/uin_stress_test.cpp: In member function ‘virtual void UINFullScaleTest_PhaseRotationMathematics_Test::TestBody()’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/uin_stress_test.cpp:269:15: warning: unused variable ‘phi_before’ [-Wunused-variable]
+  269 |         float phi_before = neurons.recovery_variable[0];
+      |               ^~~~~~~~~~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/tests/uin_stress_test.cpp:266:11: warning: unused variable ‘total_rotation’ [-Wunused-variable]
+  266 |     float total_rotation = 0.0f;
+      |           ^~~~~~~~~~~~~~
+[ 93%] [32mBuilding CXX object CMakeFiles/uin_tests.dir/src/intellectual/uin_engine.cpp.o[0m
+In file included from /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.cpp:1:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_slow_gate(float&, bool, uint16_t, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:172:65: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  172 |                                         uint16_t type_id, float dt) const {
+      |                                                           ~~~~~~^~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_phase(float&, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:195:55: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  195 | inline void UINEngine::update_phase(float& phi, float dt) const {
+      |                                                 ~~~~~~^~
+[ 95%] [32m[1mLinking CXX executable uin_tests[0m
+[ 95%] Built target uin_tests
+[ 97%] [32mBuilding CXX object CMakeFiles/uin_stress_test.dir/src/intellectual/uin_engine.cpp.o[0m
+In file included from /home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.cpp:1:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_slow_gate(float&, bool, uint16_t, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:172:65: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  172 |                                         uint16_t type_id, float dt) const {
+      |                                                           ~~~~~~^~
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h: In member function ‘void genesis::intellectual::UINEngine::update_phase(float&, float) const’:
+/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition/src/intellectual/uin_engine.h:195:55: warning: unused parameter ‘dt’ [-Wunused-parameter]
+  195 | inline void UINEngine::update_phase(float& phi, float dt) const {
+      |                                                 ~~~~~~^~
+[100%] [32m[1mLinking CXX executable uin_stress_test[0m
+[100%] Built target uin_stress_test

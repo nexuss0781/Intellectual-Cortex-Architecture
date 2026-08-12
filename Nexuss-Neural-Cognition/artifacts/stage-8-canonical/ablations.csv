@@ -1,0 +1,7 @@
+ablation,control_metric,with_control,without_control,interpretation
+near_deduplication,cross_split_near_duplicates,0,1,removing dedupe exposes seeded near duplicate
+source_split_manager,source_split_conflicts,0,1,removing source split isolation creates conflict
+privacy_filtering,sensitive_items_retained,0,2,removing privacy controls retains canaries
+secret_scanning,secrets_retained,0,1,removing secret scanning retains canary
+sealed_custody,unauthorized_reads,0,1,removing custody exposes hidden item
+annotation_adjudication,invalid_schema_retained,0,1,removing validation retains invalid schema

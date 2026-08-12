@@ -1,0 +1,67 @@
+[Genesis] Phase III: Associative Memory & Concepts
+  > Growing Neural Regions...
+  > Wiring Connectome...
+  > Synapses: 400000
+[Genesis] Starting Experiment...
+T:   0 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T: 100 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T: 200 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T: 300 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T: 400 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T: 500 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:1.0
+T: 600 | AWAKE | VisIn: 1 VisCtx:  0 | AudIn: 1 AudCtx:  0 | HIP:  0 | DA:1.0
+T: 700 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:1.0
+T: 800 | AWAKE | VisIn: 3 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:1.0
+T: 900 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:1.0
+T:1000 | AWAKE | VisIn: 2 VisCtx:  0 | AudIn: 1 AudCtx:  0 | HIP:  0 | DA:1.0
+T:1100 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:1.0
+T:1200 | AWAKE | VisIn: 1 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:1.0
+T:1300 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:1.0
+T:1400 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 1 AudCtx:  0 | HIP:  0 | DA:1.0
+T:1500 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:1600 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:1700 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:1800 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:1900 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:2000 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:2100 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:2200 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:2300 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:2400 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:2500 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:2600 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:2700 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:2800 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:2900 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:3000 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:3100 | AWAKE | VisIn: 1 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:3200 | AWAKE | VisIn: 1 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:3300 | AWAKE | VisIn: 1 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:3400 | AWAKE | VisIn: 2 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:3500 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:3600 | AWAKE | VisIn: 2 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:3700 | AWAKE | VisIn: 1 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:3800 | AWAKE | VisIn: 2 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:3900 | AWAKE | VisIn: 1 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:4000 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:4100 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:4200 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:4300 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:4400 | AWAKE | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:4500 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  2 | DA:0.0
+T:4600 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:4700 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:4800 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:4900 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:5000 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:5100 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:5200 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:5300 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:5400 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:5500 | SLEEP | VisIn: 0 VisCtx:  1 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:5600 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:5700 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  1 | DA:0.0
+T:5800 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+T:5900 | SLEEP | VisIn: 0 VisCtx:  0 | AudIn: 0 AudCtx:  0 | HIP:  0 | DA:0.0
+[Genesis] Experiment Complete.
+  Speedup: 0.4x

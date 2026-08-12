@@ -1,0 +1,26 @@
+D8-UNIT-01=PASS value=4 detail=ok
+D8-UNIT-02=PASS value=1.67141272191e+18 detail=ok
+D8-UNIT-03=PASS value=2 detail=ok
+D8-UNIT-04=PASS value=2 detail=ok
+D8-UNIT-05=PASS value=1 detail=ok
+D8-UNIT-06=PASS value=1 detail=ok
+D8-UNIT-07=PASS value=14 detail=ok
+D8-UNIT-08=PASS value=1 detail=ok
+D8-INT-01=PASS value=1 detail=ok
+D8-INT-02=PASS value=1 detail=ok
+D8-INT-03=PASS value=1 detail=ok
+D8-INT-04=PASS value=1 detail=ok
+D8-INT-05=PASS value=1 detail=ok
+D8-INT-06=PASS value=2 detail=ok
+D8-OPS-01=PASS value=1800 detail=ok
+D8-OPS-02=PASS value=1 detail=ok
+D8-OPS-03=PASS value=25 detail=ok
+D8-NEG-01=PASS value=1 detail=ok
+D8-NEG-02=PASS value=1 detail=ok
+D8-NEG-03=PASS value=1 detail=ok
+D8-NEG-04=PASS value=1 detail=ok
+D8-NEG-05=PASS value=1 detail=ok
+D8-NEG-06=PASS value=1 detail=ok
+D8-NEG-07=PASS value=6 detail=ok
+D8-NEG-08=PASS value=3 detail=ok
+STAGE8_HARNESS=PASS

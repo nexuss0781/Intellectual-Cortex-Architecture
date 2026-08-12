@@ -1,0 +1,4 @@
+metric,value,limit
+peak_rss_kb,4136,65536
+throughput_records_per_second,1800.000000,100
+audit_event_count,27,100000

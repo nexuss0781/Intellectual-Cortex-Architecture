@@ -1,0 +1,6 @@
+source_id,decision,reason
+source-good-train,approved,internal-test-permission
+source-good-dev,approved,internal-test-permission
+source-eval,approved,sealed-evaluation-only
+source-unclear,rejected,unknown-license
+source-no-delete,rejected,no-removal-support
