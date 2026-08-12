@@ -85,6 +85,12 @@ struct ModelSnapshot {
     uint64_t steps = 0;
 };
 
+struct PreferencePair {
+    std::string example_id;
+    TrainingExample chosen;
+    TrainingExample rejected;
+};
+
 struct LanguageEvaluation {
     double loss = 0.0;
     double accuracy = 0.0;
@@ -182,6 +188,39 @@ public:
         }
     }
 
+    double score_supervised(const TrainingExample& example) const {
+        if (example.hidden || example.benchmark_marker || example.text.size() < 2U) return 0.0;
+        const size_t start = std::min(std::max<size_t>(1U, example.supervised_start), example.text.size() - 1U);
+        double score = 0.0;
+        size_t transitions = 0U;
+        for (size_t index = start; index < example.text.size(); ++index) {
+            const size_t previous = static_cast<unsigned char>(example.text[index - 1U]);
+            const size_t target = static_cast<unsigned char>(example.text[index]);
+            const size_t row = previous * kVocabulary;
+            float maximum = -std::numeric_limits<float>::infinity();
+            for (size_t output = 0; output < kVocabulary; ++output) maximum = std::max(maximum, weights_[row + output] + bias_[output]);
+            double normalizer = 0.0;
+            for (size_t output = 0; output < kVocabulary; ++output) normalizer += std::exp(static_cast<double>(weights_[row + output] + bias_[output] - maximum));
+            const double probability = std::exp(static_cast<double>(weights_[row + target] + bias_[target] - maximum)) / normalizer;
+            score += std::log(std::max(probability, 1e-12));
+            ++transitions;
+        }
+        return transitions == 0U ? 0.0 : score / static_cast<double>(transitions);
+    }
+
+    void train_preference(const std::vector<PreferencePair>& pairs, const size_t epochs, const double learning_rate, const double beta) {
+        for (size_t epoch = 0; epoch < epochs; ++epoch) {
+            for (const auto& pair : pairs) {
+                const double chosen_score = score_supervised(pair.chosen);
+                const double rejected_score = score_supervised(pair.rejected);
+                const double margin = std::max(-30.0, std::min(30.0, beta * (chosen_score - rejected_score)));
+                const double preference_weight = 1.0 / (1.0 + std::exp(margin));
+                apply_supervised_gradient(pair.chosen, learning_rate * preference_weight);
+                apply_supervised_gradient(pair.rejected, -learning_rate * preference_weight);
+            }
+        }
+    }
+
     LanguageEvaluation evaluate_supervised(const std::vector<TrainingExample>& examples) const {
         LanguageEvaluation evaluation;
         double loss = 0.0;
@@ -236,6 +275,28 @@ public:
     uint64_t steps() const { return steps_; }
 
 private:
+    void apply_supervised_gradient(const TrainingExample& example, const double learning_rate) {
+        if (example.hidden || example.benchmark_marker || example.text.size() < 2U) return;
+        const size_t start = std::min(std::max<size_t>(1U, example.supervised_start), example.text.size() - 1U);
+        const double transition_scale = 1.0 / static_cast<double>(std::max<size_t>(1U, example.text.size() - start));
+        for (size_t index = start; index < example.text.size(); ++index) {
+            const size_t previous = static_cast<unsigned char>(example.text[index - 1U]);
+            const size_t target = static_cast<unsigned char>(example.text[index]);
+            const size_t row = previous * kVocabulary;
+            float maximum = -std::numeric_limits<float>::infinity();
+            for (size_t output = 0; output < kVocabulary; ++output) maximum = std::max(maximum, weights_[row + output] + bias_[output]);
+            double normalizer = 0.0;
+            for (size_t output = 0; output < kVocabulary; ++output) normalizer += std::exp(static_cast<double>(weights_[row + output] + bias_[output] - maximum));
+            for (size_t output = 0; output < kVocabulary; ++output) {
+                const double probability = std::exp(static_cast<double>(weights_[row + output] + bias_[output] - maximum)) / normalizer;
+                const double gradient = probability - (output == target ? 1.0 : 0.0);
+                weights_[row + output] = static_cast<float>(weights_[row + output] - learning_rate * transition_scale * gradient);
+                bias_[output] = static_cast<float>(bias_[output] - learning_rate * transition_scale * 0.05 * gradient);
+            }
+            ++steps_;
+        }
+    }
+
     uint64_t seed_ = 0;
     std::vector<float> weights_;
     std::vector<float> bias_;

@@ -1,0 +1,3 @@
+phase,preference_train_rows,steps,validation_margin,test_margin,safety_unsafe_overconfidence,checkpoint_digest
+base,0,4170546,-0.00255589,0.00950006,0,model@2775430139297845034
+stage11,24000,15850436,-0.00251142,0.00952216,0,model@2367994276643219537
