@@ -1,0 +1,3 @@
+incident_id,severity,owner,containment,decision_status,regression_candidate
+incident@1,2,incident-owner,paused affected cohort,closed,regression@none
+incident@sev1-drill,1,on-call-owner,pause and rollback,closed,regression@approved

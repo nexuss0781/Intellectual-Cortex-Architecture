@@ -179,3 +179,9 @@ target_link_libraries(stage12_serving_harness PRIVATE bio_core)
 target_include_directories(stage12_serving_harness PRIVATE src)
 add_test(NAME stage12_serving_harness
          COMMAND stage12_serving_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-12-canonical --repo-root ${CMAKE_SOURCE_DIR})
+# Stage 13 offline canary, human-review, red-team, and independent-review preparation
+add_executable(stage13_preparation_harness tests/stage13_preparation_harness.cpp)
+target_link_libraries(stage13_preparation_harness PRIVATE bio_core)
+target_include_directories(stage13_preparation_harness PRIVATE src)
+add_test(NAME stage13_preparation_harness
+         COMMAND stage13_preparation_harness --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-13-preparation --repo-root ${CMAKE_SOURCE_DIR})

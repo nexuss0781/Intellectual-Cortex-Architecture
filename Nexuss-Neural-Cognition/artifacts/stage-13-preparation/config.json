@@ -1,0 +1,52 @@
+{
+  "stage": 13,
+  "status": "PREPARATION_ONLY_LIVE_CANARY_NOT_AUTHORIZED",
+  "entry_stage": 12,
+  "entry_status": "PASS_OFFLINE_SHADOW_OPERATIONS_NONPRODUCTION",
+  "entry_model_digest": "model@2367994276643219537",
+  "entry_adapter_digest": "adapter@stage11-native-byte",
+  "entry_policy_digest": "policy@stage10-v1",
+  "preparation_mode": true,
+  "live_canary_started": false,
+  "external_review_executed": false,
+  "stage14_allowed": false,
+  "cohort": {
+    "cohort_id": "pilot-a",
+    "maximum_users": 10,
+    "traffic_fraction": 0.01,
+    "consent_version": "consent-v1",
+    "permitted_tasks": ["grounded_document_answer", "clarification"],
+    "excluded_domains": ["medical", "legal", "financial", "external_action"],
+    "consequential_actions_disabled": true
+  },
+  "review": {
+    "rubric_version": "rubric-v1",
+    "blinded_when_possible": true,
+    "multi_rater": true,
+    "expert_review_required_for_high_impact": true,
+    "raw_input_allowed_in_review_ledger": false,
+    "reviewer_access_audited": true,
+    "adjudication_required": true
+  },
+  "safety": {
+    "critical_unresolved_allowed": 0,
+    "critical_red_team_findings_before_expansion": 0,
+    "privacy_or_secret_leaks_allowed": 0,
+    "unreviewed_incident_training_writes": 0,
+    "prompt_injection_and_exfiltration_retest_required": true
+  },
+  "controls": {
+    "kill_switch_required": true,
+    "rollback_required": true,
+    "support_path_required": true,
+    "incident_owner_required": true,
+    "approval_required_for_resume_or_expansion": true,
+    "stage14_requires_new_user_approval": true
+  },
+  "limitations": [
+    "No live cohort or public canary is executed during preparation",
+    "No external security/model/data-governance review has been performed",
+    "Offline reviewer and red-team records are control contracts, not pilot evidence",
+    "No production or general-intelligence claim is authorized"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "stage": 12,
-  "status": "OFFLINE_SERVING_SHADOW_IMPLEMENTATION",
+  "status": "PASS_OFFLINE_SHADOW_OPERATIONS_NONPRODUCTION",
   "entry_stage": 11,
   "entry_model_digest": "model@2367994276643219537",
   "entry_adapter_digest": "adapter@stage11-native-byte",
