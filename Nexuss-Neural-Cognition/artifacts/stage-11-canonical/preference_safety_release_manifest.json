@@ -1,0 +1,57 @@
+{
+  "approved_for_training": true,
+  "native_nexuss_training": false,
+  "preference_dataset": {
+    "counts": {
+      "test": 3000,
+      "train": 24000,
+      "validation": 3000
+    },
+    "id": "Anthropic/hh-rlhf",
+    "license": "mit",
+    "revision": "09be8c5bbc57cb3887f3a9732ad6aa7ec602a1fa",
+    "split_sha256": {
+      "test": "2ade5883e70bf5e5b3450660d891e0ebe2a80bf8d7dbdaf750f53b751c4f0fe0",
+      "train": "19934b0056850a76a372253f3921f3f7f8f29d793ee3b6a95da5838fe88d34d5",
+      "validation": "8258da36705223968c4020152fba68678e971671c2cc1d059f83c4200544978a"
+    },
+    "test_custody": "pinned_hh_test_not_used_in_training"
+  },
+  "production_allowed": false,
+  "quarantine_reasons": {
+    "duplicate_prompt": 558,
+    "email_pattern": 193,
+    "empty": 1,
+    "identical_pair": 61,
+    "missing_prompt_or_response": 17275,
+    "phone_pattern": 677,
+    "prompt_mismatch": 276,
+    "secret_pattern": 8,
+    "too_long": 8,
+    "too_short": 71,
+    "transcript_parse": 103
+  },
+  "quarantined_rows": 19231,
+  "release_sha256": "62a95fb9310a22124acbaa845ca820428a9b0283a9382f0add7b15cfea1e1dcb",
+  "safety_dataset": {
+    "counts": {
+      "test": 806,
+      "train": 7412,
+      "validation": 926
+    },
+    "hybrid_human_synthetic": true,
+    "id": "nvidia/Aegis-AI-Content-Safety-Dataset-2.0",
+    "license": "cc-by-4.0",
+    "revision": "d86bb8bedff51d25ac834ab7838f1cc61acb7a2c",
+    "split_sha256": {
+      "test": "eac96c1d7e40a62a0efd9203686873b0f05c272ed58f6502e2468b77a8a02c93",
+      "train": "afb6fdad2e549d890d5eadbf9d55990f2a02ea05e1d241b9362c7fddd74c8b2d",
+      "validation": "5f4cd239530e64aa032410d428cb2f4a62b0104a4ac23b5c2ec92fd533d36d08"
+    },
+    "test_custody": "pinned_aegis_test_not_used_in_training"
+  },
+  "source_hashes_file": "../source/source_hashes.sha256",
+  "stage": 11,
+  "stage12_allowed": false,
+  "status": "APPROVED_FOR_OFFLINE_POST_TRAINING"
+}

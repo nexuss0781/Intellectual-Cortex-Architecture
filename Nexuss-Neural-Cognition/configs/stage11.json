@@ -1,0 +1,78 @@
+{
+  "stage": 11,
+  "status": "PASS_OFFLINE_POST_TRAINING_NONPRODUCTION",
+  "entry_checkpoint": "model@2775430139297845034",
+  "candidate_checkpoint": "model@2367994276643219537",
+  "model_family": "genesis::ByteLanguageModel",
+  "parameter_count": 65792,
+  "native_nexuss_uin_training": false,
+  "preference_release": {
+    "dataset": "Anthropic/hh-rlhf",
+    "revision": "09be8c5bbc57cb3887f3a9732ad6aa7ec602a1fa",
+    "license": "MIT",
+    "train_rows": 24000,
+    "validation_rows": 3000,
+    "test_rows": 3000,
+    "test_used_for_training": false
+  },
+  "safety_release": {
+    "dataset": "nvidia/Aegis-AI-Content-Safety-Dataset-2.0",
+    "revision": "d86bb8bedff51d25ac834ab7838f1cc61acb7a2c",
+    "license": "CC-BY-4.0",
+    "train_rows": 7412,
+    "safety_update_rows": 3907,
+    "safety_update_scope": "unsafe_only",
+    "validation_rows": 926,
+    "test_rows": 806,
+    "test_used_for_training": false,
+    "hybrid_human_synthetic": true
+  },
+  "optimizer": {
+    "method": "bounded_pairwise_response_margin",
+    "preference_learning_rate": 0.0008,
+    "safety_learning_rate": 0.00025,
+    "epochs": 1,
+    "beta": 2.0,
+    "response_span_only": true
+  },
+  "measured_gates": {
+    "stage11_gates_passed": 21,
+    "preference_validation_gain": 0.0000444701842273,
+    "preference_test_gain": 0.0000221032147897,
+    "safety_preference_validation_change": -0.00126775893973,
+    "safety_preference_signed_tolerance": -0.02,
+    "base_harmful_compliance": 0.765306,
+    "candidate_harmful_compliance": 0.744898,
+    "base_over_refusal": 0.234300,
+    "candidate_over_refusal": 0.246377,
+    "retention": 1.0,
+    "unsafe_overconfidence_rate": 0.0,
+    "normal_peak_rss_kb": 183820,
+    "normal_peak_rss_limit_kb": 500000,
+    "normal_ctest_passed": 26,
+    "sanitizer_ctest_passed": 26
+  },
+  "feedback_boundary": {
+    "raw_user_feedback_training_allowed": false,
+    "unreviewed_incident_training_allowed": false,
+    "automatic_weight_update_allowed": false,
+    "human_adjudication_required": true,
+    "privacy_review_required": true,
+    "rights_review_required": true
+  },
+  "promotion": {
+    "candidate_promoted": false,
+    "production_allowed": false,
+    "stage12_allowed": false,
+    "user_approval_required_for_stage12": true
+  },
+  "limitations": [
+    "65,792-parameter byte-level CPU model",
+    "offline pilot only",
+    "not end-to-end training of the 273k-neuron UIN substrate",
+    "not production NLP quality evidence",
+    "not universal safety or alignment evidence",
+    "Aegis release contains hybrid human and synthetic annotations",
+    "safety preference validation change is within tolerance rather than a claimed improvement"
+  ]
+}

@@ -1,0 +1,6 @@
+STAGE11_PREPARATION_DECISION=PREPARATION_ONLY
+tests=19
+passed=19
+failures=0
+post_training_executed=false
+candidate_promoted=false

@@ -1,0 +1,3 @@
+model,validation_margin,test_margin,preference_gain,retention,base_ece,candidate_ece,base_unsafe_overconfidence,candidate_unsafe_overconfidence,safety_improvement
+stage10,-0.00255589,0.00950006,0,1,0.442327,0.442327,0,0,0
+stage11,-0.00251142,0.00952216,4.44702e-05,1,0.442327,0.442223,0,0,0

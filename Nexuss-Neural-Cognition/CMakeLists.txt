@@ -167,3 +167,9 @@ target_link_libraries(stage11_preparation_harness PRIVATE bio_core)
 target_include_directories(stage11_preparation_harness PRIVATE src)
 add_test(NAME stage11_preparation_harness
          COMMAND stage11_preparation_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-11-preparation --repo-root ${CMAKE_SOURCE_DIR})
+# Stage 11 offline preference, safety, calibration, retention, and rollback pilot
+add_executable(stage11_post_training_harness tests/stage11_post_training_harness.cpp)
+target_link_libraries(stage11_post_training_harness PRIVATE bio_core)
+target_include_directories(stage11_post_training_harness PRIVATE src)
+add_test(NAME stage11_post_training_harness
+         COMMAND stage11_post_training_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-11-post-training --repo-root ${CMAKE_SOURCE_DIR})
