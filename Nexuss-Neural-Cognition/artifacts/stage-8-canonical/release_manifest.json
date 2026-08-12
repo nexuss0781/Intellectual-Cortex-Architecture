@@ -1,0 +1,8 @@
+{
+  "dataset_id": "stage8-fixture",
+  "version": "1.0.0",
+  "manifest_digest": "1671412721906652907",
+  "retained_items": 4,
+  "sealed_items": 2,
+  "fixture_policy": "sandbox_fixture_only_not_for_production_training"
+}

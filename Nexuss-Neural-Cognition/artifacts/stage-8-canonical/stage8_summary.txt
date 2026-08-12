@@ -1,0 +1,8 @@
+seed=424242
+records=18
+sources=5
+retained_items=4
+quarantined_items=14
+tests=25
+failures=0
+manifest_hash=1671412721906652907

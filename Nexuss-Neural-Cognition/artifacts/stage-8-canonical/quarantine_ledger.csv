@@ -1,0 +1,15 @@
+item_id,reason
+item-03,exact_duplicate
+item-04,near_duplicate
+item-05,contamination
+item-06,privacy
+item-07,secret
+item-08,prompt_injection_quarantine
+item-09,safety_quarantine
+item-10,malformed
+item-11,near_duplicate
+item-12,annotation_schema
+item-15,sealed_or_not_training
+item-16,sealed_or_not_training
+item-17,rights
+item-18,rights

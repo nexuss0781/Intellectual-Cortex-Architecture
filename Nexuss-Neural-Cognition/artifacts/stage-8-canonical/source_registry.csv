@@ -1,0 +1,6 @@
+source_id,owner,license_or_permission,jurisdiction,intended_use,retention_policy,content_hash,collected_at,training_allowed,evaluation_allowed,removal_supported,admitted
+source-good-train,nexuss-research,internal-test-permission,sandbox-eu,stage8-control-validation,delete-on-request,source-good-train-content-v1,2000000100,1,1,1,1
+source-good-dev,nexuss-research,internal-test-permission,sandbox-eu,stage8-control-validation,delete-on-request,source-good-dev-content-v1,2000000104,1,1,1,1
+source-eval,nexuss-evaluation,internal-test-permission,sandbox-eu,sealed-evaluation-only,delete-on-request,source-eval-content-v1,2000000101,0,1,1,1
+source-unclear,unverified-provider,UNKNOWN,unknown,training,unknown,source-unclear-content-v1,2000000102,1,1,1,0
+source-no-delete,fixture-owner,internal-test-permission,sandbox-us,training,permanent,source-no-delete-content-v1,2000000103,1,1,0,0

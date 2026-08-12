@@ -121,6 +121,7 @@ The factory must maintain three evaluations: a **development set** for iteration
 | D8-UNIT-05 | Deletion | Source removal identifies and removes every linked item/release reference |
 | D8-UNIT-06 | Schema integrity | Invalid annotation or tool schema fails validation |
 | D8-UNIT-07 | Dataset-card completeness | Required card fields are present for every release |
+| D8-UNIT-08 | Stage 7 entry integrity | Stage 7 PASS decision and evidence manifest are present |
 | D8-INT-01 | Near-duplicate split isolation | Cross-split duplicate/near-duplicate rate is below declared maximum |
 | D8-INT-02 | Hidden-set protection | Training or tuning process cannot read sealed examples |
 | D8-INT-03 | Contamination scan | Known seeded benchmark examples are detected and excluded from train |
@@ -133,13 +134,13 @@ The factory must maintain three evaluations: a **development set** for iteration
 
 ### Required ablations and adversarial tests
 
-Run the same harness without near-deduplication, without source-level splitting, without privacy filtering, without secret scanning, without sealed-set access control, and without annotation adjudication. Each removal must degrade the corresponding integrity metric. Add adversarial malformed files, poisoned duplicates, hidden benchmark fragments, license-conflict records, deletion requests, PII canaries, prompt-injection text in documents, and corrupted manifests.
+Run the same harness without near-deduplication, without source-level splitting, without privacy filtering, without secret scanning, without sealed-set access control, and without annotation adjudication. Each removal must degrade the corresponding integrity metric. Add adversarial malformed files, poisoned duplicates, hidden benchmark fragments, license-conflict records, deletion requests, PII canaries, prompt-injection text in documents, and corrupted manifests. The complete executable contract is **25 gates**: 8 unit, 6 integration, 3 operations, and 8 negative controls, including the Stage 7 PASS-entry gate.
 
 ## Quantitative transition gates
 
 | Gate | Required threshold |
 |---|---:|
-| Unit/integration/operations tests | 100% |
+| Unit, integration, operations, and negative-control tests | 100% of 25 executable gates |
 | Retained items with approved source lineage | 100% |
 | Missing/invalid rights records in training release | 0 |
 | Source deletion completeness | 100% |
