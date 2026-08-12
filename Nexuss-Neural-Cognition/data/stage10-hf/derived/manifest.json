@@ -1,0 +1,43 @@
+{
+  "attribution_required": true,
+  "categories": {
+    "brainstorming": 1749,
+    "classification": 2129,
+    "closed_qa": 1717,
+    "creative_writing": 683,
+    "general_qa": 2171,
+    "information_extraction": 1458,
+    "open_qa": 3713,
+    "summarization": 1150
+  },
+  "dataset_id": "databricks/databricks-dolly-15k",
+  "dataset_url": "https://huggingface.co/datasets/databricks/databricks-dolly-15k",
+  "declared_license": "cc-by-sa-3.0",
+  "hidden_heldout_for_training": true,
+  "languages": [
+    "en"
+  ],
+  "pilot_training_allowed": true,
+  "production_allowed": false,
+  "quarantine_reasons": {
+    "email_pattern": 7,
+    "exact_duplicate": 8,
+    "length_limit": 1,
+    "phone_pattern": 54,
+    "secret_pattern": 176
+  },
+  "quarantined_rows": 241,
+  "raw_file": "databricks-dolly-15k.jsonl",
+  "raw_sha256": "2df9083338b4abd6bceb5635764dab5d833b393b55759dffb0959b6fcbf794ec",
+  "release_sha256": "24a881fd7ed8811339d71d3db61635a321a2299e67a9e432f96f5aaa4145386a",
+  "share_alike_required": true,
+  "source_lineage": "Every retained row carries source and row_hash fields.",
+  "source_rows": 15000,
+  "split_counts": {
+    "development": 1477,
+    "heldout": 1477,
+    "train": 11816
+  },
+  "split_method": "sort_by_row_sha256_then_80_10_10",
+  "valid_unique_rows": 14770
+}

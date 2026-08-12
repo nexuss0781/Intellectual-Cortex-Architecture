@@ -55,6 +55,7 @@ printf '%b\n' "${BOLD}[Nexuss] Running executable smoke tests${NC}"
 "$BUILD_DIR/stage8_harness" --seed "$SEED" --artifact-dir "$STAGE8_ARTIFACT_DIR" --repo-root "$ROOT_DIR" --entry-evidence-dir "$STAGE7_ENTRY_ARTIFACT_DIR" | tee "$STAGE8_ARTIFACT_DIR/stage8_harness.txt"
 "$BUILD_DIR/stage9_harness" --seed "$SEED" --artifact-dir "$STAGE9_ARTIFACT_DIR" --repo-root "$ROOT_DIR" --entry-evidence-dir "$STAGE8_ENTRY_ARTIFACT_DIR" | tee "$STAGE9_ARTIFACT_DIR/stage9_harness.txt"
 "$BUILD_DIR/stage10_harness" --seed "$SEED" --artifact-dir "$STAGE10_ARTIFACT_DIR" --repo-root "$ROOT_DIR" --entry-evidence-dir "$STAGE9_ENTRY_ARTIFACT_DIR" | tee "$STAGE10_ARTIFACT_DIR/stage10_harness.txt"
+"$BUILD_DIR/stage10_sft_harness" --seed "$SEED" --artifact-dir "$STAGE10_ARTIFACT_DIR" --repo-root "$ROOT_DIR" | tee "$STAGE10_ARTIFACT_DIR/stage10_sft_harness.txt"
 
 printf '%s\n' 'record_type,scale_neurons,synapses,rss_kb,formula_mb' > "$ARTIFACT_DIR/memory.csv"
 for scale in 1000 10000 100000 270000; do

@@ -75,6 +75,7 @@ struct TrainingExample {
     std::string text;
     bool hidden = false;
     bool benchmark_marker = false;
+    size_t supervised_start = 1U;
 };
 
 struct ModelSnapshot {
@@ -138,6 +139,56 @@ public:
         for (const auto& example : examples) {
             if (example.hidden || example.benchmark_marker || example.text.size() < 2U) continue;
             for (size_t index = 1; index < example.text.size(); ++index) {
+                const size_t previous = static_cast<unsigned char>(example.text[index - 1U]);
+                const size_t target = static_cast<unsigned char>(example.text[index]);
+                const size_t predicted = predict_next(static_cast<unsigned char>(previous));
+                if (predicted == target) evaluation.accuracy += 1.0;
+                const size_t row = previous * kVocabulary;
+                float maximum = -std::numeric_limits<float>::infinity();
+                for (size_t output = 0; output < kVocabulary; ++output) maximum = std::max(maximum, weights_[row + output] + bias_[output]);
+                double normalizer = 0.0;
+                for (size_t output = 0; output < kVocabulary; ++output) normalizer += std::exp(static_cast<double>(weights_[row + output] + bias_[output] - maximum));
+                const double probability = std::exp(static_cast<double>(weights_[row + target] + bias_[target] - maximum)) / normalizer;
+                loss += -std::log(std::max(probability, 1e-12));
+                ++evaluation.transitions;
+            }
+        }
+        if (evaluation.transitions > 0U) { evaluation.accuracy /= static_cast<double>(evaluation.transitions); evaluation.loss = loss / static_cast<double>(evaluation.transitions); }
+        return evaluation;
+    }
+
+    void train_supervised(const std::vector<TrainingExample>& examples, const size_t epochs, const double learning_rate) {
+        for (size_t epoch = 0; epoch < epochs; ++epoch) {
+            for (const auto& example : examples) {
+                if (example.hidden || example.benchmark_marker || example.text.size() < 2U) continue;
+                const size_t start = std::min(std::max<size_t>(1U, example.supervised_start), example.text.size() - 1U);
+                for (size_t index = start; index < example.text.size(); ++index) {
+                    const size_t previous = static_cast<unsigned char>(example.text[index - 1U]);
+                    const size_t target = static_cast<unsigned char>(example.text[index]);
+                    const size_t row = previous * kVocabulary;
+                    float maximum = -std::numeric_limits<float>::infinity();
+                    for (size_t output = 0; output < kVocabulary; ++output) maximum = std::max(maximum, weights_[row + output] + bias_[output]);
+                    double normalizer = 0.0;
+                    for (size_t output = 0; output < kVocabulary; ++output) normalizer += std::exp(static_cast<double>(weights_[row + output] + bias_[output] - maximum));
+                    for (size_t output = 0; output < kVocabulary; ++output) {
+                        const double probability = std::exp(static_cast<double>(weights_[row + output] + bias_[output] - maximum)) / normalizer;
+                        const double gradient = probability - (output == target ? 1.0 : 0.0);
+                        weights_[row + output] = static_cast<float>(weights_[row + output] - learning_rate * gradient);
+                        bias_[output] = static_cast<float>(bias_[output] - learning_rate * 0.05 * gradient);
+                    }
+                    ++steps_;
+                }
+            }
+        }
+    }
+
+    LanguageEvaluation evaluate_supervised(const std::vector<TrainingExample>& examples) const {
+        LanguageEvaluation evaluation;
+        double loss = 0.0;
+        for (const auto& example : examples) {
+            if (example.hidden || example.benchmark_marker || example.text.size() < 2U) continue;
+            const size_t start = std::min(std::max<size_t>(1U, example.supervised_start), example.text.size() - 1U);
+            for (size_t index = start; index < example.text.size(); ++index) {
                 const size_t previous = static_cast<unsigned char>(example.text[index - 1U]);
                 const size_t target = static_cast<unsigned char>(example.text[index]);
                 const size_t predicted = predict_next(static_cast<unsigned char>(previous));
