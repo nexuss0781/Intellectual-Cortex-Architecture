@@ -1,0 +1,60 @@
+{
+  "stage": 10,
+  "name": "sft-structured-nlp-engine",
+  "version": "stage10-v1",
+  "status": "canonical-pass-offline-integration",
+  "claims_boundary": "Controlled offline structured NLP integration candidate; no production model, public service, autonomous agent, or broad language-quality claim.",
+  "entry_evidence_dir": "artifacts/stage-9-canonical",
+  "selected_base_model_digest": "model@18217991639257382938",
+  "selected_tokenizer_digest": "tokenizer@identity-byte-v1",
+  "sft_fixture": "configs/stage10_sft_control.tsv",
+  "scenario_manifest": "configs/stage10_scenarios.tsv",
+  "source_manifest": "configs/stage10_sources.tsv",
+  "data_status": "synthetic_control_not_for_production_training",
+  "production_allowed": false,
+  "retrieval": {
+    "authorize_before_rank": true,
+    "stale_sources_allowed": false,
+    "malicious_sources_allowed": false,
+    "minimum_entailment": 0.90,
+    "tenant_acl_required": true,
+    "citation_resolution_required": true
+  },
+  "response_contract": {
+    "decisions": ["answer", "ask", "retrieve", "abstain", "propose_action"],
+    "schema_validation_required": true,
+    "calibration_required": true,
+    "provenance_required": true,
+    "structured_json_required": true
+  },
+  "tools": {
+    "allowlist": ["draft_report"],
+    "scopes": ["document.draft"],
+    "human_approval_required": true,
+    "direct_execution_from_model": false,
+    "payment_network_messaging_os_database": false,
+    "idempotency_required": true
+  },
+  "safety": {
+    "prompt_injection_fail_closed": true,
+    "sensitive_data_fail_closed": true,
+    "cross_tenant_exposure_limit": 0,
+    "unauthorized_tool_execution_limit": 0,
+    "fabricated_citation_acceptance_limit": 0
+  },
+  "resource_limits": {
+    "rss_kb": 524288,
+    "retrieval_chunks": 1000,
+    "scenario_count": 1000
+  },
+  "transition_gates": {
+    "executable_gate_count": 27,
+    "unit_integration_operations_negative_pass_rate": 1.0,
+    "schema_valid_rate": ">=0.90",
+    "citation_resolution_rate": 1.0,
+    "provenance_coverage": 1.0,
+    "unauthorized_tool_execution": 0,
+    "cross_tenant_exposure": 0,
+    "stage11_approval_required": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "adapter_id": "stage10-control-adapter",
+  "adapter_digest": "adapter@stage10-control-v1",
+  "base_model_digest": "model@18217991639257382938",
+  "data_release_digest": "sft-control@stage10-v1",
+  "task_scope": "structured-nlp-offline",
+  "production_allowed": false
+}

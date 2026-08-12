@@ -1,0 +1,7 @@
+sequence,operation,subject,outcome,event_hash
+1,propose,sc-05:draft_report,allowed_dry_run,15759843769042056845
+2,propose,sc-20:draft_report,allowed_dry_run,6496266389841911975
+3,propose,deny-payment:payment,blocked,18180610106287098932
+4,propose,replay:draft_report,allowed_dry_run,1888120500708730241
+5,execute,idem@6676090528647218481,executed_dry_run,7914622122424809459
+6,execute,idem@6676090528647218481,blocked_or_replayed,9102504716719799522
