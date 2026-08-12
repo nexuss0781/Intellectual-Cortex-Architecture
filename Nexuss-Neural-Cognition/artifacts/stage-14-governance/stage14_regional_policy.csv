@@ -1,0 +1,3 @@
+region,residency_class,tenant,storage_class
+sim-region-a,offline-test,tenant-a,encrypted-simulated
+sim-region-b,offline-test,tenant-b,encrypted-simulated

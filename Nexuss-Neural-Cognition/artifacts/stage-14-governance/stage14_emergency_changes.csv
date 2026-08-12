@@ -1,0 +1,2 @@
+change_id,mitigation_digest,region,started_at,expires_at,owner,normalized,normalized_release_id
+emergency@1,mitigation@cert,sim-region-a,100,200,on-call,1,release@a

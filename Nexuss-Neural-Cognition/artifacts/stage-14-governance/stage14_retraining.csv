@@ -1,0 +1,2 @@
+dataset_release_digest,provenance_digest,rights_status,approval_digest,source_incident_id,training_run_id,evaluation_digest
+dataset@approved,provenance@approved,approved,approval@dataset,incident@sev1,training@1,eval@trained

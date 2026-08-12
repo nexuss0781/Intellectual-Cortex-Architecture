@@ -1,0 +1,14 @@
+{
+  "stage": 14,
+  "status": "PREPARATION_PASS_OFFLINE_CONTINUOUS_GOVERNANCE",
+  "entry_stage": 13,
+  "entry_decision": "PREPARATION_PASS_LIVE_CANARY_NOT_AUTHORIZED",
+  "gates": 39,
+  "passing_gates": 39,
+  "production_service_started": false,
+  "external_deployment": false,
+  "public_service": false,
+  "live_user_traffic": false,
+  "scoped_production_claim_authorized": false,
+  "limitation": "Offline contracts and bounded deterministic simulations only."
+}

@@ -1,0 +1,2 @@
+incident_id,severity,category,affected_scope,containment,root_cause_status,disclosure_status,regression_candidate_id
+incident@sev1,1,privacy,tenant-a,halt region and quarantine,root_cause_identified,decided,regression@sev1

@@ -1,0 +1,3 @@
+release_id,bundle_digest,region,cohort_policy_digest,evaluation_digest,approval_digest,deployed_at
+release@a,bundle@a,sim-region-a,cohort@stage13,eval@a,approval@a,100
+release@b,bundle@b,sim-region-b,cohort@stage13,eval@b,approval@b,101
