@@ -1,0 +1,29 @@
+#include "../src/learning/memory_system.h"
+#include "../src/learning/learning_controller.h"
+
+#include <cmath>
+#include <cstdint>
+#include <filesystem>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <random>
+
+namespace {
+struct Result { double task1_before=0, task1_after=0, task2=0; uint32_t replay_events=0; uint64_t memory_episodes=0; uint64_t hash=0; bool restart_match=false; uint64_t violations=0; };
+uint64_t mix(uint64_t h,uint64_t v){h^=v+0x9e3779b97f4a7c15ULL+(h<<6U)+(h>>2U);return h*1099511628211ULL;}
+uint64_t hash_weights(const genesis::SynapseBlock& s){uint64_t h=1469598103934665603ULL;for(float w:s.weights)h=mix(h,(uint64_t)std::llround(w*1000000.0f));return h;}
+int choose(const genesis::SynapseBlock&s,size_t base,bool explore,std::mt19937_64&r){if(explore&&(r()%100U)<20U)return(int)(r()%2U);return s.weights[base]>=s.weights[base+1U]?0:1;}
+void setup(genesis::NeuronBlock&n,genesis::SynapseBlock&s){n.resize(5);for(float&x:n.plasticity_scale)x=1.0f;s.resize(4);s.pre_indices={0,0,1,1};s.post_indices={2,3,2,3};s.weights.assign(4,0.5f);s.precision_scale.assign(4,1.0f);}
+Result run(uint64_t seed,bool learning,bool replay,const std::filesystem::path&state_path){
+ genesis::LearningConfig lc;lc.eta=.04f;lc.trace_decay=.97f;lc.a_plus=.5f;lc.a_minus=.1f;lc.reward_coefficient=1;lc.prediction_error_coefficient=0;lc.novelty_coefficient=0;lc.task_relevance_coefficient=0;lc.executive_permission_coefficient=0;lc.homeostasis_enabled=false;lc.structural_enabled=false;lc.weight_min=.01f;lc.weight_max=1;lc.learning_enabled=learning;
+ genesis::MemoryConfig mc;mc.replay_quota_per_context=20;mc.max_replay_events=100000; genesis::MemorySystem memory(seed,mc);memory.initialize_arena(5,4);
+ genesis::NeuronBlock n;genesis::SynapseBlock s;setup(n,s);genesis::LearningController learner(lc);learner.initialize(5,4);std::mt19937_64 rng(seed);uint32_t replay_events=0;
+ auto apply=[&](int context,int action,float reward,uint64_t tick){size_t sid=(size_t)context*2U+(size_t)action;learner.on_pre_spike((uint32_t)sid,s,tick);learner.on_post_spike((uint32_t)(2+action),s,tick+1);genesis::LearningSignal sig;sig.reward=reward;sig.tick=tick+1;learner.apply_modulation(sig);learner.update(s,n,sig.tick);learner.reset_traces(s);};
+ for(size_t ep=0;ep<4000;++ep){int context=(int)(ep%2U);int action=choose(s,(size_t)context*2U,true,rng);uint64_t tick=ep*10+1;genesis::EventHeader header{ep+1,tick,1,100,(uint64_t)context,seed^(uint64_t)context};uint64_t id=memory.begin_episode(header);genesis::EventHeader act{ep+1,tick+1,1,(uint32_t)(200+action),(uint64_t)action,seed};memory.append_event(id,act);float reward=action==context?1.0f:-1.0f;memory.set_active_metrics(.5f,0,.0f,reward);memory.close_episode(id,reward);if(learning)apply(context,action,reward,tick);}
+ auto eval=[&](size_t count){size_t good=0;for(size_t ep=0;ep<count;++ep){int context=(int)(ep%2U);int action=choose(s,(size_t)context*2U,false,rng);good+=action==context?1U:0U;}return(double)good/(double)count;};
+ double task1_before=eval(1000);for(size_t ep=0;ep<4000;++ep){int context=(int)((ep+1)%2U);int action=choose(s,(size_t)context*2U,true,rng);uint64_t tick=50000+ep*10;genesis::EventHeader header{50000+ep,tick,1,100,(uint64_t)context,seed^(uint64_t)context};uint64_t id=memory.begin_episode(header);genesis::EventHeader act{50000+ep,tick+1,1,(uint32_t)(200+action),(uint64_t)action,seed};memory.append_event(id,act);float reward=action==context?1.0f:-1.0f;memory.set_active_metrics(.5f,0,.0f,reward);memory.close_episode(id,reward);if(learning)apply(context,action,reward,tick);}
+ if(replay&&learning){memory.set_replay_callback([&](const genesis::MemoryEvent&e,genesis::ReplayMode){int context=(int)(e.header.payload_id%2U);int action=(int)(e.header.event_type>=200?e.header.event_type-200:0);float reward=action==context?1.0f:-1.0f;apply(context,action,reward,60000+replay_events);++replay_events;});genesis::ReplayQuery q;q.current_tick=100000;auto selected=memory.select_replay(q,200);memory.replay(selected,genesis::ReplayMode::ExactEvent,100000);}
+ double task1_after=eval(1000);double task2=eval(1000);uint64_t before=hash_weights(s);memory.save(state_path);genesis::MemorySystem restored_memory(seed,mc);restored_memory.load(state_path);Result r;r.task1_before=task1_before;r.task1_after=task1_after;r.task2=task2;r.replay_events=replay_events;r.memory_episodes=memory.episodes().size();r.hash=before;r.restart_match=restored_memory.state_hash()==memory.state_hash();r.violations=learner.metrics().bound_violations;return r;}
+}
+int main(int argc,char**argv){uint64_t seed=argc>1?std::stoull(argv[1]):424242;std::filesystem::path dir=argc>2?argv[2]:"artifacts/integrated-loop";std::filesystem::create_directories(dir);Result control=run(seed,false,false,dir/"control.bin"),no_replay=run(seed,true,false,dir/"no_replay.bin"),replay=run(seed,true,true,dir/"replay.bin");bool pass=replay.task1_before>=.8&&replay.task1_after>=.8&&replay.task2>=.8&&replay.replay_events>0&&replay.restart_match&&replay.violations==0;std::ofstream out(dir/"summary.txt");out<<"B1_INTEGRATED_LOOP="<<(pass?"PASS":"FAIL")<<'\n'<<"control_task1="<<control.task1_after<<'\n'<<"no_replay_task1_before="<<no_replay.task1_before<<'\n'<<"no_replay_task1_after="<<no_replay.task1_after<<'\n'<<"replay_task1_before="<<replay.task1_before<<'\n'<<"replay_task1_after="<<replay.task1_after<<'\n'<<"replay_task2="<<replay.task2<<'\n'<<"replay_events="<<replay.replay_events<<'\n'<<"memory_episodes="<<replay.memory_episodes<<'\n'<<"restart_match="<<(replay.restart_match?1:0)<<'\n'<<"bound_violations="<<replay.violations<<'\n';std::cout<<"B1_INTEGRATED_LOOP="<<(pass?"PASS":"FAIL")<<'\n'<<std::fixed<<std::setprecision(4)<<"replay_task1_before="<<replay.task1_before<<" replay_task1_after="<<replay.task1_after<<" replay_task2="<<replay.task2<<" replay_events="<<replay.replay_events<<'\n';return pass?0:1;}
