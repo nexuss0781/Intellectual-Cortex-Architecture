@@ -1,0 +1,11 @@
+endpoint,allowed
+/healthz,1
+/readyz,1
+/metrics,1
+/v1/chat/completions,1
+/admin/load-weights,0
+/admin/load-adapter,0
+/admin/arbitrary-rpc,0
+/debug/rpc,0
+/v1/weights,0
+/v1/adapters,0

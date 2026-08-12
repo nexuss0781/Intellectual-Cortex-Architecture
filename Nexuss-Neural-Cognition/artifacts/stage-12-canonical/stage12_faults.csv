@@ -1,0 +1,8 @@
+fault,fail_closed,recovered
+model_crash,1,1
+queue_overload,1,1
+expired_certificate,1,1
+policy_outage,1,1
+retrieval_outage,1,1
+tool_outage,1,1
+rollback_active_traffic,1,1

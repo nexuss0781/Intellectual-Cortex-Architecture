@@ -1,0 +1,52 @@
+{
+  "stage": 12,
+  "status": "OFFLINE_SERVING_SHADOW_IMPLEMENTATION",
+  "entry_stage": 11,
+  "entry_model_digest": "model@2367994276643219537",
+  "entry_adapter_digest": "adapter@stage11-native-byte",
+  "entry_tokenizer_digest": "tokenizer@byte-v1",
+  "policy_digest": "policy@stage10-v1",
+  "serving_mode": "offline_harness_only",
+  "external_deployment": false,
+  "public_service": false,
+  "canary_allowed": false,
+  "stage13_allowed": false,
+  "bundle": {
+    "retrieval_index_static": true,
+    "dynamic_adapter_loading": false,
+    "arbitrary_rpc": false,
+    "weight_control_endpoints": false,
+    "rollback_target": "model@2775430139297845034",
+    "tool_schema_digest": "tool-schema-v1"
+  },
+  "security": {
+    "mtls_required": true,
+    "secrets_externalized": true,
+    "authn_required": true,
+    "tenant_isolation_required": true,
+    "fail_closed_on_policy_retrieval_tool_outage": true,
+    "consequential_external_actions": false,
+    "feedback_training_writes": false
+  },
+  "quotas": {
+    "max_token_budget": 256,
+    "max_timeout_ms": 5000,
+    "max_queue_depth": 8,
+    "load_requests": 512
+  },
+  "slo": {
+    "p95_ms_max": 100,
+    "p99_ms_max": 200,
+    "shadow_user_visible_mutations": 0,
+    "critical_secret_leaks": 0,
+    "unauthorized_access_successes": 0,
+    "rollback_successes_required": 1,
+    "audit_completeness": 1.0
+  },
+  "limitations": [
+    "No external network listener or public deployment is created",
+    "Synthetic load and deterministic replay are not real user traffic",
+    "Stage 13 human canary and independent review are not executed",
+    "The Stage 11 candidate remains a 65,792-parameter byte-level non-production pilot"
+  ]
+}

@@ -1,0 +1,2 @@
+request_id,tenant_hash,active_model_digest,shadow_model_digest,active_decision,shadow_decision,material_regression,user_visible_mutation,feedback_entered_training
+shadow-1,id@435369230249719003,model@2367994276643219537,model@shadow-comparator,answer,answer,0,0,0

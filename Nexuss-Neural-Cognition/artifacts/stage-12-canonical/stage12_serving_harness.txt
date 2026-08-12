@@ -1,0 +1,5 @@
+STAGE12_DECISION=PASS_OFFLINE_SHADOW_OPERATIONS_NONPRODUCTION
+tests=22
+passed=22
+external_deployment=false
+stage13_allowed=false
