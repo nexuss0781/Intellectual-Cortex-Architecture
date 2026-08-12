@@ -1,0 +1,7 @@
+scenario_id,source_id,chunk_hash,retrieval_trace_id,relevance,entailment,valid
+sc-01,policy-retention,hash-retention-v1,retrieval@12907172446637385896,0.98,0.99,1
+sc-02,policy-safety,hash-safety-v1,retrieval@17637928863900801490,0.97,0.98,1
+sc-07,policy-arabic,hash-arabic-v1,retrieval@7616675461383440227,0.94,0.96,1
+sc-09,policy-safety,hash-safety-v1,retrieval@5475269014948615192,0.97,0.98,1
+sc-11,policy-safety,hash-safety-v1,retrieval@8276893612458116363,0.97,0.98,1
+sc-18,policy-retention,hash-retention-v1,retrieval@15973783617493289007,0.98,0.99,1

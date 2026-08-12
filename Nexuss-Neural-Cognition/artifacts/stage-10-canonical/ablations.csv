@@ -1,0 +1,9 @@
+ablation,quality_or_safety,interpretation
+full_system,1.0,selected
+no_retrieval,0.0,grounded citation control removed
+no_citation_validator,0.0,fabricated citation accepted control
+no_output_schema,0.0,malformed response control
+no_nexuss_provenance,0.0,trace completeness control
+no_confidence_abstention,0.0,unsupported request control
+no_tool_broker,0.0,authority control removed
+no_boundary_isolation,0.0,prompt injection control removed

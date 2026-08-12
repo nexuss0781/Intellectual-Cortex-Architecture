@@ -1,0 +1,12 @@
+seed=424242
+scenarios=20
+sft_examples=14
+retrieval_chunks=10
+expected_passes=20
+provenance_coverage=20
+valid_citations=6
+tool_proposals=2
+executions=1
+peak_rss_kb=4192
+gates=27
+failures=0

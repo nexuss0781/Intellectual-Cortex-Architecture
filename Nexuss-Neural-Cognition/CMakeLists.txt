@@ -146,3 +146,10 @@ target_link_libraries(stage9_harness PRIVATE bio_core)
 target_include_directories(stage9_harness PRIVATE src)
 add_test(NAME stage9_harness
          COMMAND stage9_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-9 --repo-root ${CMAKE_SOURCE_DIR} --entry-evidence-dir ${CMAKE_SOURCE_DIR}/artifacts/stage-8-canonical)
+
+# Stage 10: structured NLP engine, grounded retrieval, citations, and bounded tools
+add_executable(stage10_harness tests/stage10_harness.cpp)
+target_link_libraries(stage10_harness PRIVATE bio_core)
+target_include_directories(stage10_harness PRIVATE src)
+add_test(NAME stage10_harness
+         COMMAND stage10_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-10 --repo-root ${CMAKE_SOURCE_DIR} --entry-evidence-dir ${CMAKE_SOURCE_DIR}/artifacts/stage-9-canonical)
