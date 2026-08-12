@@ -1,0 +1,23 @@
+P7-UNIT-01=PASS value=6 detail=ok
+P7-UNIT-02=PASS value=1 detail=ok
+P7-UNIT-03=PASS value=5 detail=ok
+P7-UNIT-04=PASS value=7 detail=ok
+P7-UNIT-05=PASS value=1 detail=ok
+P7-UNIT-06=PASS value=1 detail=ok
+P7-UNIT-07=PASS value=10 detail=ok
+P7-INT-01=PASS value=3 detail=ok
+P7-INT-02=PASS value=30 detail=ok
+P7-INT-03=PASS value=4 detail=ok
+P7-INT-04=PASS value=1 detail=ok
+P7-INT-05=PASS value=1 detail=ok
+P7-OPS-01=PASS value=1.23472209687e+19 detail=ok
+P7-OPS-02=PASS value=12 detail=ok
+P7-OPS-03=PASS value=4128 detail=ok
+P7-NEG-01=PASS value=1 detail=ok
+P7-NEG-02=PASS value=1 detail=ok
+P7-NEG-03=PASS value=1 detail=ok
+P7-NEG-04=PASS value=1 detail=ok
+P7-NEG-05=PASS value=1 detail=ok
+P7-NEG-06=PASS value=1 detail=ok
+P7-NEG-07=PASS value=1 detail=ok
+STAGE7_HARNESS=PASS

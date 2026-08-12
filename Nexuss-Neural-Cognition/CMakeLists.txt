@@ -125,3 +125,10 @@ target_link_libraries(stage6_harness PRIVATE bio_core)
 target_include_directories(stage6_harness PRIVATE src)
 add_test(NAME stage6_harness
          COMMAND stage6_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-6)
+
+# Stage 7: product governance, claims discipline, and independent baseline protocol
+add_executable(stage7_harness tests/stage7_harness.cpp)
+target_link_libraries(stage7_harness PRIVATE bio_core)
+target_include_directories(stage7_harness PRIVATE src)
+add_test(NAME stage7_harness
+         COMMAND stage7_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-7 --repo-root ${CMAKE_SOURCE_DIR} --entry-evidence-dir ${CMAKE_SOURCE_DIR}/artifacts/stage-6-canonical)

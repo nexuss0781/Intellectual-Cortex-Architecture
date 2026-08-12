@@ -1,0 +1,8 @@
+control,blocked
+incomplete_scope,1
+missing_claim_evidence,1
+unknown_license,1
+hidden_test_leakage,1
+missing_model_digest,1
+missing_security_approval,1
+cross_tenant_context,1

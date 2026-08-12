@@ -1,0 +1,5 @@
+seed=424242
+tests=22
+failures=0
+registry_hash=7439835472988727548
+application_trace_hash=12347220968744104466

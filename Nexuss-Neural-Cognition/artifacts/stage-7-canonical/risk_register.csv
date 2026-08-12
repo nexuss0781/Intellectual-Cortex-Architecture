@@ -1,0 +1,5 @@
+risk_id,threat,severity,open,owner,mitigation,evidence,test_reference
+risk-claims,"unsupported claim",2,0,product,"claims registry with expiry and evidence scope",digest-scope-7001,P7-INT-03
+risk-data-privacy,"data privacy",2,0,data,"tenant isolation and no-training feedback boundary",digest-scope-7001,P7-INT-03
+risk-excessive-agency,"excessive agency",2,0,safety,"advisory-only policy and deny-by-default tool boundary",digest-scope-7001,P7-INT-03
+risk-prompt-injection,"prompt injection",2,0,security,"untrusted-content boundary and policy validator",digest-scope-7001,P7-INT-03

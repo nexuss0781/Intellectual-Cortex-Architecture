@@ -1,0 +1,11 @@
+{
+  "seed": 424242,
+  "scope_id": 7001,
+  "benchmark_manifest": "bench-stage7-v1",
+  "scenario_manifest_hash": 2266438093936365519,
+  "supported_languages": ["en", "ar"],
+  "advisory_only": true,
+  "scenario_count": 10,
+  "hidden_test_count": 2,
+  "baseline_count": 3
+}

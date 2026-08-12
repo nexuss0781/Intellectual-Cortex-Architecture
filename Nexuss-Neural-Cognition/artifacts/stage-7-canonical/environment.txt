@@ -1,0 +1,10 @@
+root=/home/ubuntu/Intellectual-Cortex-Architecture/Nexuss-Neural-Cognition
+timestamp_utc=2026-08-12T09:11:15Z
+kernel=Linux 6.1.102 x86_64 GNU/Linux
+compiler=c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+cmake=cmake version 3.28.3
+seed=424242
+normal_ctest=20/20
+sanitizer_ctest=20/20
+stage7_entry_evidence=artifacts/stage-6-canonical
+current_head=5ab6859

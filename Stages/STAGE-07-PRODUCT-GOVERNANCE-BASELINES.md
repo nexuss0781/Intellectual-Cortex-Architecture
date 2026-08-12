@@ -129,13 +129,13 @@ The Stage 7 harness must be deterministic over a signed `scope_manifest.json` an
 
 ### Required negative controls
 
-The harness must include an incomplete scope, a claim with no evidence, a fabricated evidence manifest, a model with an unknown license, a benchmark that mixes hidden examples into training, an expired safety exception, and a release missing security approval. All must fail closed.
+The harness must include seven named negative-control gates: incomplete scope, claim with no evidence, fabricated evidence/unknown license, hidden-test leakage, expired safety exception or missing approval, missing release digest, and cross-tenant context. All must fail closed. The complete executable gate count is **22**: 7 unit, 5 integration, 3 operations, and 7 negative-control gates.
 
 ## Quantitative transition gates
 
 | Gate | Required threshold |
 |---|---:|
-| Unit and integration tests | 100% |
+| Unit, integration, operations, and negative-control tests | 100% of 22 executable gates |
 | Scope and claims completeness | 100% |
 | Prohibited unsupported claims accepted | 0 |
 | Release bundles with missing digest | 0 |

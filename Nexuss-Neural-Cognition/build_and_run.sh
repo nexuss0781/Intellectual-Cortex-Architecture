@@ -18,13 +18,15 @@ STAGE3_ARTIFACT_DIR="${STAGE3_ARTIFACT_DIR:-${ROOT_DIR}/artifacts/stage-3}"
 STAGE4_ARTIFACT_DIR="${STAGE4_ARTIFACT_DIR:-${ROOT_DIR}/artifacts/stage-4}"
 STAGE5_ARTIFACT_DIR="${STAGE5_ARTIFACT_DIR:-${ROOT_DIR}/artifacts/stage-5}"
 STAGE6_ARTIFACT_DIR="${STAGE6_ARTIFACT_DIR:-${ROOT_DIR}/artifacts/stage-6}"
+STAGE7_ARTIFACT_DIR="${STAGE7_ARTIFACT_DIR:-${ROOT_DIR}/artifacts/stage-7}"
+STAGE6_ENTRY_ARTIFACT_DIR="${STAGE6_ENTRY_ARTIFACT_DIR:-${ROOT_DIR}/artifacts/stage-6-canonical}"
 SEED="${SEED:-424242}"
 
 printf '%b\n' "${BOLD}[Nexuss] Clean reproducible validation${NC}"
 printf '  root: %s\n  build: %s\n  artifacts: %s\n  seed: %s\n' "$ROOT_DIR" "$BUILD_DIR" "$ARTIFACT_DIR" "$SEED"
 
-rm -rf "$BUILD_DIR" "$STAGE1_ARTIFACT_DIR" "$STAGE2_ARTIFACT_DIR" "$STAGE3_ARTIFACT_DIR" "$STAGE4_ARTIFACT_DIR" "$STAGE5_ARTIFACT_DIR" "$STAGE6_ARTIFACT_DIR"
-mkdir -p "$ARTIFACT_DIR" "$STAGE1_ARTIFACT_DIR" "$STAGE2_ARTIFACT_DIR" "$STAGE3_ARTIFACT_DIR" "$STAGE4_ARTIFACT_DIR" "$STAGE5_ARTIFACT_DIR" "$STAGE6_ARTIFACT_DIR"
+rm -rf "$BUILD_DIR" "$STAGE1_ARTIFACT_DIR" "$STAGE2_ARTIFACT_DIR" "$STAGE3_ARTIFACT_DIR" "$STAGE4_ARTIFACT_DIR" "$STAGE5_ARTIFACT_DIR" "$STAGE6_ARTIFACT_DIR" "$STAGE7_ARTIFACT_DIR"
+mkdir -p "$ARTIFACT_DIR" "$STAGE1_ARTIFACT_DIR" "$STAGE2_ARTIFACT_DIR" "$STAGE3_ARTIFACT_DIR" "$STAGE4_ARTIFACT_DIR" "$STAGE5_ARTIFACT_DIR" "$STAGE6_ARTIFACT_DIR" "$STAGE7_ARTIFACT_DIR"
 
 cmake -S "$ROOT_DIR" -B "$BUILD_DIR" -DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE:-RelWithDebInfo}"
 cmake --build "$BUILD_DIR" --parallel "${CMAKE_BUILD_PARALLEL_LEVEL:-2}"
@@ -43,6 +45,7 @@ printf '%b\n' "${BOLD}[Nexuss] Running executable smoke tests${NC}"
 "$BUILD_DIR/stage4_harness" --seed "$SEED" --artifact-dir "$STAGE4_ARTIFACT_DIR" | tee "$STAGE4_ARTIFACT_DIR/stage4_harness.txt"
 "$BUILD_DIR/stage5_harness" --seed "$SEED" --artifact-dir "$STAGE5_ARTIFACT_DIR" | tee "$STAGE5_ARTIFACT_DIR/stage5_harness.txt"
 "$BUILD_DIR/stage6_harness" --seed "$SEED" --artifact-dir "$STAGE6_ARTIFACT_DIR" | tee "$STAGE6_ARTIFACT_DIR/stage6_harness.txt"
+"$BUILD_DIR/stage7_harness" --seed "$SEED" --artifact-dir "$STAGE7_ARTIFACT_DIR" --repo-root "$ROOT_DIR" --entry-evidence-dir "$STAGE6_ENTRY_ARTIFACT_DIR" | tee "$STAGE7_ARTIFACT_DIR/stage7_harness.txt"
 
 printf '%s\n' 'record_type,scale_neurons,synapses,rss_kb,formula_mb' > "$ARTIFACT_DIR/memory.csv"
 for scale in 1000 10000 100000 270000; do
