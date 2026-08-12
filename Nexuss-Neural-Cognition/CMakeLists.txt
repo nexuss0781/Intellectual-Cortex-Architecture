@@ -219,3 +219,10 @@ target_link_libraries(chain_decision PRIVATE bio_core)
 target_include_directories(chain_decision PRIVATE src)
 add_test(NAME chain_decision
          COMMAND chain_decision 424242 ${CMAKE_BINARY_DIR}/artifacts/chain-decision)
+
+# Milestone A5: uncertainty and abstention decision experiment
+add_executable(uncertainty_decision experiments/uncertainty_decision.cpp)
+target_link_libraries(uncertainty_decision PRIVATE bio_core)
+target_include_directories(uncertainty_decision PRIVATE src)
+add_test(NAME uncertainty_decision
+         COMMAND uncertainty_decision 424242 ${CMAKE_BINARY_DIR}/artifacts/uncertainty-decision)
