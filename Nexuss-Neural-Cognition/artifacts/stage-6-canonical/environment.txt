@@ -1,0 +1,10 @@
+timestamp_utc=2026-08-12T07:58:13Z
+git_head=13268c1e020374a9dca035e67a9d07ce1c22fafd
+git_status= [31mM[m CMakeLists.txt; [31mM[m build_and_run.sh;[31m??[m artifacts/stage-0-stage6-revalidated/;[31m??[m artifacts/stage-1-stage6-revalidated/;[31m??[m artifacts/stage-2-stage6-revalidated/;[31m??[m artifacts/stage-3-stage6-revalidated/;[31m??[m artifacts/stage-4-stage6-revalidated/;[31m??[m artifacts/stage-5-stage6-revalidated/;[31m??[m artifacts/stage-6-canonical/;[31m??[m build-stage6-asan-final/;[31m??[m build-stage6-final/;[31m??[m build-stage6/;[31m??[m configs/stage6.json;[31m??[m src/learning/grounding_engine.h;[31m??[m tests/stage6_harness.cpp;[31m??[m ../Stages/STAGE-06-BASELINE-NOTES.md;[31m??[m ../Stages/STAGE-06-DESIGN.md;
+compiler=c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+cmake=cmake version 3.28.3
+kernel=Linux 6.1.102 #1 SMP PREEMPT_DYNAMIC Tue Mar 25 09:02:46 UTC 2025
+seed=424242
+normal_build=RelWithDebInfo
+sanitizers=AddressSanitizer,UndefinedBehaviorSanitizer
+stage6_environment=stage6-grid-v1

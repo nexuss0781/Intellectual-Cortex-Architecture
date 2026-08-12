@@ -1,0 +1,79 @@
+{
+  "stage": 6,
+  "name": "grounding-developmental-transfer",
+  "seed": 424242,
+  "environment": {
+    "version": "stage6-grid-v1",
+    "domains": ["surface-color", "symbol-texture"],
+    "max_grid": "3x3",
+    "snapshot_restore": true,
+    "bounded_actions": ["NO_OP", "OBSERVE", "CLARIFY", "MOVE", "ABSTAIN"]
+  },
+  "curriculum": {
+    "levels": ["D1", "D2", "D3", "D4", "D5", "D6"],
+    "review_interleaving": true,
+    "distribution_shifts": true,
+    "long_horizon_ticks": 100000
+  },
+  "transfer": {
+    "target_domain": "symbol-texture",
+    "minimum_adaptation_examples": 2,
+    "scratch_examples": 6,
+    "minimum_sample_efficiency_gain": 0.30,
+    "minimum_equal_exposure_advantage": 0.15,
+    "cross_language_minimum_accuracy": 0.60
+  },
+  "safety": {
+    "ood_abstention_min": 0.90,
+    "unsafe_block_rate_min": 0.99,
+    "unsupported_action_policy": "ABSTAIN_OR_CLARIFY",
+    "invalid_action_mutation_limit": 0
+  },
+  "resource_limits": {
+    "max_resident_memory_kb": 512000,
+    "max_event_rate": 1000000,
+    "max_episode_steps": 12,
+    "max_long_horizon_ticks": 100000
+  },
+  "transition_gates": {
+    "new_label_referent_accuracy": 0.85,
+    "action_selection_accuracy": 0.80,
+    "consequence_prediction_accuracy": 0.75,
+    "goal_completion": 0.75,
+    "temporal_reasoning": 0.80,
+    "appearance_variation": 0.75,
+    "transfer_sample_efficiency": 0.30,
+    "cross_language_accuracy": 0.60,
+    "cross_language_surface_advantage": 0.15,
+    "long_horizon_retention": 0.80,
+    "ood_abstention": 0.90,
+    "unsafe_action_block_rate": 0.99,
+    "save_load_divergence": 0.05,
+    "peak_memory_violations": 0
+  },
+  "required_artifacts": [
+    "stage6_harness.txt",
+    "stage6_metrics.csv",
+    "stage6_summary.txt",
+    "environment_trace.csv",
+    "snapshot_hashes.csv",
+    "adapter_events.csv",
+    "grounding_hypotheses.csv",
+    "consequence_ledger.csv",
+    "curriculum_schedule.csv",
+    "developmental_metrics.csv",
+    "transfer_curves.csv",
+    "control_results.csv",
+    "long_horizon_checkpoints.csv",
+    "restart_comparison.csv",
+    "state_hashes.csv",
+    "safety_log.csv",
+    "uncertainty.csv",
+    "resource_trace.csv",
+    "scenario_manifest.json",
+    "ctest.txt",
+    "sanitizer_ctest.txt",
+    "decision.md",
+    "manifest.sha256"
+  ]
+}

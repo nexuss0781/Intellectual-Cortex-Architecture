@@ -1,0 +1,7 @@
+metric,value
+d1_referent_accuracy,1.000000
+d2_action_accuracy,1.000000
+d2_consequence_accuracy,1.000000
+d3_goal_completion,1.000000
+d4_exception_accuracy,1.000000
+d5_appearance_variation,1.000000

@@ -118,3 +118,10 @@ target_link_libraries(stage5_harness PRIVATE bio_core)
 target_include_directories(stage5_harness PRIVATE src)
 add_test(NAME stage5_harness
          COMMAND stage5_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-5)
+
+# Stage 6: grounding, deterministic multimodal development, safety, and transfer
+add_executable(stage6_harness tests/stage6_harness.cpp)
+target_link_libraries(stage6_harness PRIVATE bio_core)
+target_include_directories(stage6_harness PRIVATE src)
+add_test(NAME stage6_harness
+         COMMAND stage6_harness --seed 424242 --artifact-dir ${CMAKE_BINARY_DIR}/artifacts/stage-6)
