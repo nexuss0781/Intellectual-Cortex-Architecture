@@ -254,3 +254,7 @@ target_link_libraries(large_workload PRIVATE bio_core)
 target_include_directories(large_workload PRIVATE src)
 add_test(NAME large_workload
          COMMAND large_workload 424242 ${CMAKE_BINARY_DIR}/artifacts/large-workload)
+
+# Milestone B5: multi-seed reproducibility and restart retention
+add_test(NAME multiseed_reliability
+         COMMAND bash ${CMAKE_SOURCE_DIR}/experiments/multiseed_reliability.sh $<TARGET_FILE:contextual_decision> ${CMAKE_BINARY_DIR}/artifacts/multiseed-reliability)
