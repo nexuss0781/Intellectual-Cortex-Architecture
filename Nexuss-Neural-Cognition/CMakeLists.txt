@@ -258,3 +258,10 @@ add_test(NAME large_workload
 # Milestone B5: multi-seed reproducibility and restart retention
 add_test(NAME multiseed_reliability
          COMMAND bash ${CMAKE_SOURCE_DIR}/experiments/multiseed_reliability.sh $<TARGET_FILE:contextual_decision> ${CMAKE_BINARY_DIR}/artifacts/multiseed-reliability)
+
+# Milestone B6: large neural substrate integration
+add_executable(substrate_integration experiments/substrate_integration.cpp src/bio_engine.cpp)
+target_link_libraries(substrate_integration PRIVATE bio_core)
+target_include_directories(substrate_integration PRIVATE src)
+add_test(NAME substrate_integration
+         COMMAND substrate_integration 424242 ${CMAKE_BINARY_DIR}/artifacts/substrate-integration)
