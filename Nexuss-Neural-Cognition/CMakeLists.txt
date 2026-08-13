@@ -247,3 +247,10 @@ target_link_libraries(contextual_decision PRIVATE bio_core)
 target_include_directories(contextual_decision PRIVATE src)
 add_test(NAME contextual_decision
          COMMAND contextual_decision 424242 ${CMAKE_BINARY_DIR}/artifacts/contextual-decision)
+
+# Milestone B4: 100,000-episode integrated workload
+add_executable(large_workload experiments/large_workload.cpp src/learning/memory_system.cpp)
+target_link_libraries(large_workload PRIVATE bio_core)
+target_include_directories(large_workload PRIVATE src)
+add_test(NAME large_workload
+         COMMAND large_workload 424242 ${CMAKE_BINARY_DIR}/artifacts/large-workload)
