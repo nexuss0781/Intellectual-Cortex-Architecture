@@ -240,3 +240,10 @@ target_link_libraries(interference_retention PRIVATE bio_core)
 target_include_directories(interference_retention PRIVATE src)
 add_test(NAME interference_retention
          COMMAND interference_retention 424242 ${CMAKE_BINARY_DIR}/artifacts/interference-retention)
+
+# Milestone B3: contextual retrieval of conflicting task rules
+add_executable(contextual_decision experiments/contextual_decision.cpp src/learning/memory_system.cpp)
+target_link_libraries(contextual_decision PRIVATE bio_core)
+target_include_directories(contextual_decision PRIVATE src)
+add_test(NAME contextual_decision
+         COMMAND contextual_decision 424242 ${CMAKE_BINARY_DIR}/artifacts/contextual-decision)
